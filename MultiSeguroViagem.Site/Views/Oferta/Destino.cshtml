@@ -1,0 +1,304 @@
+﻿@using System.Configuration
+@{
+    ViewBag.Title = $"Seguro Viagem {ViewBag.Destino.Nome} | Até 65% OFF no melhor comparador";
+    ViewBag.MetaDescription = $"Conheça os planos, preços, coberturas e tudo sobre asistência e seguro viagem para {ViewBag.Destino.Nome}";
+    ViewBag.MetaKeywords = $"seguro viagem, {ViewBag.Destino.Nome.ToLower()}, operadora seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+    ViewBag.OGURL = $"https://multiseguroviagem.com.br/oferta/destino/{ViewBag.Destino.Slug}";
+    ViewBag.OGTitle = $"Seguro Viagem {ViewBag.Destino.Nome} | Até 65% OFF no melhor comparador";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+
+    var destino = Html.Raw(ViewBag.Destino.Nome);
+    var whats = ConfigurationManager.AppSettings["whatsapp"];
+}
+
+<div class="operadoras-pag destinos">
+    <div class="page-header header-small gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Seguro Viagem para @destino</h1>
+                    <h2 class="title sub-titulo" id="in-titulo-home">Cote sua assistência e seguro viagem para @destino!</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+            <div class="row hidden-sm hidden-xs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="material-icons">home</i>
+                        </a>
+                    </li>
+                    <li>
+                        @destino
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <h3>Veja promoções para @destino das operadoras parceiras:</h3>
+                <div class="operadoras-parceiras">
+                    <div class="carousel-client">
+
+                        <a class="slide" href="@Url.Action("Operadora", "Oferta", new { destino = $"{ ViewBag.Destino.Slug }", operadora = "gta" })">
+                            <img title="GTA - Seguro Viagem" alt="GTA - Seguro Viagem" src="/www/img/operadoras/operadoraGTA.png">
+                        </a>
+                        <a class="slide" href="@Url.Action("Operadora", "Oferta", new { destino = $"{ ViewBag.Destino.Slug }", operadora = "vitalcard" })">
+                            <img title="Vital Card - Seguro Viagem" alt="Vital Card - Seguro Viagem" src="/www/img/operadoras/operadoraVital.png">
+                        </a>
+                        <a class="slide" href="@Url.Action("Operadora", "Oferta", new {destino = $"{ViewBag.Destino.Slug}", operadora = "universalassistance"})">
+                            <img title="Universal Assistance - Seguro Viagem" alt="Universal Assistance - Seguro Viagem" src="/www/img/operadoras/operadoraTravelAce.png">
+                        </a>
+                        <a class="slide" href="@Url.Action("Operadora", "Oferta", new {destino = $"{ViewBag.Destino.Slug}", operadora = "intermac"})">
+                            <img title="Intermac - Seguro Viagem" alt="Intermac - Seguro Viagem" src="/www/img/operadoras/operadoraIntermac.png">
+                        </a>
+                        <a class="slide" href="@Url.Action("Operadora", "Oferta", new {destino = $"{ViewBag.Destino.Slug}", operadora = "affinity"})">
+                            <img title="Affinity - Seguro Viagem" alt="Affinity - Seguro Viagem" src="/www/img/operadoras/operadoraAffinity.png">
+                        </a>
+
+                        <a class="slide" href="@Url.Action("Operadora", "Oferta", new {destino = $"{ViewBag.Destino.Slug}", operadora = "april"})">
+                            <img title="April Coris - Seguro Viagem" alt="April Coris - Seguro Viagem" src="/www/img/operadoras/operadoraApril.png">
+                        </a>
+                        <a class="slide" href="@Url.Action("Operadora", "Oferta", new {destino = $"{ViewBag.Destino.Slug}", operadora = "assistcard"})">
+                            <img title="Assist Card - Seguro Viagem" alt="Assist Card - Seguro Viagem" src="/www/img/operadoras/operadoraAssistCard.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-md-push-8" id="rightCol">
+                <div class="card" id="sidebar">
+                    @Html.Partial("Cotador/_CotadorPorDestinoLateral", new ViewDataDictionary { { "NomeDestino", destino }, { "IdDestino", ViewBag.Destino.IdDestino } })
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-pull-4">
+                <div class="description">
+                    @if (ViewBag.Destino.BlocoUmTitulo != null)
+                    {
+                        <h3>
+                            @ViewBag.Destino.BlocoUmTitulo
+                        </h3>
+                        <p>
+                            @Html.Raw(ViewBag.Destino.BlocoUmDescricao)
+                        </p>
+                        <br />
+                    }
+
+
+                    <h3>
+                        Como Cotar seu Seguro Viagem para @ViewBag.Destino.Nome
+                    </h3>
+                    <p>
+                        Tudo pronto pra viajar? Antes de explorar novos destinos, faça um seguro para fugir dos imprevistos e viajar com mais tranquilidade. Aqui você compara diversos planos de <strong>Seguro Viagem para @ViewBag.Destino.Nome</strong>.
+                    </p>
+                    <p>
+                        Referência em cotação online de seguro, a Multi Seguro Viagem trabalha com as operadoras líderes do mercado e pagamento totalmente facilitado: até 6x sem juros no cartão de crédito e mais 5% de desconto, via boleto bancário.
+                    </p>
+                    <p>
+                        Quer mais praticidade? Tire suas dúvidas pelo <a href="https://api.whatsapp.com/send?phone=@whats&text=Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20seguro%20viagem!">WhatsApp</a>, chat online ou solicitar uma ligação em até 28 segundos, dentro do horário comercial, finalizando seu pedido pelo site. É rápido, prático e seguro!
+                    </p>
+                    <p>
+                        Se preferir, ligue <a href="tel:1932010447">(19) 3201.0447</a> e fale com um consultor para encontrar o plano ideal para você, de acordo com seus objetivos.
+                    </p>
+                    <p>
+                        Aproveite o melhor do seu roteiro com a Multi Seguro Viagem!
+                    </p>
+                    <br />
+                    <br />
+                </div>
+                @try
+                {
+                    <div class="related-products">
+                        <h3 class="title text-center">Planos em destaque para @destino</h3><br />
+
+                        @for (var i = 0; i < (ViewBag.Planos.Count - 1); i += 2)
+                        {
+
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="card card-product card-destino">
+                                        <div class="card-image">
+                                            <a href="@ViewBag.Destino.Slug/@ViewBag.Planos[i].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i].Nome.ToLower().Replace(" ", "")">
+                                                <img src="" data-src="@(ViewBag.Planos[i].Imagem ?? "/www/img/ofertas/plano/generico.png")" alt="@ViewBag.Planos[i].Nome" title="@ViewBag.Planos[i].Nome" />
+                                            </a>
+                                        </div>
+
+                                        <div class="card-content">
+                                            <h6 class="category text-info">@ViewBag.Planos[i].Operadora.Nome</h6>
+                                            <h4 class="card-title">
+                                                <a href="/oferta/@ViewBag.Destino.Slug/@ViewBag.Planos[i].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i].Nome.ToLower().Replace(" ", "")">
+                                                    @ViewBag.Planos[i].Nome
+                                                </a>
+                                            </h4>
+                                            <div class="card-description cdp">
+
+                                                <b>@ViewBag.Planos[i].Coberturas[0].Nome:</b> @ViewBag.Planos[i].Coberturas[0].MoedaCobertura @($"{Math.Round(ViewBag.Planos[i].Coberturas[0].ValorCobertura, 2):N}")<br />
+                                                <b>@ViewBag.Planos[i].Coberturas[1].Nome:</b> @ViewBag.Planos[i].Coberturas[1].MoedaCobertura @($"{Math.Round(ViewBag.Planos[i].Coberturas[1].ValorCobertura, 2):N}")<br />
+
+                                            </div>
+                                            <div class="footer text-center">
+                                                <span class="card-description cdp texto-SEO">A partir de </span>
+                                                <div class="price">
+                                                    <h4>R$ @ViewBag.Planos[i].PrecoComercial.ToString("n2")</h4>
+                                                </div>
+
+                                                <div class="stats">
+                                                    <a href="@ViewBag.Destino.Slug/@ViewBag.Planos[i].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i].Nome.ToLower().Replace(" ", "")" class="btn btn-just-icon btn-simple btn-primary" data-toggle="tooltip" title="Comprar">
+                                                        <i class="material-icons">shopping_cart</i>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="card card-product card-destino">
+                                        <div class="card-image">
+                                            <a href="@ViewBag.Destino.Slug/@ViewBag.Planos[i + 1].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i + 1].Nome.ToLower().Replace(" ", "")/">
+                                                <img src="" data-src="@(ViewBag.Planos[i + 1].Imagem ?? "/www/img/ofertas/plano/generico.png")" title="@ViewBag.Planos[i + 1].Nome" alt="@ViewBag.Planos[i + 1].Nome" />
+                                            </a>
+                                        </div>
+
+                                        <div class="card-content">
+                                            <h6 class="category text-info">@ViewBag.Planos[i + 1].Operadora.Nome</h6>
+                                            <h4 class="card-title">
+                                                <a href="/oferta/@ViewBag.Destino.Slug/@ViewBag.Planos[i + 1].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i + 1].Nome.ToLower().Replace(" ", "")">
+                                                    @ViewBag.Planos[i + 1].Nome
+                                                </a>
+                                            </h4>
+                                            <div class="card-description cdp">
+
+                                                <b>@ViewBag.Planos[i + 1].Coberturas[0].Nome:</b> @ViewBag.Planos[i + 1].Coberturas[0].MoedaCobertura @($"{Math.Round(ViewBag.Planos[i].Coberturas[0].ValorCobertura, 2):N}")<br />
+                                                <b>@ViewBag.Planos[i + 1].Coberturas[1].Nome:</b> @ViewBag.Planos[i + 1].Coberturas[1].MoedaCobertura @($"{Math.Round(ViewBag.Planos[i].Coberturas[1].ValorCobertura, 2):N}")<br />
+
+                                            </div>
+                                            <div class="footer text-center">
+                                                <span class="card-description cdp texto-SEO">A partir de </span>
+                                                <div class="price">
+                                                    <h4>R$ @ViewBag.Planos[i + 1].PrecoComercial.ToString("n2")</h4>
+                                                </div>
+                                                <div class="stats">
+                                                    <a href="@ViewBag.Destino.Slug/@ViewBag.Planos[i + 1].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i + 1].Nome.ToLower().Replace(" ", "")" class="btn btn-just-icon btn-simple btn-primary" data-toggle="tooltip" title="Comprar">
+                                                        <i class="material-icons">shopping_cart</i>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+
+                catch { }
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-content content-primary">
+                            <h5 class="category-social">
+                                <i class="fa fa-newspaper-o"></i> Blog da Multi
+                            </h5>
+                            <h4 class="card-title">
+                                <a href="#pablo">Leia sobre Seguro Viagem para @destino e muito mais em nosso blog!</a>
+                            </h4>
+                            <p class="card-description">
+                                Uma seleção de conteúdos feitos para viajantes exigentes. Saiba tudo sobre viagens, assistências e seguros em nosso blog!
+                            </p>
+                            <div class="footer text-center">
+                                <a href="https://blog.multiseguroviagem.com.br/" class="btn btn-white btn-round" target="_blank">Ir para o blog</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<link href="/www/css/seo.css" rel="stylesheet" />
+
+@section Scripts
+{
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+        <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/www/js/vendor/scrollreveal.min.js"></script>
+        <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+
+        <script src="/www/js/modulos/validacoes.js"></script>
+    }
+    else
+    {
+        <script src="/www/bundles/bundleVendorSeo.js"></script>
+        <script src="/www/js/modulos/validacoes.js"></script>
+    }
+
+    <script>
+
+        $('.carousel-client').bxSlider({
+            auto: true,
+            minSlides: 1,
+            maxSlides: 5,
+            controls: true,
+            pager: false,
+            nextText: '<i class="fa fa-angle-right"></i>',
+            prevText: '<i class="fa fa-angle-left"></i>'
+        });
+
+        var navHeight = $('.navbar').outerHeight(true) + 10;
+
+        $('#sidebar').affix({
+            offset: {
+                top: 350,
+                bottom: 400
+            }
+        });
+
+        $(document.body).scrollspy({
+            target: '#rightCol',
+            offset: navHeight
+        });
+
+        $('#sidebar').width($('#sidebar').parent().width());
+    </script>
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "BreadcrumbList",
+        "itemListElement": [{
+        "@@type": "ListItem",
+        "position": 1,
+        "item": {
+        "@@id": "@Url.Action("Index", "Home", null, Request.Url.Scheme)",
+        "name": "Home"
+        }
+        },{
+        "@@type": "ListItem",
+        "position": 2,
+        "item": {
+        "@@id": "@Url.Action("Destino", "Oferta", null, Request.Url.Scheme)",
+        "name": "@destino"
+        }
+        }]
+        }
+    </script>
+}

@@ -1,0 +1,633 @@
+﻿@using System.Configuration
+@{
+  var whats = ConfigurationManager.AppSettings["whatsapp"];
+  var plano = ViewBag.Plano.Nome.ToLower().Replace(" ", "");
+  var operadora = ViewBag.Plano.Operadora.Nome.ToLower().Replace(" ", "");
+  var destino = Html.Raw(ViewBag.Destino.Nome);
+
+  ViewBag.Title = $"Seguro Viagem {ViewBag.Plano.Nome} para {ViewBag.Destino.Nome} | Multi Seguro Viagem";
+  ViewBag.MetaDescription = $"O Seguro Viagem {ViewBag.Plano.Nome} da {ViewBag.Plano.Operadora.Nome}, oferece coberturas para você viajar tranquilo para {ViewBag.Destino.Nome}";
+  ViewBag.MetaKeywords = $"seguro viagem, {ViewBag.Destino.Nome.ToLower()}, {ViewBag.Plano.Nome}, {ViewBag.Plano.Operadora.Nome}, operadora seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+  ViewBag.OGURL = $"https://multiseguroviagem.com.br/oferta/plano/{ViewBag.Destino.Slug}/{operadora}/{plano}";
+  ViewBag.OGTitle = $"Seguro Viagem {ViewBag.Plano.Nome} para {ViewBag.Destino.Nome} | Multi Seguro Viagem";
+  ViewBag.OGSitename = "Multi Seguro Viagem";
+  ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+}
+<meta itemprop="worstRating" content="0" />
+<meta itemprop="bestRating" content="5" />
+<div class="plano-oferta product-page">
+    <div class="page-header header-small gradiente-cotacao">
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+            <div class="row hidden-sm hidden-xs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="material-icons">home</i>
+                        </a>
+                    </li>
+                    <li>
+                        @Html.ActionLink($"{ destino }", "Destino", "Oferta")
+                    </li>
+                    <li>
+                        @Html.ActionLink($"{ViewBag.Plano.Operadora.Nome}", "Operadora", "Oferta")
+                    </li>
+                    <li class="active">
+                        @ViewBag.Plano.Nome
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-5 col-sm-6">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="product-page1">
+                        <img src="/www/img/ofertas/destino/@string.Format("{0}.png", ViewBag.Destino.Slug)" alt="Plano @ViewBag.Plano.Nome para @destino" title="Plano @ViewBag.Plano.Nome para @destino" />
+                    </div>
+                    <div class="tab-pane" id="product-page2">
+                        <img src="/www/img/ofertas/operadora/@string.Format("{0}.png", operadora)" alt="Plano @ViewBag.Plano.Nome para @destino" title="Plano @ViewBag.Plano.Nome para @destino" />
+                    </div>
+                    <div class="tab-pane" id="product-page3">
+                        <img src="@(ViewBag.Plano.Imagem ?? "/www/img/ofertas/plano/generico.png")" alt="Plano @ViewBag.Plano.Nome para @destino" title="Plano @ViewBag.Plano.Nome para @destino" />
+                    </div>
+                </div>
+
+                <span class="ribbon4" style="text-transform: uppercase;">Mais vendido</span>
+                <ul class="nav flexi-nav" role="tablist" id="flexiselDemo1">
+                    <li class="active separacao-ofertas">
+                        <a href="#product-page1" role="tab" data-toggle="tab" aria-expanded="false">
+                            <img src="/www/img/ofertas/destino/@string.Format("{0}.png", ViewBag.Destino.Slug)" alt="Plano @ViewBag.Plano.Nome para @destino" title="Plano @ViewBag.Plano.Nome para @destino" />
+                        </a>
+                    </li>
+                    <li class="separacao-ofertas">
+                        <a href="#product-page2" role="tab" data-toggle="tab" aria-expanded="false">
+                            <img src="/www/img/ofertas/operadora/@string.Format("{0}.png", operadora)" alt="Plano @ViewBag.Plano.Nome para @destino" title="Plano @ViewBag.Plano.Nome para @destino" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#product-page3" role="tab" data-toggle="tab" aria-expanded="false">
+                            <img src="@(ViewBag.Plano.Imagem ?? "/www/img/ofertas/plano/generico.png")" alt="Plano @ViewBag.Plano.Nome para @destino" title="Plano @ViewBag.Plano.Nome para @destino" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-7">
+                <h1 class="title titulo-produto h2">Plano @Html.Raw(ViewBag.Plano.Nome) para @destino</h1>
+
+                <div class="avaliacao">
+                    <a>
+                        @{
+                          var resto = Math.Round(Math.Abs(ViewBag.Plano.MediaAvaliacoes) % 0.5M, 1);
+
+                          var media = ViewBag.Plano.MediaAvaliacoes - (resto < 0.3M ? resto : resto - 0.5M);
+
+                          var total = (int)decimal.Floor(media);
+
+                          for (var i = 0; i < total; i++)
+                          {
+                            <i class="material-icons">star_rate</i>
+                          }
+
+                          if (media != total)
+                          {
+                            <i class="material-icons">star_half</i>
+                          }
+                        }
+
+                        <span>(@ViewBag.Plano.QuantidadeAvaliacoes avaliações)</span>
+                    </a>
+                </div>
+
+                @if (ViewBag.Plano.Coberturas != null)
+                {
+                <div class="card mtbc">
+                    <div class="card-content">
+                        <div class="row compra">
+                            <div class="col-md-6 col-xs-12 operadora-vantagens-preco">
+                                <h6 class="title operadora-vantagens-title promo">A PARTIR DE</h6>
+                                <p class="title operadora-vantagens-preco-total">R$ @ViewBag.Plano.PrecoComercial.ToString("n2")</p>
+                                <p class="operadora-idade">A partir de @ViewBag.Plano.MelhorIdadeMinima anos</p>
+                                <p class="title operadora-idade-preco">R$ @ViewBag.Plano.PrecoMelhorIdade.ToString("n2")</p>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <p class="operadora-idade title text-light-gray">DISPONÍVEL</p>
+                                <button class="btn btn-primary btn-comprar btn-lg" data-toggle="modal" data-target="#loginModal">
+                                    <i class="material-icons">shopping_cart</i>
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <p class="descricaoplano">
+                            O <b>Seguro Viagem @ViewBag.Plano.Nome</b>, da @ViewBag.Plano.Operadora.Nome, oferece uma cobertura de assistência médica de @ViewBag.Plano.Coberturas[0].MoedaCobertura @ViewBag.Plano.Coberturas[0].ValorCobertura.ToString("n2")
+                            e perda de bagagem de @ViewBag.Plano.Coberturas[1].MoedaCobertura @ViewBag.Plano.Coberturas[1].ValorCobertura.ToString("n2").
+                            Viaje sem preocupações com sua <b>assistência viagem para @destino</b>.
+                        </p>
+
+                        <p class="descricaoplano operadora-idade title">
+                            O plano @ViewBag.Plano.Nome atende as idades de @ViewBag.Plano.IdadeMinima a @(ViewBag.Plano.MelhorIdadeMaxima > 0 ? ViewBag.Plano.MelhorIdadeMaxima : ViewBag.Plano.IdadeMaxima ) anos
+                        </p>
+                    </div>
+                </div>
+                }
+                else
+                {
+                <div class="card mtbc">
+                    <div class="card-content">
+                        <div class="row compra">
+                            <div class="col-md-6 col-xs-12">
+                                <p>Plano indisponível, veja outras opções para seu destino</p>
+                                <a class="btn btn-comprar btn-primary btn-lg" href="#opcoes">
+                                    Ver mais opções
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <p class="operadora-idade title text-light-gray">INDISPONÍVEL</p>
+                                <button class="btn btn-comprar btn-lg" data-toggle="modal" data-target="#loginModal" disabled>
+                                    <i class="material-icons">shopping_cart</i>
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <p class="descricaoplano operadora-idade title">
+                            O plano @ViewBag.Plano.Nome atende as idades de @ViewBag.Plano.IdadeMinima a @(ViewBag.Plano.MelhorIdadeMaxima > 0 ? ViewBag.Plano.MelhorIdadeMaxima : ViewBag.Plano.IdadeMaxima ) anos
+                        </p>
+                    </div>
+                </div>
+                }
+            </div>
+
+            @if (ViewBag.Plano.Coberturas != null)
+            {
+            <div class="col-md-12">
+                <h2 class="h4 title">Coberturas completas</h2>
+                <hr />
+                <div class="col-md-8">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Cobertura</th>
+                                <th>Valor da Cobertura</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var cobertura in ViewBag.Plano.Coberturas)
+                            {
+                                if (cobertura.Ativo)
+                                {
+                                <tr>
+                                    <td>@cobertura.Nome</td>
+                                    <td class="numero">@cobertura.MoedaCobertura @cobertura.ValorCobertura</td>
+                                </tr>
+                                }
+                            }
+                            <tr>
+                                <td>
+                                    <b>Todas as coberturas</b>
+                                </td>
+                                @foreach (var arquivo in ViewBag.Plano.Arquivos)
+                                {
+                                    if (arquivo.TipoArquivo == "LaminaCoberturas")
+                                    {
+                                    <td>
+                                        <a href="https://downloads.multiseguroviagem.com.br/downloads/@arquivo.IdFileUploads/@arquivo.DataCadastro" target="_blank"><u>Download</u></a>
+                                    </td>
+                                    }
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="h5 title">
+                                Alguma dúvida?
+                            </h3>
+                            <div class="description">
+                                <p>Estamos disponíveis de segunda à sexta, das 9h às 18h</p>
+                                <p>
+                                    <a href="mailto:contato@multiseguroviagem.com.br" class="telefone-footer">Envie-nos um email</a>
+                                </p>
+                                <p>
+                                    <a href="https://api.whatsapp.com/send?phone=@whats&text=Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20seguro%20viagem!" class="telefone-footer">Envie um WhatsApp</a>
+                                </p><div class="ripple-container"></div><p></p>
+                                <p><a class="telefone-footer title">Ou pelos números:</a></p><div class="ripple-container"></div><p></p>
+                                
+                                <p><a href="tel:19-3201-0447" class="telefone-footer">(19) 3201 0447</a></p><div class="ripple-container"></div><p></p>
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        <section class="section-white-to-gray" id="opcoes">
+            <div class="container">
+                <div class="related-products">
+                    <h3 class="title text-center">Mais planos para o seu destino:</h3>
+
+                    <div class="row">
+                        @for (var i = 0; i < ViewBag.Planos.Count; i++)
+                        {
+                        <div class="col-xs-6 col-md-3">
+                            <div class="card card-product card-SEO">
+                                <div class="card-image">
+                                    <a href="/oferta/@ViewBag.Destino.Slug/@ViewBag.Planos[i].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i].Nome.ToLower().Replace(" ", "").Replace(".", "")">
+                                        <img src="@(ViewBag.Planos[i].Imagem ?? "/www/img/ofertas/plano/generico.png")" title="@ViewBag.Planos[i].Nome" alt="@ViewBag.Planos[i].Nome" />
+                                    </a>
+                                </div>
+
+                                <div class="card-content">
+                                    <h6 class="category text-info">@ViewBag.Planos[i].Operadora.Nome</h6>
+                                    <h4 class="card-title">
+                                        <a href="/oferta/@ViewBag.Destino.Slug/@ViewBag.Planos[i].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i].Nome.ToLower().Replace(" ", "").Replace(".", "")">
+                                            @ViewBag.Planos[i].Nome
+                                        </a>
+                                    </h4>
+                                    <div class="card-description cdp">
+                                        <b>@ViewBag.Planos[i].Coberturas[0].Nome:</b> @ViewBag.Planos[i].Coberturas[0].MoedaCobertura @($"{Math.Round(ViewBag.Planos[i].Coberturas[0].ValorCobertura, 2):N}")<br />
+                                        <b>@ViewBag.Planos[i].Coberturas[1].Nome:</b> @ViewBag.Planos[i].Coberturas[1].MoedaCobertura @($"{Math.Round(ViewBag.Planos[i].Coberturas[1].ValorCobertura, 2):N}")<br />
+                                    </div>
+                                    <div class="footer text-center">
+                                        <span class="card-description cdp texto-SEO">A partir de </span>
+                                        <div class="price">
+                                            <h4>R$ @ViewBag.Planos[i].PrecoComercial.ToString("n2")</h4>
+                                        </div>
+                                        <div class="stats">
+                                            <a href="/oferta/@ViewBag.Destino.Slug/@ViewBag.Planos[i].Operadora.Nome.ToLower().Replace(" ", "")/@ViewBag.Planos[i].Nome.ToLower().Replace(" ", "").Replace(".", "")" class="btn btn-just-icon btn-simple btn-primary" data-toggle="tooltip" title="Comprar">
+                                                <i class="material-icons">shopping_cart</i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+
+                    <br />
+                    @*<div class="row">
+                            <div class="pull-right">
+                                <a class="btn btn-simple btn-primary">Ver mais planos para @destino <i class="material-icons">arrow_forward</i></a>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+
+                    <div class="header header-primary text-center">
+                        <h4 class="card-title">Quais as datas de sua viagem?</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+
+                    <form class="card-content" id="frmCotacaoPorPlano" method="GET" action="@Url.Action("Cotacao", "Cotador")">
+                        <div class="card-content">
+
+                            <input type="hidden" name="Destino" id="Destino" value="@ViewBag.Destino.IdDestino" />
+                            <input type="hidden" name="Operadora" id="Operadora" value="@ViewBag.Plano.Operadora.Nome" />
+
+                            <div class="form-group label-floating has-error">
+                                <label class="control-label">
+                                    <span class="control-label" data-valmsg-for="DataIda" data-valmsg-replace="true"></span>
+                                </label>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">flight_takeoff</i>
+                                </span>
+                                <div class="form-group is-empty">
+                                    <input type="text" id="DataIda" name="DataIda" class="form-control datepicker" autocomplete="off" placeholder="Embarque" data-message-empty="Selecione a data de embarque" valida="campoVazio data">
+                                </div>
+                            </div>
+
+                            <div class="form-group label-floating has-error">
+                                <label class="control-label">
+                                    <span class="control-label" data-valmsg-for="DataVolta" data-valmsg-replace="true"></span>
+                                </label>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons inv">flight_land</i>
+                                </span>
+                                <div class="form-group is-empty">
+                                    <input id="DataVolta" name="DataVolta" type="text" autocomplete="off" class="form-control datepicker" placeholder="Desembarque" data-message-empty="Selecione a data de desembarque" valida="campoVazio data">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group label-floating has-error">
+                                <label class="control-label">
+                                    <span class="control-label" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                </label>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="material-icons">mail</i>
+                                </span>
+                                <div class="form-group is-empty">
+                                    <input class="form-control" placeholder="Informe seu email" type="email" id="Email" name="Email" data-message-empty="Informe o e-mail" valida="campoVazio email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group label-floating has-error">
+                            <label class="control-label">
+                                <span class="control-label" data-valmsg-for="Telefone" data-valmsg-replace="true"></span>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">call</i>
+                            </span>
+                            <div class="form-group is-empty">
+                                <input class="form-control telefone" data-message-empty="Informe seu telefone" id="Telefone" maxlength="20" placeholder="Informe seu telefone" type="text" valida="campoVazio" data-val="true" data-val-required="Informe seu Telefone" name="Telefone">
+                            </div>
+                        </div>
+
+                        <div class="form-group label-floating has-error">
+                            <label class="control-label">
+                                <span class="control-label" data-valmsg-for="Nome" data-valmsg-replace="true"></span>
+                            </label>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">perm_identity</i>
+                            </span>
+                            <div class="form-group is-empty">
+                                <input class="form-control nome" data-message-empty="Informe seu Nome" id="Nome" placeholder="Informe seu Nome" type="text" data-val="true" data-val-required="Informe seu Nome" valida="campoVazio" name="Nome">
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" id="btnCotarModal" class="btn btn-primary btn-wd btn-lg">Avançar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="/www/css/seo.css" rel="stylesheet" />
+
+@section Scripts
+{
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+    <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+    <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+    <script src="/www/js/vendor/scrollreveal.min.js"></script>
+    <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+        <script src="/www/js/vendor/jquery.flexisel.js"></script>
+
+        <script src="/www/js/modulos/validacoes.js"></script>
+        <script src="/www/js/vendor/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    }
+    else
+    {
+    <script src="/www/bundles/bundleVendorSeo.js"></script>
+    <script src="/www/js/modulos/validacoes.js"></script>
+    <script src="/www/js/vendor/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    }
+
+    <script>
+
+        $(document).ready(function() {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 3,
+                itemsToScroll: 1,
+                animationSpeed: 400,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint:480,
+                        visibleItems: 3
+                    },
+                    landscape: {
+                        changePoint:640,
+                        visibleItems: 3
+                    },
+                    tablet: {
+                        changePoint:768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+            function getDateString(data) {
+                var dia = data.getUTCDate();
+                var mes = (data.getUTCMonth() + 1);
+
+                return ((dia < 10) ? '0' + dia : dia) +
+                    '/' +
+                    ((mes < 10) ? '0' + mes : mes) +
+                    '/' +
+                    data.getUTCFullYear();
+            };
+
+            function datepicker() {
+                $('.datepicker').datetimepicker({
+                    useCurrent: false,
+                    format: 'DD/MM/YYYY',
+                    locale: 'pt-br',
+                    icons: {
+                        time: "fa fa-clock-o",
+                        date: "fa fa-calendar",
+                        up: "fa fa-chevron-up",
+                        down: "fa fa-chevron-down",
+                        previous: 'fa fa-chevron-left',
+                        next: 'fa fa-chevron-right',
+                        today: 'fa fa-screenshot',
+                        clear: 'fa fa-trash',
+                        close: 'fa fa-remove',
+                        inline: true
+                    }
+                });
+
+                $('.selectpicker').selectpicker({
+                    dropupAuto: false
+                });
+            }
+
+            if (isMobile(navigator.userAgent)) {
+
+                $('#DataIda, #DataIdaBanner').on('focus touchstart touchend touchcancel touchleave touchmove', function() {
+                    this.type = 'date';
+                });
+
+                $('#DataIda, #DataIdaBanner').on('change', function(obj) {
+                    this.type = 'text';
+
+                    if (obj.target.value !== '') {
+                        var data = new Date(obj.target.value);
+                        this.value = converteDataMobile(data);
+                    }
+                });
+
+                $('#DataVolta, #DataVoltaBanner').on('focus touchstart touchend touchcancel touchleave touchmove', function() {
+                    this.type = 'date';
+                });
+
+                $('#DataVolta, #DataVoltaBanner').on('change', function(obj) {
+                    this.type = 'text';
+
+                    if (obj.target.value !== '') {
+                        var data = new Date(obj.target.value);
+                        this.value = converteDataMobile(data);
+                    }
+                });
+            } else {
+                datepicker();
+
+                $(document).ready(function() {
+                    $('#DataIda, #DataIdaBanner').on("dp.change", function(e) {
+                        $('#DataVolta, #DataVoltaBanner').each(function (ind, obj) {
+                            $(obj).data("DateTimePicker").minDate(e.date);
+                        });
+                    });
+
+                    $("#DataVolta, #DataVoltaBanner").on("dp.change", function (e) {
+                        $('#DataIda, #DataIdaBanner').each(function (ind, obj) {
+                            $(obj).data("DateTimePicker").maxDate(e.date);
+                        });
+                    });
+
+                    $('#DataIda, #DataIdaBanner').each(function (ind, obj) {
+                        $(obj).data("DateTimePicker").minDate(new Date());
+                        $(obj).data("DateTimePicker").useCurrent(true);
+                    });
+                });
+            };
+
+
+
+            validacao('#frmCotacaoPorPlano');
+
+        });
+
+    jQuery("input.telefone")
+        .mask("(99) 9999-9999?9")
+        .focusout(function (event) {
+            var target, phone, element;
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+            phone = target.value.replace(/\D/g, '');
+            element = $(target);
+        });
+    </script>
+
+
+    @{
+        var quantidadeAval = ViewBag.Plano.QuantidadeAvaliacoes;
+        var rating = media.ToString("n1").Replace(",", ".");
+        if (quantidadeAval <= 0)
+        {
+            quantidadeAval = 1;
+        }
+        if (rating == "0.0")
+        {
+            rating = 1;
+        }
+        var descricao = ViewBag.Plano.Coberturas != null
+                            ? $"O Seguro Viagem {ViewBag.Plano.Nome}, da {ViewBag.Plano.Operadora.Nome}, oferece uma cobertura de assistência médica de {ViewBag.Plano.Coberturas[0].MoedaCobertura} {ViewBag.Plano.Coberturas[0].ValorCobertura.ToString("n2")} e perda de bagagem de {ViewBag.Plano.Coberturas[1].MoedaCobertura} {ViewBag.Plano.Coberturas[1].ValorCobertura.ToString("n2")}. Viaje sem preocupações com sua assistência viagem para {destino}"
+                            : $"O Seguro Viagem {ViewBag.Plano.Nome}, da {ViewBag.Plano.Operadora.Nome}";
+
+            <script type="application/ld+json">
+        
+                {
+                "@@context": "http://schema.org/",
+                "@@type": "Product",
+                "name": "Plano @Html.Raw(ViewBag.Plano.Nome) para @destino",
+                "image": [
+                "https://www.multiseguroviagem.com.br/www/img/ofertas/destino/@string.Format("{0}.png", ViewBag.Destino.Slug)",
+                "https://www.multiseguroviagem.com.br/www/img/ofertas/operadora/@string.Format("{0}.png", operadora)",
+                "https://www.multiseguroviagem.com.br/www/img/ofertas/plano/@string.Format("{0}", operadora)/@string.Format("{0}.png", plano)"
+                ],
+                "description": "@descricao",
+                "brand": {
+                "@@type": "Thing",
+                "name": "@Html.Raw(ViewBag.Plano.Operadora.Nome)"
+                },
+                "aggregateRating": {
+                "@@type": "AggregateRating",
+                "ratingValue": "@rating",
+                "reviewCount": @quantidadeAval
+                },
+                "offers": {
+                "@@type": "Offer",
+                "priceCurrency": "BRL",
+                "price": "@ViewBag.Plano.PrecoComercial.ToString("n1").Replace(",", ".")",
+                "availability": "http://schema.org/InStock",
+                "seller": {
+                "@@type": "Organization",
+                "name": "Multi Seguro Viagem"
+                }
+                }
+                }
+            </script>
+      
+    <script type="application/ld+json">
+        {
+            "@@context": "http://schema.org",
+            "@@type": "BreadcrumbList",
+            "itemListElement": [{
+            "@@type": "ListItem",
+            "position": 1,
+            "item": {
+            "@@id": "@Url.Action("Index", "Home", null, Request.Url.Scheme)",
+            "name": "Home"
+        }
+        },{
+            "@@type": "ListItem",
+            "position": 2,
+            "item": {
+            "@@id": "@Url.Action("Destino", "Oferta", null, Request.Url.Scheme)",
+            "name": "@destino"
+        }
+        },{
+            "@@type": "ListItem",
+            "position": 3,
+            "item": {
+            "@@id": "@Url.Action("Operadora", "Oferta", null, Request.Url.Scheme)",
+            "name": "@ViewBag.Plano.Operadora.Nome"
+        }
+        },{
+            "@@type": "ListItem",
+            "position": 4,
+            "item": {
+            "@@id": "@Url.Action("Plano", "Oferta"), null, Request.Url.Scheme",
+            "name": "@ViewBag.Plano.Nome"
+        }
+        }]
+        }
+    </script>
+
+    }
+}

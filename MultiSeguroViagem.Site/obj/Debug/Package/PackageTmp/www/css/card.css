@@ -1,0 +1,171 @@
+﻿html {
+    --cardCredit-color: #cacaca;
+    --text-color: #fff;
+}
+
+.col1 {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+    .col1 .cardCredit {
+        position: relative;
+        width: 245px;
+        height: 146px;
+        margin-top: 10px;
+        border-radius: 9px;
+        box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.1);
+        -webkit-transition: all 1s;
+        transition: all 1s;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+        .col1 .cardCredit .front {
+            position: absolute;
+            background: var(--cardCredit-color);
+            border-radius: 9px;
+            padding: 27px;
+            width: 100%;
+            height: 100%;
+            transform: translateZ(1px);
+            -webkit-transform: translateZ(1px);
+            -webkit-transition: background 0.3s;
+            transition: background 0.3s;
+            z-index: 50;
+            background-image: -webkit-repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);
+            background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.04) 3px, rgba(255, 255, 255, 0.05) 4px), -webkit-linear-gradient(-245deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.2) 70%, rgba(255, 255, 255, 0) 90%);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+            .col1 .cardCredit .front .type {
+                position: absolute;
+                width: 40px;
+                height: 24px;
+                top: 10px;
+                right: 10px;
+            }
+
+                .col1 .cardCredit .front .type img {
+                    width: 100%;
+                    float: right;
+                }
+
+            .col1 .cardCredit .front .cardCredit_number {
+                position: absolute;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0;
+                top: 59px;
+                color: var(--text-color);
+                word-spacing: 2px;
+                -webkit-transition: color 0.5s;
+                transition: color 0.5s;
+            }
+
+            .col1 .cardCredit .front .date {
+                position: absolute;
+                bottom: 12px;
+                right: 0;
+                width: 93px;
+                height: 19px;
+                color: var(--text-color);
+                -webkit-transition: color 0.5s;
+                transition: color 0.5s;
+            }
+
+                .col1 .cardCredit .front .date .date_value {
+                    font-size: 11px;
+                    position: absolute;
+                    margin-top: 3px;
+                    color: var(--text-color);
+                    font-weight: 500;
+                    -webkit-transition: color 0.5s;
+                    transition: color 0.5s;
+                    right: 20px
+                }
+
+            .col1 .cardCredit .front .fullname {
+                position: absolute;
+                font-size: 14px;
+                bottom: 32px;
+                color: var(--text-color);
+                -webkit-transition: color 0.5s;
+                transition: color 0.5s;
+                max-width: 80%;
+                overflow: hidden;
+            }
+
+        .col1 .cardCredit .back {
+            position: absolute;
+            width: 100%;
+            border-radius: 9px;
+            height: 100%;
+            background: var(--cardCredit-color);
+            -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+
+            .col1 .cardCredit .back .magnetic {
+                position: absolute;
+                width: 100%;
+                height: 27px;
+                background: rgba(0, 0, 0, 0.7);
+                margin-top: 14px;
+            }
+
+            .col1 .cardCredit .back .bar {
+                position: absolute;
+                width: 73%;
+                height: 20px;
+                background: rgba(255, 255, 255, 0.7);
+                left: 6px;
+                margin-top: 54px;
+            }
+
+            .col1 .cardCredit .back .seccode {
+                font-size: 16px;
+                color: var(--text-color);
+                font-weight: 500;
+                position: absolute;
+                top: 54px;
+                right: 22px;
+            }
+
+            .col1 .cardCredit .back .chip {
+                bottom: 25px;
+                left: 6px;
+            }
+
+            .col1 .cardCredit .back .disclaimer {
+                position: absolute;
+                width: 65%;
+                left: 48px;
+                color: #f1f1f1;
+                font-size: 5px;
+                bottom: 30px;
+            }
+
+.chip {
+    position: absolute;
+    width: 30px;
+    height: 22px;
+    background: #bbb;
+    border-radius: 4px;
+}
+
+    .chip:after {
+        content: '';
+        display: block;
+        width: 19px;
+        height: 14px;
+        border-radius: 2px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: #ddd;
+    }

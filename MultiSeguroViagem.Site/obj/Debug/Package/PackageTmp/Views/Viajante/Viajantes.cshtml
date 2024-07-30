@@ -1,0 +1,228 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Viajante.ViajanteModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutPagamento.cshtml";
+    ViewBag.Title = "Adicionar viajantes | Multi Seguro Viagem";
+}
+
+<div class="viajantes">
+    <div class="wrapper">
+        <div class="header-2">
+            <div class="page-header gradiente">
+            </div>
+        </div>
+
+        <div class="main main-raised" id="produtos">
+            <div class="container">
+                <div class="container text-center col-md-11 col-md-offset-1 bread">
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo inativo"><span>1.</span> Escolha um plano</h5>
+                        <p class="icone-carrinho inativo">Compare preços e coberturas</p>
+                    </div>
+                    <div class="col-md-1">
+                        <i class="material-icons icone-carrinho margin-top-dez inativo">keyboard_arrow_right</i>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo"><span>2.</span> Adicione os viajantes</h5>
+                        <p class="icone-carrinho">Inclua abaixo quem irá viajar.</p>
+                    </div>
+                    <div class="col-md-1">
+                        <i class="material-icons margin-top-dez inativo">keyboard_arrow_right</i>
+                    </div>
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo inativo"><span>3.</span> Finalize a compra</h5>
+                        <p class="icone-carrinho inativo">Em até 6x sem juros</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2 class="title precos-titulo" id="tituloviajantes" style="display: inline-block">Dados dos viajantes</h2>
+                </div>
+                <div class="row">
+                    <p class="viajantes-desc"><b>Adicione os viajantes</b> que irão para a <a id="destino">Destino</a>, do dia <a id="dataIda">Data ida</a> ao dia <a id="dataVolta">Data volta</a>, com o plano <a id="Plano"></a>.</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="padding-right: 0; padding-left: 0;">
+                        <div class="card card-raised card-form-horizontal" style="margin-top: 10px;">
+                            <div class="card-content card-content-viajante">
+                                
+                                <div id="lista-viajantes-mobile"></div>
+
+                                <div id="lista-viajantes">
+                                    <input id="contador" type="hidden" value="0">
+                                </div>
+
+                                <div class="row viajante-form">
+                                    <div class="col-md-9">
+                                        <p class="viajantes-desc viajante-cpf "><b>Caso algum viajante não tenha CPF, insira o do responsável.</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a id="adicionarViajante" class="btn btn-primary btn-block btn-simple">
+                                            Adicionar outro viajante
+                                            <i class="material-icons">add</i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="msg-alerta"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-top-dez">
+                    <div class="col-md-3 hidden-xs hidden-sm">
+                        <a class="btn btn-default btn-round btn-lg voltar">
+                            <i class="material-icons">keyboard_arrow_left</i>
+                            Voltar
+                        </a>
+                    </div>
+                    <div class="col-md-1 text-center ">
+                        <h2 class="h3 preco-total cor-elementos-pagamento">Total:<span class="hide">0,00</span></h2>
+                    </div>
+                    <div class="col-md-3 alinhamento-mobile-tela-pagamento">
+                            <h2 class="h3 precos ajuste-posicao">
+                                <p class="tamanho-precos "><span class="cor-elementos-pagamento">R$ </span><span class="tamanho-precos boleto cor-elementos-pagamento">0,00</span><font class="tamanho-texto-separacao  cor-elementos-pagamento"> (boleto) </font> <font class="tamanho-texto-ou"> &nbsp&nbspou</font></p>                           
+                                <p class="tamanho-precos "><span class="cor-elementos-pagamento">R$ </span><span class="tamanho-precos parcela cor-elementos-pagamento">0,00</span><font class="tamanho-texto-separacao  cor-elementos-pagamento"> (em até 6x sem juros)</font></p>
+                            </h2>                   
+                    </div>
+                    <div class="col-md-3 text-right col-md-offset-2 btn-mobile-center">
+                        <a id="CompletarCompra" class="btn btn-success btn-round btn-lg">
+                            Completar compra
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+
+@section Scripts
+{
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+        <script src="/www/js/vendor/jquery.mask.min.js"></script>
+        <script src="/www/js/vendor/sweetalert2.min.js"></script>
+
+        <script src="/www/js/modulos/validacoes.js"></script>
+        <script src="/www/js/modulos/intencao/intencao.js"></script>
+        <script src="/www/js/modulos/intencao/intencaoCompra.js"></script>
+        <script src="/www/js/modulos/viajante/viajante.js"></script>
+        <script src="/www/js/modulos/viajante/adicionaViajante.js"></script>
+        <script src="/www/js/modulos/carrinho/carrinho.js"></script>
+    }
+    else
+    {
+        <script src="/www/bundles/bundleVendorViajante.js?v=1.0"></script>
+        <script src="/www/bundles/bundleViajante.js?v=2.1"></script>
+    }
+
+    <script>
+        $(document).ready(function () {
+            if (parseInt(getSession('contador')) >= 0) {
+                console.log("");
+            }
+            else {
+                setSession('contador', 0);
+            }
+        });
+        validaReferrer();
+
+        //Adiciona novo select para o Jquery - textEquals (Usado ao adicionar o viajante)
+        $.expr[':'].valueEquals = $.expr.createPseudo(function(arg) {
+            return function(elem) {
+                return $(elem).val().match("^" + arg + "$");
+            };
+        });
+
+        var planoSelecionado = planoSelecionado("@Url.Action("Cotacao", "Cotador")?Destino=");
+
+        setaDescricaoViajantes(planoSelecionado);
+
+        validacao('.card-content-viajante', {
+            botao: "#CompletarCompra",
+            submit: function (e) {
+                
+
+                var qtdViajantes = $("input[valida]").length / 3;
+                var cotacao = getParseSession("cotacao");
+
+                var carrinho = new Carrinho(qtdViajantes, cotacao.DataIda, cotacao.DataVolta, planoSelecionado);
+                carrinho.salva();
+
+                if (carrinho.Viajantes && carrinho.Viajantes.length) {
+
+                    var intencao = new IntencaoCompra(cotacao.Destino, cotacao.DataIda, cotacao.DataVolta, getSession('email') || 'indefinido', getLocalStorage('utmSource') || 'indefinido', document.referrer, carrinho.Viajantes, carrinho.Planos.Operadora.Nome + ' - ' + carrinho.Planos.Nome);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("RegistraIntencaoCompra", "Viajante")",
+                        data: intencao
+                    });
+                     var uri = '@Url.Action("Index", "Pagamento", new { d = "-1"})';
+                     window.location.href = uri.replace("-1", cotacao.DataIda);
+                }
+            }
+        });
+
+
+        $(".voltar").on("click", function() {
+
+            var cotacao = getParseSession('cotacao');
+            var uri = "@Url.Action("Cotacao", "Cotador")?Destino=" +
+                cotacao.Destino +
+                "&DataIda=" +
+                cotacao.DataIda +
+                "&DataVolta=" +
+                cotacao.DataVolta;
+
+            window.location.href = uri;
+        });
+
+
+        $(function() {
+
+            var contador = (parseInt($("#contador").val()) || 0) + 1;
+
+            renderTemplateViajanteDesktop($("#lista-viajantes"), contador);
+
+            $("#adicionarViajante").on("click",
+                function() {
+
+                    if (isMobile(navigator.userAgent)) {
+
+                        var formValid = validaFormulario('.card-content-viajante');
+
+                        if (!formValid) return false;
+                    }
+
+                    var contador = (parseInt($("#contador").val()) || 0) + 1;
+                    renderTemplateViajanteDesktop($("#lista-viajantes"), contador);
+
+                    if (isMobile(navigator.userAgent)) {
+
+                        var nomeNovo = $('#Nome' + contador);
+
+                        $('html, body').animate({
+                                scrollTop: nomeNovo.offset().top - 200
+                            },
+                            700,
+                            function() {
+                                nomeNovo.focus();
+                            });
+                    }
+                });
+        });
+
+        conversaoRDStation("Viajante");
+
+        $(function() {
+            enviaTagOneSignal(window.OneSignal, { "pgViajantes": "true"} );
+        });
+    </script>
+}

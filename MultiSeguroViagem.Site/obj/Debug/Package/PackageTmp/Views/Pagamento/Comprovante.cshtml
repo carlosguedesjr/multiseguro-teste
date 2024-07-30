@@ -1,0 +1,89 @@
+﻿@model MultiSeguroViagem.Domain.Entities.Comprovante
+
+<div class="pagamento">
+    <div class="page-header gradiente hidden-print" data-parallax="true"></div>
+
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+
+                <div class="row">
+                    <h2 class="title precos-titulo" id="tituloviajantes" style="display:inline-block">Detalhes do pagamento</h2>
+                    <button class="btn btn-fab btn-primary btn-imprimir hidden-print" rel="tooltip" title="Imprimir" onclick="window.print()">
+                        <i class="material-icons">print</i>
+                    </button>
+                </div>
+                <div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="title">
+                                Dados do pagamento:
+                            </h3>
+                            <p>
+                                <strong>Número:</strong> @Model.Pagamento.IdPagamento<br>
+                                <strong>Valor do Pedido:</strong> R$ @(Model.Pagamento.Valor)<br>
+                                <strong>Valor de Desconto:</strong> R$ @Model.Pagamento.ValorDescontoTotal<br>
+                                <strong>Valor Pago:</strong> R$ @(Model.Pagamento.Valor - Model.Pagamento.ValorDescontoTotal)<br>
+
+                                @if (Model.PagamentoRedeCard != null)
+                                {
+                                    <span><strong>Número do cartão:</strong> ****.****.****.@Model.PagamentoRedeCard.NumeroCartao</span>
+                                    <br>
+                                    <span><strong>Nome:</strong> @Model.PagamentoRedeCard.NomeCartao</span>
+                                    <br>
+                                    <span><strong>Qtde Parcelas:</strong> @Model.PagamentoRedeCard.QuantidadeParcelas </span>
+                                    <br>
+                                    <span><strong>Bandeira:</strong> @Model.PagamentoRedeCard.Bandeira </span>
+                                    <br>
+                                }
+                                Transação efetuada em @Model.Pagamento.DataPagamento via <strong>@(Model.PagamentoRedeCard != null ? "Cartão Crédito" : "Boleto")</strong>
+                            </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="title">
+                                Dados do prestador:
+                            </h3>
+                            <p>
+                                <strong>Corretora:</strong> EKTO MULTI SEGURO VIAGEM LTDA<br>
+                                <strong>CNPJ:</strong> 43.514.278/0001-90<br>
+                                <strong>Site:</strong> Multi Seguro Viagem
+                            </p>
+                        </div>
+                        <div style="clear: both"></div>
+                        <hr class="hidden-xs">
+                        <div style="clear: both"></div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <h3 class="title">
+                                Dados do usuário:
+                            </h3>
+                            <p>
+                                <strong>Nome:</strong> @Model.Pagamento.Nome<br>
+                                <strong>CPF/CNPJ:</strong> @Model.Pagamento.Documento
+                            </p>
+                        </div>
+                    </div>
+                    <br>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+    <script src="/www/js/vendor/scrollreveal.min.js"></script>
+
+    <script>
+        window.sr = ScrollReveal({ mobile: false });
+
+        sr.reveal('.description .info-title', { delay: 200 }, 300);
+        sr.reveal('.description p', { delay: 400 }, 300);
+        sr.reveal('.img-rounded', 200);
+
+        conversaoRDStation("Comprovante");
+    </script>  
+}

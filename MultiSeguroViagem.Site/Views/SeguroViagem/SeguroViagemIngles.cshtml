@@ -1,0 +1,162 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoHomeModel
+@{
+    ViewBag.Title = "Travel Insurance to Brazil";
+    ViewBag.MetaDescription = "Foreign, Traveling to Brazil, adquire a travel insurance plan now";
+    ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br/travelers-insurance-brazil";
+    ViewBag.OGTitle = "Travel Insurance to Brazil";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+    string Navegador = Request.Browser.Browser;
+  
+    string hidden = "hidden";
+    string css = "";
+    string css_botao = "";
+    string borda = "";
+    string css_botao_resultados = "";
+}
+@if (Navegador.Equals("Safari"))
+{
+    hidden = "";
+    css = "ajuste-mobile-safari";
+    css_botao = "ajuste-mobile-safari-botao";
+    borda = "borda-safari";
+    css_botao_resultados = "ajuste-botao-resultados-safari";
+}
+<div id="fb-root"></div>
+
+<div class="everg">
+    <div class="page-header header-small gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Travel Insurance to Brazil</h1>
+                    <h2 class="title titleh2home" id="in-titulo-home">Foreign, Traveling to Brazil!</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+
+
+            <div class="col-md-12">
+                <div class="description" style="font-size: 2rem;line-height: 3rem;">
+
+                    <p>
+                        If you pretend to <b>visit Brazil</b>, buying a travel insurance plan is essential for your safety and it can help you to have a peace of mind trip!
+                    </p>
+                    <p>
+                        Besides all the benefits of acquiring a travel insurance plan, the Brazilian government released in August 26th, an ordinance, called “PORTARIA CC-PR MJSP MINFRA MS Nº 419, DE 26 DE AGOSTO DE 2020” that requires to all travelers, having a travel insurance plan with at least these coverages:
+                    </p>
+                    <ul>
+                        <li>I – The <b>travel insurance Brazil plan</b> has to cover all the trip duration</li>
+                        <li>II - A medical coverage policy with at least R$ 30.000,00 for medical expenses</li>
+                        <li>III – The insurance policy language has to be in Brazilian Portuguese or English</li>
+                    </ul>
+                    <p>
+                        For your safety, Multi Seguro Viagem has great options of plans from the best insurers, that covers the Brazilian ordinance and even more situations in your trip to Brazil.
+                    </p>
+                    <p>
+                        To receive a quote, you can contact us by one of the options below:
+                    </p>
+                    <div class="col-md-12 landing-padding-card">
+                        <div class="area-botoes-home">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <a href="tel:1932010447" class="botoes-home btn btn-primary btn-block ">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {<i class="fa fa-phone" aria-hidden="true"></i>}TELEVENDAS: (19) 3201-0447
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <a class="btn btn-primary btn-block botoes-home" href="https://api.whatsapp.com/send?phone=551932010447" target="_blank">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {<i class="fa fa-whatsapp" aria-hidden="true"></i>} WHATSAPP: +55 (19) 3201-0447
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    @{ Html.RenderPartial("HomePromocao/_ModalBannerSeguro"); }
+    @section Scripts
+{
+
+        @if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+            <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+            <script src="/www/js/vendor/scrollreveal.min.js"></script>
+            <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+            <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+            <script src="/www/js/custom-validations.js"></script>
+            <script src="/www/js/modulos/datePicker.js"></script>
+
+        }
+        else
+        {
+            <script src="/www/bundles/bundleVendorIndex.js"></script>
+            <script src="/www/bundles/bundleIndex.js"></script>
+            <script async defer src="/www/js/modulos/afiliaceTrackerOffer.js"></script>
+        }
+        <script async>
+
+        </script>
+
+
+        <link href="/www/css/seo.css" rel="stylesheet" />
+        <script>
+            // Scroll Reveal
+            datepickerSetup();
+
+            var $body = $(document.body);
+            var navHeight = $('.navbar').outerHeight(true) + 10;
+
+            $('#sidebar').affix({
+                offset: {
+                    top: 150,
+                    bottom: 440
+                }
+            });
+
+            $body.scrollspy({
+                target: '#rightCol',
+                offset: navHeight
+            });
+
+            $('#sidebar').width($('#sidebar').parent().width());
+
+            $(document).on('click', 'a[href^="#0"]', function (event) {
+                event.preventDefault();
+
+                $('html, body').animate({
+                    scrollTop: $($.attr(this, 'href')).offset().top - 100
+                }, 500);
+            });
+            $(function () {
+                $("a[href^='http']:not([href*='multiseguroviagem.com.br'])").each(function () {
+                    $(this).click(function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        window.open(this.href, '_blank');
+                    }).addClass('externalLink');
+                });
+            });
+
+
+        </script>
+    }

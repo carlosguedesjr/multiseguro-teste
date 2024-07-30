@@ -1,0 +1,493 @@
+﻿@model  MultiSeguroViagem.Site.Models.Site.UsuarioModel
+
+<div class="profile-page">
+    <div class="page-header gradiente" data-parallax="true"></div>
+
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img src="/www/img/conta.png" alt="Circle Image" class="img-circle img-responsive img-raised">
+                            </div>
+                            <div class="name">
+                                <h3 class="title">
+                                    Olá,  @if (Model != null && Model.Nome != null)
+                                    {
+                                        @Model.Nome.Split(' ')[0];
+                                    } !
+                                </h3>
+                                <h6>BOM TER VOCÊ AQUI :)</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="description text-center">
+                    <p>Acompanhe o status de sua compras e gerencie seus dados abaixo. Lembre-se, o voucher pode demorar até um dia útil para chegar ao seu email. Para qualquer dúvida, ligue ou envie-nos um email!</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="profile-tabs">
+                            <div class="nav-align-center">
+                                <ul class="nav nav-pills nav-pills-icons" role="tablist">
+                                    <li id="liCompras" class="active">
+                                        <a href="#compras" role="tab" data-toggle="tab">
+                                            <i class="material-icons">shopping_cart</i>
+                                            COMPRAS
+                                        </a>
+                                    </li>
+                                    <li id="liDados">
+                                        <a href="#dados" role="tab" data-toggle="tab">
+                                            <i class="material-icons">assignment_ind</i>
+                                            DADOS PESSOAIS
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                        <!-- End Profile Tabs -->
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active compras" id="compras">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="title">Últimas compras</h4>
+
+                                <table class="table tabelaPedidos">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Nº do pedido</th>
+                                            <th>Plano</th>
+                                            <th>Data</th>
+                                            <th>Valor total</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                            <th class="text-right">Opções</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (ViewBag.Pedidos != null)
+                                        {
+                                            foreach (var pedido in ViewBag.Pedidos)
+                                            {
+                                                <tr>
+                                                    <td class="text-center">@pedido.IdPedido</td>
+                                                    <td>@pedido.NomePlano</td>
+                                                    <td>@pedido.DataCriacao</td>
+                                                    <td>R$ @pedido.ValorTotal</td>
+                                                    <td>
+                                                        @switch ((int)pedido.Status.IdPedidoStatus)
+                                                        {
+                                                            case 1:
+                                                                <span class="label label-info">PAGAMENTO APROVADO</span>
+                                                                break;
+                                                            case 2:
+                                                                <span class="label label-warning">AGUARDANDO PAGAMENTO</span>
+                                                                break;
+                                                            case 3:
+                                                                <span class="label label-danger">PEDIDO CANCELADO</span>
+                                                                break;
+                                                            case 4:
+                                                                <span class="label label-rose">CANCELAMENTO SOLICITAOD</span>
+                                                                break;
+                                                            case 5:
+                                                                <span class="label label-success">VOUCHER ENTREGUE</span>
+                                                                break;
+                                                            case 6:
+                                                                <span class="label label-inverse">CANCELAMENTO RECUSADO</span>
+                                                                break;
+
+                                                            case 7:
+                                                                <span class="label label-brown">PEDIDO VENCIDO</span>
+                                                                break;
+                                                            case 8:
+                                                                <span class="label label-aguardando">AGUARDANDO COMPENSAÇÃO</span>
+                                                                break;
+                                                            case 9:
+                                                            <span class="label label-success">Voucher Emitido</span>
+                                                                break;
+                                                            case 10:
+                                                                <span class="label label-warning">Emissão de voucher em análise</span>
+                                                                break;
+
+                                                        }
+                                                    </td>
+                                                    <td class="td-actions text-center">
+                                                        @if ((int)pedido.Status.IdPedidoStatus == 2)
+                                                        {
+                                                            <button id="btnPagar" type="button" rel="tooltip" class="btn btn-success pagar" value="@pedido.IdPedido">
+                                                                <i class="material-icons">attach_money</i> Pagar Agora!
+                                                            </button>
+                                                        }
+                                                    </td>
+
+                                                    <td class="td-actions text-right">
+                                                        <button id="btnInformacoes" type="button" rel="tooltip" class="btn btn-info informacoes" value="@pedido.IdPedido">
+                                                            <i class="material-icons">info_outline</i> Mais Informações
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane dados" id="dados">
+                        @using (Html.BeginForm("SalvaDados", "Login", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(user => user.IdUsuario)
+                            @Html.HiddenFor(user => user.Email)
+    
+                            <div class="col-md-12">
+                                <h4 class="title">Editar dados</h4>
+                                <div class="row">
+                                    <div class="margin-top-zero valid col-md-4">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Nome, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">face</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Nome, new { Class = "form-control", Placeholder = "Nome", MaxLength = "150" })
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-md-3">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Telefone, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">phone</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Telefone, new { Class = "form-control", Placeholder = "Telefone", MaxLength = "15" })
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-sm-3">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Documento, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">description</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Documento, new { Class = "form-control", Placeholder = "CPF/CNPJ", MaxLength = "19" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="margin-top-zero valid col-sm-2">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Estado, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">map</i>
+                                            </span>
+                                            <div class="form-group select-button">
+                                                @Html.DropDownListFor(pag => pag.Estado, new List<SelectListItem>
+                                                {
+                                                    new SelectListItem {Text = "Estado", Value = "", Disabled = true, Selected = true}
+
+                                                }, new { Class = "selectpicker", Data_Style = "form-control", Data_Message_Empty = "Selecione o estado ", data_size = "10", data_live_search = true, data_live_search_placeholder = "Pesquise seu estado aqui" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-sm-2">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Cidade, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">navigation</i>
+                                            </span>
+                                            <div class="form-group select-button">
+                                                @Html.DropDownListFor(pag => pag.Cidade, new List<SelectListItem>
+                                                {
+                                                    new SelectListItem {Text = "Cidade", Value = "", Disabled = true, Selected = true},
+                                                }, null, new { Class = "selectpicker", Data_Style = "form-control", Data_Message_Empty = "Selecione uma cidade", Disabled = "disabled", data_size = "10", data_live_search = true, data_live_search_placeholder = "Pesquise sua cidade aqui" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-sm-6">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Endereco, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">place</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Endereco, new { Class = "form-control", Placeholder = "Endereço", MaxLength = "150" })
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-sm-2">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Numero, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">my_location</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Numero, new { Class = "form-control", Placeholder = "Número", @type = "number", MaxLength = "6" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="margin-top-zero valid col-sm-4">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Complemento, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">more_horiz</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Complemento, new { Class = "form-control", Placeholder = "Complemento", MaxLength = "150" })
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-md-2">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Cep, null, new {Class = "control-label"})
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">directions</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Cep, new {Class = "form-control", Placeholder = "CEP", MaxLength = "9"})
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-sm-3">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Bairro, null, new {Class = "control-label"})
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">place</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.Bairro, new {Class = "form-control", Placeholder = "Bairro", MaxLength = "150"})
+                                        </div>
+                                    </div>
+                                    <div class="margin-top-zero valid col-sm-3">
+                                        <label class="control-label margin-top-zero margin-0">
+                                            @Html.ValidationMessageFor(user => user.Senha, null, new {Class = "control-label"})
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                            @Html.TextBoxFor(user => user.NovaSenha, new {Class = "form-control", Placeholder = "Senha", MaxLength = "12", Type = "Password"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Atualizar dados</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+
+@section Scripts
+{
+    <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+    <script src="/www/js/vendor/scrollreveal.min.js"></script>
+    <script src="/www/js/vendor/custom-masks.js"></script>
+    <script src="/www/js/vendor/jquery.mask.min.js"></script>
+    <script src="/www/js/vendor/sweetalert2.min.js"></script>
+
+    <script>
+        window.sr = ScrollReveal({ mobile: false });
+
+        sr.reveal('.description .info-title', { delay: 200 }, 300);
+        sr.reveal('.description p', { delay: 400 }, 300);
+        sr.reveal('.img-rounded', 200);
+
+        //---------------------- Msg de validação
+        $('.valid:has(label.control-label span.control-label:not(:empty))').addClass("has-error");
+        $('.valid:has(label.control-label span.control-label:empty)').removeClass("has-error");
+
+        var dados = '@(ViewBag.Dados)';
+        if (dados) {
+
+            $('#compras').removeClass('active');
+            $('#liCompras').removeClass('active');
+            $('#dados').addClass('active');
+            $('#liDados').addClass('active');
+        }
+
+        //---------------- Popula Estado/Cidade
+        var dropEstado = $("#Estado");
+        var dropCidade = $("#Cidade");
+
+        populaCidades = function populaCidades(codCidade) {
+
+            $(dropCidade).empty();
+            $(dropCidade).removeAttr("disabled");
+
+            var codigoEstado = $(dropEstado).val().substr(0, 2);
+            var uri = "//@Request.Url.Authority/www/json/Cidades/" + codigoEstado + ".json";
+
+            $.getJSON(uri, function (data) {
+
+                var listaCidades = data[codigoEstado];
+
+                $.each(listaCidades, function (key, val) {
+                    return dropCidade.append($("<option />").val(val).text(val));
+                });
+
+                if ('@Html.ValueFor(pag => pag.Cidade)' != '') {
+
+                    $(dropCidade).val('@Html.ValueFor(pag => pag.Cidade)');
+                } else {
+
+                    $(dropCidade).val(codCidade);
+                }
+
+                $('.selectpicker').selectpicker('refresh');
+            });
+        };
+
+        $.getJSON('//@Request.Url.Authority/www/json/estados.json', function (data) {
+            $.each(data, function (key, val) {
+                return dropEstado.append($("<option />").val(key + val.Sigla).text(val.Nome));
+            });
+
+            var estado = '@Html.ValueFor(pag => pag.Estado)';
+            if (estado != '') {
+
+                $(dropEstado).find('option').each(function (i, obj) {
+                    if (obj.value.includes(estado)) {
+                        $(dropEstado).val(obj.value);
+                        populaCidades();
+                    }
+                });
+            }
+
+            $('.selectpicker').selectpicker('refresh');
+        });
+
+        $(dropEstado).change(function () {
+            populaCidades();
+        });
+        //---------------- Fim Popula Estado/Cidade
+
+
+
+        //---------------- Busca CEP
+        consultaCep = function consultaCep(cep) {
+            var token = "bb55465t-4545-4f9e-80b6-339ae9507c8b1586889999";
+            var uri = "https://api.cenarioconsulta.com.br/consulta/v1/logradouro/" + cep + "/NomeLogradouro%2CComplemento%2CBairro%2CCodigoUFEstado%2CSigla%2CCodigoIbge%2CNomeCidade";
+
+            $.ajax({
+                url: uri,
+                beforeSend: function beforeSend(xhr) {
+                    xhr.setRequestHeader("authorization", "Token " + token);
+                }
+            }).done(function (logradouro) {
+                var endereco = $("#Endereco");
+                var bairro = $("#Bairro");
+
+                $(endereco).val("");
+                $(bairro).val("");
+                $(dropCidade).empty();
+
+                $(endereco).val(logradouro.nome);
+                $(bairro).val(logradouro.bairro);
+                $(dropEstado).val(logradouro.estado.codigoUf + logradouro.estado.sigla);
+
+                populaCidades(logradouro.cidade.nome);
+            });
+        };
+        //---------------- FIM Busca CEP
+
+        $('#Cep').on('blur', function (obj) {
+
+            if (obj.target.value) {
+                consultaCep(obj.target.value);
+            }
+        });
+
+
+        //---------------------- Máscaras
+        $('#Documento').keydown(function () {
+            mascara(this, midentificador);
+        });
+        $('#Documento').blur(function () {
+            mascara(this, midentificador);
+        });
+
+        $('#Telefone').keydown(function () {
+            mascara(this, mtelefone);
+        });
+        $('#Telefone').blur(function () {
+            mascara(this, mtelefone);
+        });
+
+        $('#Cep').mask('00000-000');
+        //---------------------- Fim MAscaras
+
+        //---------------------- Voltar
+        $('.voltar').on('click', function () {
+            window.back();
+        });
+        //---------------------- Fim voltar
+
+        //---------------------- Mais informaçoes
+        $('.informacoes').click(function (obj) {
+            var idPedido = obj.target.value;
+            var action = '@Url.Action("MaisDetalhes", "Login")?idPedido=' + parseInt(idPedido);
+
+            window.location = action;
+        });
+        //---------------------- Fim voltarMais informaçoes
+
+
+
+        //---------------------- Pagar Agora
+        $('.pagar').click(function (obj) {
+            var idPedido = obj.target.value;
+            var action = '@Url.Action("PagarAgora", "Login")?idPedido=' + parseInt(idPedido);
+
+            window.location = action;
+        });
+        //---------------------- Fim Pagar Agora
+
+
+        var focusErro = $('.has-error')[0];
+        if (focusErro) undefined.location = '#dados';
+
+        $(document).ready(function () {
+            $('#Documento').val(midentificador($('#Documento').val()));
+            $('#Telefone').val(mtelefone($('#Telefone').val()));
+            $('#Cep').val(mcep($('#Cep').val()));
+
+            var erro = '@(ViewBag.Erro)';
+            if (erro) {
+                swal('Oops', erro, 'error');
+
+                return false;
+            }
+
+            var sucesso = '@(ViewBag.DadosAtualizados)';
+            if (sucesso) {
+                swal('Sucesso', sucesso, 'success');
+            }
+        });
+
+    </script>
+}

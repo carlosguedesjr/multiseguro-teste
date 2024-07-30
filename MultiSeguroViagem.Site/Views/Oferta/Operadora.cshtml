@@ -1,0 +1,279 @@
+﻿@using MultiSeguroViagem.Site.Models.Site.Cotacao
+
+@{
+    var operadora = ViewBag.Operadora;
+   
+    var destino = Html.Raw(ViewBag.Destino.Nome);
+
+    ViewBag.Title = $"Seguro viagem { operadora.Nome } - { destino } | Multi Seguro Viagem (Até 65% OFF)";
+    ViewBag.MetaDescription = $"Conheça os planos, preços e coberturas da assistência e seguro viagem internacional e nacional da { operadora.Nome } - { destino }";
+    ViewBag.MetaKeywords = $"seguro viagem, { operadora.Nome.ToLower() }, operadora seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+    ViewBag.OGURL = $"https://multiseguroviagem.com.br/oferta/{ ViewBag.Destino.Slug }/{ operadora.Nome.ToLower().Replace(" ", "") }";
+    ViewBag.OGTitle = $"Seguro viagem { operadora.Nome }  - { destino } | Multi Seguro Viagem";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+}
+
+<div class="seoop operadoras-pag">
+    <div class="page-header header-small gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Seguro viagem @operadora.Nome para @destino</h1>
+                    <h2 class="title sub-titulo" id="in-titulo-home">Planos, preços e coberturas do seguro viagem @operadora.Nome para @destino</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+            <div class="row hidden-sm hidden-xs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="material-icons">home</i>
+                        </a>
+                    </li>
+                    <li>
+                        @Html.ActionLink($"{ destino }", "Destino", "Oferta")
+                    </li>
+                    <li>
+                        @operadora.Nome
+                    </li>
+                </ul>
+            </div>
+
+            @if (Model.Planos != null && Model.Planos.Count > 0)
+            {
+                @Html.Partial("Cotador/_ListaPlanos", Model as CotacaoCotadorModel, new ViewDataDictionary { { "Seo", true } })
+            }
+            <div class="col-md-4 col-md-push-8" id="rightCol">
+                <div class="card" id="sidebar">
+                    @Html.Partial("Cotador/_CotadorPorDestinoLateral", new ViewDataDictionary { { "NomeDestino", operadora.Nome }, { "IdDestino", Model.Destino }, { "NomeOperadora", operadora.Nome } })
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-pull-4">
+                <div class="description">
+                    <img class="img img-raised" alt="Logo do Seguro Viagem @destino @operadora.Nome - Multi Seguro Viagem" title="Seguro Viagem @destino @operadora.Nome - Multi Seguro Viagem" src="/www/img/operadoras/hq/@($"{operadora.Nome.ToLower().Replace(" ", "")}.png")" />
+
+                    <br /><br />
+
+                    <p>
+                        A <strong>@operadora.Nome</strong> fornece planos de <b>seguro viagem</b> para todos os perfis de viajantes para <b>@destino</b>.
+                        Seja para viagens de negócios, de estudos e de lazer.
+                        Não importa que local você visitará em sua viagem para <b>@destino</b>, os planos da @operadora.Nome possuem <b>seguros para viagem</b> ideais para suas necessidades.
+                    </p>
+                    <p>
+                        Seu diferencial?
+                        Oferecer atendimento moderno e eficiente aos viajantes para @destino, protegendo e ajudando rapidamente seus clientes em imprevistos que possam surgir.
+                    </p>
+
+                    <h3>
+                        Sobre a @operadora.Nome Seguro Viagem para @destino
+                    </h3>
+                    <p>
+                        O objetivo da <strong>@operadora.Nome</strong> é se tornar a seguradora preferida dos viajantes, pela alta qualidade dos serviços em <b>seguro de viagem</b>, por garantir uma experiência tranquila e livre de problemas, independente do lugar ou do tipo de viagem.
+                        E, essencialmente, por ser formada por profissionais especializados, com ampla experiência em serviços de assistência.
+                    </p>
+
+                    <br />
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content content-primary">
+                                <h5 class="category-social">
+                                    <i class="fa fa-newspaper-o"></i> Blog da Multi
+                                </h5>
+                                <h4 class="card-title">
+                                    <a href="//@operadora.SiteBlog">Leia sobre a @operadora.Nome e muito mais em nosso blog!</a>
+                                </h4>
+                                <p class="card-description">
+                                    Uma seleção de conteúdos feitos para viajantes exigentes. Saiba tudo sobre viagens, assistências e seguros em nosso blog!
+                                </p>
+                                <div class="footer text-center">
+                                    <a href="//@operadora.SiteBlog" target="_blank" class="btn btn-white btn-round">Ir para o blog</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-content content-rose">
+                                <h5 class="category-social">
+                                    <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                                    A Operadora
+                                </h5>
+                                <h4 class="card-title">
+                                    <a href="//@operadora.Site" target="_blank">Visite o Site</a>
+                                </h4>
+                                <p class="card-description">
+                                    Saiba mais informações no site da <strong>@operadora.Nome</strong>. Leia notícias, informações e conheça um pouco mais sobre uma das maiores operadoras do Brasil.
+                                </p>
+                                <div class="footer text-center">
+                                    <a href="//@operadora.Site" target="_blank" class="btn btn-white btn-round">Ir para a @operadora.Nome</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-content content-success">
+                                <h5 class="category-social">
+                                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                                    Reclame Aqui
+                                </h5>
+                                <h4 class="card-title">
+                                    <a href="//@operadora.SiteReclameAqui" target="_blank">Leia comentários e reclamações</a>
+                                </h4>
+                                <p class="card-description">
+                                    Veja as reclamações, comentários e respostas da <strong>@operadora.Nome</strong> no Reclama Aqui
+                                </p>
+                                <div class="footer text-center">
+                                    <a href="//@operadora.SiteReclameAqui" target="_blank" class="btn btn-white btn-round">Ir para o Reclame Aqui</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <p>
+                            A <strong>@operadora.Nome</strong> é totalmente alinhada às exigências da <a href="http://www.susep.gov.br/" target="_blank">SUSEP (Superintendência de Seguros Privados)</a>, garantindo todos os direitos dos viajantes.
+                        </p>
+                        <p>
+                            Montando seu próximo roteiro? Descubra os planos da <strong>@operadora.Nome</strong> e aproveite o melhor da sua viagem.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="coberturasModal" tabindex="-1" role="dialog" aria-labelledby="coberturasLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="modalCobertura"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-simple" data-dismiss="modal"><i class="material-icons">close</i> Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+        <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/www/js/vendor/scrollreveal.min.js"></script>
+        <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+
+        <script src="/www/js/modulos/cotacao.js"></script>
+        <script src="/www/js/modulos/validacoes.js"></script>
+    }
+    else
+    {
+        <script src="/www/bundles/bundleVendorSeo.js"></script>
+        <script src="/www/js/modulos/cotacao.js"></script>
+        <script src="/www/js/modulos/validacoes.js"></script>
+    }
+
+    <link href="/www/css/seo.css" rel="stylesheet" />
+
+    <script>
+        $(document.body).scrollspy({
+	        target: '#rightCol',
+	        offset: $('.navbar').outerHeight(true) + 10
+        });
+
+        $('#sidebar').width($('#sidebar').parent().width());
+
+
+
+        setSession('cotacao', @Html.Raw(Json.Encode(ViewBag.planos)));
+
+        $('body').on('click', '.btnCoberturas', function(obj) {
+            var idPlano = obj.target.value;
+
+            var model = getParseSession('cotacao');
+
+            var filtro = $.grep(model.Planos, function(e) {
+                return e.IdPlano == idPlano;
+            });
+
+            var jsonString = JSON.stringify(filtro[0].Coberturas);
+
+            var nome = filtro[0].Operadora.Nome + " - " + filtro[0].Nome;
+
+            var url = downloadCoberturas(filtro[0], '@System.Configuration.ConfigurationManager.AppSettings["UriDownloadFile"]', '@Url.Action("Index", "Pdf")?uri=');
+
+            $('#coberturasModal').data('modal', null);
+            $('#modalCobertura').html('');
+
+            $.ajax({
+                url: '@Url.Action("_CoberturasModal", "Cotador")',
+                data: {
+                    json: jsonString,
+                    nome: nome,
+                    urlDownload: url
+                },
+                method: "get",
+                success: function(data) {
+
+                    $('#modalCobertura').html(data);
+                    $('#coberturasModal').modal();
+                }
+            });
+        });
+
+        $('body').on('click', '.btn-comprar', function(obj) {
+            var nomePlano = $(obj.target).parent().parent().find(".operadora-titulo").text().toLowerCase().split(' ').join('').replace(".", "");
+            var destino = obtemParametroUriMvc(2);
+            var operadora = obtemParametroUriMvc(3);
+            var uri = '/oferta/' + destino + '/' + operadora + '/' + nomePlano;
+
+            window.location.href = uri;
+        });
+    </script>
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "BreadcrumbList",
+        "itemListElement": [{
+        "@@type": "ListItem",
+        "position": 1,
+        "item": {
+        "@@id": "@Url.Action("Index", "Home", null, Request.Url.Scheme)",
+        "name": "Home"
+        }
+        },{
+        "@@type": "ListItem",
+        "position": 2,
+        "item": {
+        "@@id": "@Url.Action("Destino", "Oferta", null, Request.Url.Scheme)",
+        "name": "@destino"
+        }
+        },{
+        "@@type": "ListItem",
+        "position": 3,
+        "item": {
+        "@@id": "@Url.Action("Operadora", "Oferta", null, Request.Url.Scheme)",
+        "name": "@ViewBag.Operadora.Nome"
+        }
+        }]
+        }
+    </script>
+}

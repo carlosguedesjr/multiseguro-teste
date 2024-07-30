@@ -1,0 +1,169 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.EmailModel
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
+</head>
+<body>
+    <span style="display:none!important;color:#f7f7f7;font-size:1px">Seja qual for o seu destino, conta com a gente.</span>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="table-layout:fixed;background-color:#ffffff">
+        <tbody>
+            <tr>
+                <td align="center">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:650px" width="650">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:100%">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="padding-top:14px;padding-bottom:20px"> <img src="http://www.multiseguroviagem.com.br/www/img/email/logo.png" alt="" border="0" style="display:block" align="center" width="162" height="65"> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom:1px solid #e6e6e6">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center">
+                                                    <a href="#" style="display:inline-block" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_01.png"> </a>
+                                                    <a href="#" style="display:inline-block" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_02.png"> </a>
+                                                    <a href="#" style="display:inline-block" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_03.png"> </a>
+                                                    <a href="#" style="display:inline-block" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_04.png"> </a>
+                                                    <a href="#" style="display:inline-block" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_05.png"> </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:100%">
+                                        <tbody>
+                                            <tr>
+                                                <td align="left" valign="top"> <img src="http://www.multiseguroviagem.com.br/www/img/email/hero1.png" alt="" border="0" style="display:block"> </td>
+                                                <td>
+                                                    <table align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td align="center" style="padding-top:40px"> <img src="http://www.multiseguroviagem.com.br/www/img/email/mail.png"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" style="padding-top:25px;padding-bottom:20px"> <span style="font-family:'Open Sans',Arial,Helvetica,sans-serif;font-size:34px;font-weight:bold;color:#000000;text-align:center"><b style="font-family:'Open Sans',sans-serif">pedido recebido</b></span> </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td align="right" valign="bottom"> <img src="http://www.multiseguroviagem.com.br/www/img/email/hero2.png" alt="" border="0" style="display:block"> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:650px" width="650" bgcolor="#FFFFFF">
+                        <tbody>
+                            <tr>
+                                <td align="center" style="padding-left:45px;padding-right:45px;padding-top:20px;padding-bottom:15px">
+                                    <p style="font-family:'Open Sans',sans-serif;font-size:16px;color:#000;line-height:1.4em;margin-bottom:0.3em"> Olá, @Model.Nome! Tudo bem? </p>
+                                    <p style="font-family:'Open Sans',sans-serif;font-size:14px;color:#000;line-height:1.4em">
+                                        Seu pedido <b>@Model.NumeroPedido</b>, com destino a <b>@Model.Destino</b>, nos dias <b>@Model.DataIda</b> a <b>@Model.DataVolta</b>, com o(s) plano(s) <b>@Model.Planos</b>, foi recebido com sucesso.<br>
+                                        Obrigado por escolher a Multi. Assim que seu pagamento for aprovado, enviaremos uma confirmação e em seguida, emitiremos o seu voucher.
+                                    </p>
+                                </td>
+                            </tr>                            
+                            <tr>
+                                <td align="center" style="padding-bottom:20px">
+                                    @if (Model.Status == "2")
+                                    {
+                                        <img src="http://www.multiseguroviagem.com.br/www/img/email/recebido.png" alt="" border="0" style="display:block" width="382" height="40" class="CToWUd">
+                                    }
+                                    else if (Model.Status == "1")
+                                    {
+                                        <img src="http://www.multiseguroviagem.com.br/www/img/email/aprovado.png" alt="" border="0" style="display:block" width="382" height="40" class="CToWUd">
+                                    }
+                                </td>
+                            </tr>                            
+                            @if (Model.EmailUsuario != null && Model.SenhaUsuario != null)
+                            {                                
+                                <tr>
+                                    <td style="padding-left:45px;padding-right:45px;padding-bottom:18px;padding-top:18px" bgcolor="#f7f7f7">
+                                        <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:555px" bgcolor="#f7f7f7">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="middle" align="center">
+                                                        <p style="font-family:'Open Sans',sans-serif;font-size:16px;color:#000;line-height:1.4em">
+                                                            <b>Dados de acesso</b><br />
+                                                            <a href="https://multiseguroviagem.com.br/login" target="_blank">www.multiseguroviagem.com.br/login</a><br />
+                                                            <br />
+                                                            <b>Usuário:&nbsp;</b>@Model.EmailUsuario<br />
+                                                            <b>Senha:&nbsp;</b>@Model.SenhaUsuario<br />
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td style="padding-left:25px;padding-right:25px;padding-bottom:5px;padding-top:10px">
+                                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:600px" bgcolor="#FFFFFF">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding:20px">
+                                                    <p style="font-family:'Open Sans',sans-serif;font-size:12px;color:#000;line-height:1.4em">
+                                                        Este é um procedimento 100% seguro.
+                                                        <br>
+                                                        <br> Em caso de dúvidas entre em contato com a Central de Atendimento.
+                                                        <br>
+                                                        <br> Por favor, não responda este e-mail. Ele foi gerado automaticamente.
+                                                        <br>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left:45px;padding-right:45px;padding-bottom:5px">
+                                    <p style="font-family:'Open Sans',sans-serif;font-size:17px;color:#000;line-height:1.2em;margin-top:1.2em;margin-bottom:1.2em"> <b>Até a próxima!<br>                Equipe Multi Seguro Viagem                </b> </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td align="center">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:650px" width="650" bgcolor="#206bdb">
+                        <tbody>
+                            <tr>
+                                <td colspan="3"> <img src="http://www.multiseguroviagem.com.br/www/img/email/footer.png" alt="" border="0" style="display:block"> </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top:13px;padding-bottom:26px">
+                                    <a href="https://www.facebook.com/multiseguroviagem/" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/social_01.png" alt="" border="0" style="display:inline-block;float:left"> </a>
+                                    <a href="https://www.youtube.com/user/MultiSeguroViagem" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/social_02.png" alt="" border="0" style="display:inline-block;float:left"> </a>
+                                    <a href="https://www.instagram.com/multiseguroviagem/" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/social_03.png" alt="" border="0" style="display:inline-block;float:left"> </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

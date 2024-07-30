@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=301880
+  -->
+<configuration>
+
+  <appSettings>
+
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="rdStationToken" value="fc4864c74381a695bb88b6a77f7d3c49" />
+    <add key="rdStationIdentificador" value="c91082e47a2f15a1ebb9f5b720c38e22" />
+    <add key="emailDestinatarioAfiliados" value="alexandre.rezende@cenariocapital.com.br" />
+	<add key="emailDestinatarioContato" value="atendimento@multiseguroviagem.com.br;bruno.alves@bomcotar.com.br" />
+	<add key="destinatariosCotacao365" value="atendimento@multiseguroviagem.com.br" />
+	<add key="emailBruno" value="bruno.alves@bomcotar.com.br" />
+    <add key="emailRenata" value="renata.rocha@multiseguroviagem.com.br" />
+	<add key="whatsapp" value="551932010447" />
+	
+	<!-- Itau-->
+    <add key="CodigoEmpresaItau" value="J0435142780001900000037690" />
+    <add key="CodigoItau" value="EKTOE2021SKE0E21" />
+
+    <!-- RedeCard -->
+    <add key="FiliacaoRede" value="88028836" />
+    <add key="SenhaRede" value="04abc8c39713431caa56c459200b5f3d" />    
+    <add key="UriBase" value="https://multiseguroviagem.com.br" />
+    <add key="UriCotacao" value="/api/v1/cotacao/?" />
+    <add key="UriUsuario" value="/api/v1/Usuario?" />
+    <add key="UriCupom" value="/api/v1/cupomdesconto/?" />
+    <add key="UriDownloadFile" value="https://downloads.multiseguroviagem.com.br/downloads/" />
+	<add key="UrnBanner" value="//sistema.multiseguroviagem.com.br/downloads" />
+  </appSettings> 
+  <system.web>
+	
+    <compilation debug="false" targetFramework="4.5.2" />
+    <httpRuntime targetFramework="4.5.2" relaxedUrlToFileSystemMapping="true" maxQueryStringLength="2097100" maxUrlLength="12288" />
+    <authentication mode="Forms"></authentication>
+    <httpModules>
+      <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
+    </httpModules>
+    <globalization fileEncoding="utf-8" requestEncoding="utf-8" responseEncoding="utf-8" culture="pt-BR" uiCulture="pt-BR" />
+	 <customErrors mode="Off">
+            <error redirect="https://www.multiseguroviagem.com.br/Sobre/Afiliados" statusCode="404" />
+        </customErrors>
+	     
+  </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.3.0" newVersion="5.2.3.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-1.5.2.14234" newVersion="1.5.2.14234" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <connectionStrings>
+    <add name="MultiSeguro" connectionString="Server=10.100.18.114;port=3306;Database=multiSeguroViagem;Uid=multiseguro;Pwd=8y6raFEXWqqHta9c;Command Timeout=3600;Convert Zero Datetime=True" providerName="System.Data.SqlClient" />
+	<add name="MongoDB" connectionString="mongodb://MultiSeguroViagem:8y6raFEXWqqHta9c@10.100.17.238:27017/MultiSeguroViagem" />
+  </connectionStrings>
+  <system.codedom>
+    <compilers>
+      <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:6 /nowarn:1659;1699;1701" />
+      <compiler language="vb;vbs;visualbasic;vbscript" extension=".vb" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:14 /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+" />
+    </compilers>
+  </system.codedom>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" />
+    <modules>
+      <remove name="ApplicationInsightsWebTracking" />
+      <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+    </modules>
+    <handlers>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+      <remove name="OPTIONSVerbHandler" />
+      <remove name="TRACEVerbHandler" />
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+    </handlers>
+    <httpErrors errorMode="Custom">      
+      <remove statusCode="404" subStatusCode="-1" />
+      <error statusCode="404" subStatusCode="-1" path="/notfound" responseMode="ExecuteURL" />
+    </httpErrors>
+	<httpRedirect enabled="false" destination="https://www.multiseguroviagem.com.br$S$Q" childOnly="false" httpResponseStatus="Permanent" />
+	<caching enabled="true" enableKernelCache="true" />
+	<staticContent>
+			<clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="365.00:00:00" />
+		  <mimeMap fileExtension=".json" mimeType="application/json" />
+	</staticContent>
+	<security>
+      <requestFiltering allowDoubleEscaping="true">
+                <requestLimits maxAllowedContentLength="4294967295" maxUrl="4294967295" maxQueryString="4294967295">
+                    <headerLimits>
+                        <add header="Content-type" sizeLimit="4294967295" />
+                    </headerLimits>
+                </requestLimits>
+            </requestFiltering>
+    </security>
+        <rewrite>
+            <rewriteMaps>
+                <rewriteMap name="https://www.multiseguroviagem.com.br/Sobre/Afiliados" />
+            </rewriteMaps>
+            <rules>
+                <rule name="Redirecionar para https" stopProcessing="true">
+                    <match url="(.*)" />
+                    <conditions>
+                        <add input="{HTTPS}" pattern="^OFF$" />
+                    </conditions>
+                    <action type="Redirect" url="https://{HTTP_HOST}{REQUEST_URI}" appendQueryString="false" />
+                </rule>
+            </rules>
+        </rewrite>
+
+  </system.webServer>
+
+</configuration>
+<!--ProjectGuid: 4F3BD50F-2A45-4B98-8668-06F29D990BE5-->

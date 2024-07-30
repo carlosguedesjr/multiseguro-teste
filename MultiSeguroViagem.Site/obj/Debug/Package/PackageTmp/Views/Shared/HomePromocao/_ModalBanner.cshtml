@@ -1,0 +1,170 @@
+﻿<div class="modal fade" id="cotacaoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-signup">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="material-icons">clear</i>
+                    </button>
+                    <h2 class="h3 modal-title card-title text-center tituloModal-js"></h2>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="col-md-5 col-md-offset-1 hidden-xs">
+                        <div class="info info-horizontal">
+                            <div class="icon icon-info">
+                                <i class="material-icons">view_list</i>
+                            </div>
+                            <div class="description">
+                                <h4 class="info-title tituloTexto1-js"></h4>
+                                <p class="description descricaoTexto1-js">
+                                    Seguro Viagem: Cote, Compare e Decida Aqui. Melhor Condição do Mercado.Parcele em 6x s/Juros ou Com Desconto no Boleto. Adquira Seu Cupom de Desconto Aqui!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="info info-horizontal">
+                            <div class="icon icon-success">
+                                <i class="material-icons">credit_card</i>
+                            </div>
+                            <div class="description">
+                                <h4 class="info-title tituloTexto2-js"></h4>
+                                <p class="description descricaoTexto2-js">
+                                    Parcele sem juros no cartão ou com <b>5% de desconto no boleto</b>! O menor preço você encontra aqui.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5">
+                        <form id="frmCotacaoModal" action="@Url.Action("Cotacao", "Home")" method="post">
+
+                            <input type="hidden" id="Operadora" name="Operadora" />
+                            <input type="hidden" id="Origem" name="Origem" />
+                            <input type="hidden" id="Identificador" name="Identificador" />
+
+                            <div class="card-content">
+                                <div class="errorBannerModal">
+                                    <label class="control-label">
+                                        <span class="control-label" data-valmsg-for="DestinoBanner" data-valmsg-replace="true"></span>
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">public</i>
+                                    </span>
+                                    <div class="form-group select-button">
+                                        <select id="DestinoBanner" name="Destino" class="selectpicker" data-message-empty="Selecione um destino" data-style="form-control" data-val="true" data-val-required="Informe seu destino" tabindex="-98">
+                                            <option disabled="disabled" selected="selected" style="display: none;">Destino</option>
+                                            <option disabled="disabled" value="0">Selecione seu destino</option>
+                                            <option value="1">América do Norte</option>
+                                            <option value="2">África</option>
+                                            <option value="3">América Central</option>
+                                            <option value="4">América do Sul</option>
+                                            <option value="5">Ásia</option>
+                                            <option value="6">Brasil</option>
+                                            <option value="7">Europa</option>
+                                            <option value="8">Oceania</option>
+                                            <option value="9">Oriente Médio</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="errorBannerModal">
+                                    <label class="control-label margin-top-zero margin-0">
+                                        <span class="control-label" data-valmsg-for="DataIdaBanner" data-valmsg-replace="true"></span>
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">flight_takeoff</i>
+                                    </span>
+                                    <div class="form-group is-empty">
+                                        <input id="DataIdaBanner" name="DataIda" class="form-control datepicker datepickermobile dataida" autocomplete="off" data-message-empty="Selecione a data de ida" data-type-validation="data" placeholder="Data de ida" data-val="true" data-val-required="Informe a data de ida">
+                                        <span class="material-input"></span>
+                                    </div>
+                                </div>
+
+                                <div class="errorBannerModal">
+                                    <label class="control-label margin-top-zero margin-0">
+                                        <span class="control-label" data-valmsg-for="DataVoltaBanner" data-valmsg-replace="true"></span>
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons inv">flight_land</i>
+                                    </span>
+                                    <div class="form-group is-empty">
+                                        <input id="DataVoltaBanner" name="DataVolta" class="form-control datepicker datepickermobile datavolta" autocomplete="off" data-message-empty="Selecione a data de volta" data-type-validation="data" placeholder="Data de volta" data-val="true" data-val-required="Informe a data de volta">
+                                    </div>
+                                </div>
+
+                                <div class="errorBannerModal">
+                                    <label class="control-label margin-top-zero margin-0">
+                                        <span class="control-label" data-valmsg-for="EmailBanner" data-valmsg-replace="true"></span>
+                                    </label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                    <div class="form-group is-empty">
+                                        <input id="EmailBanner" name="Email" class="form-control" type="email" data-message-empty="Informe seu email" data-type-validation="email" placeholder="Informe seu email" data-val="true" data-val-email="Ee-mail inválido." data-val-required="Informe seu e-mail">
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" id="btnCotarModal" class="btn btn-primary btn-block margin-top-5-percent">Ver resultados</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script async defer>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('.modal-js').on('click', function (evt) {
+            $('.tituloModal-js').text($(evt.target).children('input[class="tituloModal-js"]').val());
+
+            $('.tituloTexto1-js').text($(evt.target).children('input[class="tituloModalBloco1-js"]').val());
+            $('.descricaoTexto1-js').text($(evt.target).children('input[class="descricaoModalBloco1-js"]').val());
+
+            $('.tituloTexto2-js').text($(evt.target).children('input[class="tituloModalBloco2-js"]').val());
+            $('.descricaoTexto2-js').text($(evt.target).children('input[class="descricaoModalBloco2-js"]').val());
+
+            $('#frmCotacaoModal #Operadora').val($(evt.target).children('input[class="filtroOperadora-js"]').val());
+
+            $('#frmCotacaoModal #Identificador').val($(evt.target).children('input[class="identificador-js"]').val());
+
+            var destino = $(evt.target).children('input[class="filtroDestino-js"]').val()
+                || $(evt.target).children('#DestinoBanner option:contains("' + $('#DestinoBanner option:eq(0)').text() + '")').val();
+
+            var idDestino = $('#DestinoBanner option:contains("' + destino + '")').attr('value');
+
+            $('#DestinoBanner').val(idDestino);
+            $("#DestinoBanner").selectpicker('refresh');
+
+            $('#cotacaoModal').modal('show');
+        });
+
+        $('#frmCotacaoModal').on('submit', function (e) {
+            if (!validaForm('#frmCotacaoModal'))
+                e.preventDefault();
+
+            $('#frmCotacaoModal #Origem').val(getLocalStorage('utmSource') || 'Indefinido');
+        });
+
+        var banner = obtemParametroUri('b');
+        if (banner) {
+            $('.modal-js:eq(' + (parseInt(banner) - 1).toString() + ')').trigger("click");
+        }
+    });
+</script>

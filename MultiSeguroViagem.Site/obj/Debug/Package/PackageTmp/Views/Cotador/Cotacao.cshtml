@@ -1,0 +1,369 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoCotadorModel 
+ @{
+     ViewBag.Title = "Cotador - Seguro Viagem | Multi Seguro Viagem";
+     ViewBag.MetaDescription = "Cote seu seguro viagem com até 10 operadoras! Destinos internacionais e nacionais em tempo real no maior comparador do Brasil";
+     ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, cotador seguro viagem, comparador seguro viagem";
+     ViewBag.OGURL = "https://multiseguroviagem.com.br/Cotador/Cotacao";
+     ViewBag.OGTitle = "Multi Seguro Viagem | Cotações de Seguro Viagem em Tempo Real";
+     ViewBag.OGSitename = "Multi Seguro Viagem";
+     ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+     string Navegador = Request.Browser.Browser;
+     string stylecomparador = "";
+     var jsonModel = ViewBag.planos;
+     if (ViewBag.planos != null) {
+         var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+         serializer.MaxJsonLength = 2147483644;
+
+         jsonModel = serializer.Serialize(ViewBag.planos);
+     }
+ }
+@if(Navegador.Equals("Safari")) {
+    stylecomparador = "style=background-color:navy !important;";
+}
+<div class="cotacao">
+    <div class="header-2">
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 landing-padding-card">
+                        <div class="card card-raised card-form-horizontal" id="in-card-card-raised-home">
+                            <div class="card-content" id="in-card-card-content-home">
+                                @using (Html.BeginForm("Cotacao", "Cotador", FormMethod.Post))
+                                {
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group label-floating has-error">
+                                                <label class="control-label"> @Html.ValidationMessageFor(x => x.Destino, null, new { Class = "control-label" }) </label>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="material-icons">public</i></span>
+                                                <div class="form-group select-button">
+                                                    @Html.DropDownListFor(x => x.Destino, new List
+                                                <SelectListItem> { new SelectListItem { Text = "Destino", Disabled = true, Selected = true }, new SelectListItem { Text = "Selecione seu destino", Disabled = true }, new SelectListItem { Text = "América do Norte", Value = "1" }, new SelectListItem { Text = "África", Value = "2" }, new SelectListItem { Text = "América Central", Value = "3" }, new SelectListItem { Text = "América do Sul", Value = "4" }, new SelectListItem { Text = "Ásia", Value = "5" }, new SelectListItem { Text = "Brasil", Value = "6" }, new SelectListItem { Text = "Europa", Value = "7" }, new SelectListItem { Text = "Oceania", Value = "8" }, new SelectListItem { Text = "Oriente Médio", Value = "9" } }, new { Class = "selectpicker", Data_Style = "form-control", Data_Message_Empty = "Selecione um destino" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group label-floating has-error">
+                                                <label class="control-label"> @Html.ValidationMessageFor(x => x.DataIda, null, new { Class = "control-label" }) </label>
+                                            </div>
+                                            <div class="input-group">
+                                                @if (!Navegador.Equals("Safari"))
+                                                { <span class="input-group-addon"><i class="material-icons">flight_takeoff</i></span> }
+                                                <div class="form-group is-empty">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    { @Html.TextBoxFor(cot => cot.DataIda, new { Class = "form-control datepicker", ReadOnly = "true", Placeholder = "Embarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de ida", Data_Type_Validation = "data" }) }
+                                                    else
+                                                    {
+                                                        <input mask-data-nascimento="true" autocomplete="off" class="datepicker form-control" data-message-empty="Selecione a data de ida" data-type-validation="data" placeholder="Embarque no Brasil" data-val="true" data-val-required="Informe a data de ida" id="DataIda" name="DataIda" type="text" style="border-bottom:solid 1px #D3D3D3 !important" value="@Model.DataIda"> }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group label-floating has-error">
+                                                <label class="control-label"> @Html.ValidationMessageFor(x => x.DataVolta, null, new { Class = "control-label" }) </label>
+                                            </div>
+                                            <div class="input-group">
+                                                @if (!Navegador.Equals("Safari"))
+                                                { <span class="input-group-addon"><i class="material-icons inv">flight_land</i></span> }
+                                                <div class="form-group is-empty">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    { @Html.TextBoxFor(cot => cot.DataVolta, new { Class = "form-control datepicker", ReadOnly = "true", Placeholder = "Desembarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de volta", Data_Type_Validation = "data" }) }
+                                                    else
+                                                    {
+                                                        <input mask-data-nascimento="true" autocomplete="off" class="datepicker form-control" data-message-empty="Selecione a data de Volta" data-type-validation="data" placeholder="Desembarque no Brasil" data-val="true" data-val-required="Informe a data de ida" id="DataVolta" name="DataVolta" type="text" style="border-bottom:solid 1px #D3D3D3 !important" value="@Model.DataVolta"> }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn btn-primary btn-block">Buscar planos</button>
+                                        </div>
+                                    </div>
+                                    <div class="has-error">
+                                        <label class="control-label"> @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessage("CotacaoInvalida").ToString())) </label>
+                                    </div> }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="resumo-cotacao container hidden-xs hidden-sm" style="margin-top:15px; padding-top:0px !important;">
+                    <div class="col-md-3">
+                        <p><i class="material-icons">today</i><span>Total de </span><span id="spTotalDiasLegenda"></span><span> dias</span></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><i class="material-icons">public</i><span id="spDestinoLegenda"></span></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><i class="material-icons">flight_takeoff</i><span>Embarque em </span><span id="spEmbarqueLegenda"></span></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><i class="material-icons inv">flight_land</i><span>Desembarque em </span><span id="spDesembarqueLegenda"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised alturaListaPlanos" id="produtos">
+        <div class="container">
+            @if (ViewData.ModelState.IsValid && Model != null)
+            {
+                <div class="container text-center col-md-11 col-md-offset-1 bread">
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo"><span>1.</span> Escolha um plano abaixo</h5>
+                        <p class="icone-carrinho">Compare preços e coberturas</p>
+                    </div>
+                    <div class="col-md-1"><i class="material-icons margin-top-dez inativo">keyboard_arrow_right</i></div>
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo inativo"><span>2.</span> Adicione os viajantes</h5>
+                        <p class="icone-carrinho inativo">Inclua quem irá viajar</p>
+                    </div>
+                    <div class="col-md-1"><i class="material-icons margin-top-dez inativo">keyboard_arrow_right</i></div>
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo inativo"><span>3.</span> Finalize a compra</h5>
+                        <p class="icone-carrinho inativo">Em até 6x sem juros</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel-group hidden-md hidden-lg" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><h4 class="panel-title"> Filtros <i class="material-icons">keyboard_arrow_down</i></h4></a></div>
+                            <div id="collapseTwo" class="panel-collapse collapse container" role="tabpanel">
+                                <select class="btn dropdown-toggle filtroJS">
+                                    <option value="Seguradora">Seguradoras</option> @foreach (var operadora in Model.Planos.Select(x => x.Operadora.Nome).Distinct())
+                                    {
+                                        <option value="@operadora">@operadora</option> }
+                                </select>
+                                <select class="btn dropdown-toggle filtroJS">
+                                    <option value="TipoViagem">Tipo de viagem</option>
+                                    <option value="Prática de Esporte">Prática de Esporte</option>
+                                    <option value="Gestante">Gestante</option>
+                                    <option value="Estudante">Estudante</option>
+                                </select>
+                                <select class="btn dropdown-toggle filtroJS filtro-direita">
+                                    <option value="MaisVendido">Mais vendidos</option>
+                                    <option value="Crescente">Menor preço</option>
+                                    <option value="Decrescente">Maior preço</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-xs hidden-sm">
+                        <div class="col-md-2">
+                            <select id="filtroOperadora" class="selectpicker filtroJS">
+                                <option value="Seguradora">Seguradoras</option> @foreach (var operadora in Model.Planos.Select(x => x.Operadora.Nome).Distinct())
+                                {
+                                    if (operadora == "Travel Ace")
+                                    {
+                                        <option value="@operadora">Universal Assistance</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@operadora">@operadora</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="selectpicker filtroJS">
+                                <option value="TipoViagem">Tipo de viagem</option>
+                                <option value="Prática de Esporte">Prática de Esporte</option>
+                                <option value="Gestante">Gestante</option>
+                                <option value="Estudante">Estudante</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 filtro-direita">
+                            <select class="selectpicker filtroJS">
+                                <option value="MaisVendido">Mais vendidos</option>
+                                <option value="Crescente">Menor preço</option>
+                                <option value="Decrescente">Maior preço</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> @Html.Partial("Cotador/_ListaPlanos", Model) }
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="footerfixed" @stylecomparador class="hidden">
+        <div class="col-md-8">
+            <h5 class="footer-block msgComparar"></h5>
+        </div>
+        <div class="col-md-4"><a class="btn btn-info pull-right btn-comparar comparar">Comparar</a></div>
+    </div>
+</div>
+<div class="modal fade" id="coberturasModal" tabindex="-1" role="dialog" aria-labelledby="coberturasLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="modalCobertura"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-simple" data-dismiss="modal"><i class="material-icons">close</i> Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe src="https://afiliace.go2cloud.org/aff_l?offer_id=48" scrolling="no" frameborder="0" width="1" height="1"></iframe><img src="https://afiliace.go2cloud.org/aff_l?offer_id=48" width="1" height="1" />
+<link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" /> 
+
+@section Scripts { 
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/www/js/vendor/sweetalert2.min.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+        <script src="/www/js/vendor/jquery.mask.min.js"></script>
+        <script src="/www/js/modulos/cotacao.js"></script>
+        <script src="/www/js/modulos/customListaPlanoReal.js"></script>
+        <script src="/www/js/modulos/datePicker.js"></script> 
+    }
+    else
+    {
+        <script src="https://cdn.multiseguroviagem.com.br/js/bundleVendorCotador.js"></script>
+        <script src="/www/bundles/bundleCotador.js"></script>
+        <script src="/www/js/modulos/cotacao.js"></script>
+        <script async defer src="/www/js/modulos/afiliaceTrackerOffer.js"></script>
+        <script src="/www/js/modulos/customListaPlanoReal.js"></script>
+    }
+    <script async>
+    $('body').on('change', '.compararPlano', function() {
+        var inputs = $('input:checked');
+        var qtd = inputs.length;
+        if (qtd === 1) {
+            $('#footerfixed').removeClass('hidden').removeClass('slideUpReverse').addClass('slideUp');
+            $('.msgComparar').text('Selecione pelo menos mais um plano para comparar');
+        } else if (qtd >= 1 && qtd <= 4) {
+            var nomePlanos = $.map(inputs, function(obj, idx) {
+                return $(obj).attr("plano");
+            }).join(', ');
+            $('.msgComparar').html('Planos <b>' + nomePlanos + '</b> selecionados para comparação');
+        } else if (qtd > 4) {
+            swal('Oops!', 'Você já selecionou 4 planos', 'warning');
+            $(this).prop('checked', false);
+        } else {
+            $('#footerfixed').removeClass('slideUp').addClass('slideUpReverse');
+        }
+    });
+    $('body').on('click', '.comparar', function() {
+        if (window.sessionStorage.getItem('cpaff')) {
+            var aff = obtemParametroUri('Cpaff');
+        }
+        var inputs = $('input:checked');
+        if (inputs.length >= 1 && inputs.length <= 4) {
+            var destino = $('#Destino').val();
+            var dataIda = $('#DataIda').val().split('/').reverse().join('-');
+            var dataVolta = $('#DataVolta').val().split('/').reverse().join('-');
+            var nome = obtemParametroUri('Nome');
+            var planosId = $.map($('input:checked'), function(obj, idx) {
+                return obj.value;
+            }).join(',');
+            if (aff != null) {
+                var urn = '@Url.Action("Comparador", "Cotador")' + '/' + destino + '/' + dataIda + '/' + dataVolta + '?itens=' + planosId + '&Nome=' + nome + '&Cpaff=' + aff;
+                window.location = urn;
+            } else {
+                var urn = '@Url.Action("Comparador", "Cotador")' + '/' + destino + '/' + dataIda + '/' + dataVolta + '?itens=' + planosId + '&Nome=' + nome;
+                window.location = urn;
+            }
+        } else {
+            swal('Oops!', 'Selecione de 2 até 4 planos', 'warning');
+        }
+    });
+    var emailVendedor = obtemParametroUri('EmailVendedor');
+    if (emailVendedor != null) setSession('emailVendedor', emailVendedor);
+    var emailCliente = obtemParametroUri('Email');
+    if (emailCliente != null) setSession('email', emailCliente);
+    $(function() {
+        enviaTagOneSignal(window.OneSignal, {
+            "pgCotador": "true"
+        });
+    });
+</script>
+<script>
+    setaUtmSource();
+    setaCupomAfiliado();
+    $(document).ready(function () {
+
+        gtag('event', 'conversion', {
+            'send_to': 'AW-856332561/m8lOCPeTzZoBEJGyqpgD'
+        });
+    });
+    if (window.sessionStorage.getItem('cpaff')) {
+        $('#Cpaff').val(window.sessionStorage.getItem('cpaff'));
+    }
+    $(function() {
+        var operadora = obtemParametroUri('Operadora');
+        if (operadora) {
+            $('#filtroOperadora').val(operadora);
+            $('.selectpicker').selectpicker('refresh');
+            filtraPlanos('@Url.Action("_ListaPlanos", "Cotador")', "Seguradora", operadora);
+        }
+    });
+    $("body").addClass("gradiente-cotacao");
+    (function legendas() {
+        var dataIda = $('#DataIda').val();
+        var dataVolta = $('#DataVolta').val();
+        $('#spDestinoLegenda').text($('#Destino option:selected').text());
+        $('#spEmbarqueLegenda').text(dataIda);
+        $('#spDesembarqueLegenda').text(dataVolta);
+        if (isNaN(dataIda) && isNaN(dataVolta)) $('#spTotalDiasLegenda').text(calculaDias(dataIda, dataVolta));
+    })();
+    datepickerSetup();
+    $(function() {
+        datepickerSetaMinMaxDate("#DataIda", "#DataVolta");
+    });
+    setSession('cotacao', @Html.Raw(jsonModel));
+    executaFiltros('@Url.Action("_ListaPlanos", "Cotador")');
+    $('body').on('click', '.btnCoberturas', function(obj) {
+        var idPlano = obj.target.value;
+        var model = getParseSession('cotacao');
+        var filtro = $.grep(model.Planos, function(e) {
+            return e.IdPlano == idPlano;
+        });
+        var jsonString = JSON.stringify(filtro[0].Coberturas);
+        var nome = filtro[0].Operadora.Nome + " - " + filtro[0].Nome;
+        var url = downloadCoberturas(filtro[0], '@System.Configuration.ConfigurationManager.AppSettings["UriDownloadFile"]', '@Url.Action("Index", "Pdf")?uri=');
+        $('#coberturasModal').data('modal', null);
+        $('#modalCobertura').html('');
+        $.ajax({
+            url: '@Url.Action("_CoberturasModal", "Cotador")',
+            data: {
+                json: jsonString,
+                nome: nome,
+                urlDownload: url
+            },
+            method: "get",
+            success: function(data) {
+                $('#modalCobertura').html(data);
+                $('#coberturasModal').modal();
+            }
+        });
+    });
+    $('body').on('click', '.btn-comprar', function(obj) {
+        var estudante = $(obj.target).parent().parent().find("#hdnEstudante").val();
+        if (estudante == 'True') {
+            swal({
+                title: 'Plano Estudante',
+                type: 'info',
+                html: 'Este plano destina-se a viagens cujo o motivo seja <b>estudar no exterior</b>. Poderá ser requerido portanto, um comprovante de matricula!',
+                cancelButtonText: 'Não sou estudante',
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: 'Sou estudante!',
+                confirmButtonColor: '#40B975'
+            }).then(function(result) {
+                if (result) {
+                    var idPlano = $(obj.target).closest("button").val();
+                    var uriViajantes = '@Url.Action("Viajantes", "Viajante")' + '/' + idPlano;
+                    window.location.href = uriViajantes;
+                }
+            });
+        } else {
+            var idPlano = $(obj.target).closest("button").val();
+            var uriViajantes = '@Url.Action("Viajantes", "Viajante")' + '/' + idPlano;
+            window.location.href = uriViajantes;
+        }
+    });
+    var origem = obtemParametroUri('Origem');
+    if (origem != null) setLocalStorage('utmSource', origem);
+    if (document.referrer.indexOf(document.location.host) < 0) {
+        conversaoRDStation("Cotador");
+    }
+</script> }

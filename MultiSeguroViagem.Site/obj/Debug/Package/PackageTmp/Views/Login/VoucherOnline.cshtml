@@ -1,0 +1,142 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Login.LoginCadastroModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Multi Seguro Viagem | Entrar</title>
+    <meta name="description" content="Entre em sua conta para acompanhar seus pedidos, vouchers e consultar seus dados">
+    <meta name="keywords" content="seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional">
+    <link rel="canonical" href="https://www.multiseguroviagem.com.br/voucher-online" />
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://multiseguroviagem.com.br/login">
+    <meta property="og:title" content="Entrar">
+    <meta property="og:site_name" content="Multi Seguro Viagem">
+    <meta property="og:description" content="Entre em sua conta para acompanhar seus pedidos, vouchers e consultar seus dados">
+    <meta property="og:image" content="https://multiseguroviagem.com.br/www/img/multiseguroviagem.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <meta property="og:type" content="website">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="76x76" href="/www/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/www/img/favicon.png">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link href="/www/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+    <link href="/www/css/material-kit.css?v=1.1.0" rel="stylesheet" />
+    <link href="/www/css/custom.css" rel="stylesheet" />
+</head>
+
+<body class="login-page">
+    <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a href="@Url.Action("Index", "Home")">
+
+                    <div class="logo">
+                        <img src="/www/img/logomulti.png" alt="MultiSeguro Viagem">
+                    </div>
+
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header header-filter gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="rotating-card-container manual-flip col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 login-card">
+                    <div class="card card-rotate card-signup">
+                        <div class="front">
+                           @using (Html.BeginForm("DetalhesVoucherOnline", "Login", FormMethod.Post, new { Id = "frmDetalhesVoucherOnline" }))
+                           {
+                            <div class="header header-info text-center">
+                                <h4 class="card-title">Pesquisar Voucher</h4>
+                                @if (Session["bitEncontrado"] != null)
+                                {
+                                <span style="color:red">Registro Não Encontrado, por favor verifique se o cpf corresponde ao pedido especificado</span>
+                                }
+                            </div>
+                                <div class="card-content text-left" style="padding: 0 20px 0 20px;">
+                                    <div class="form-group valid">
+                                        <label class="control-label">
+                                            CPF
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">description</i>
+                                            </span>
+                                            <input required type="text" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );" id="CPF" name="CPF" class="form-control" data-message-empty="Informe o CPF" valida="campoVazio cpf viajanteDuplicado" mask-cpf="true"
+                                                   maxlength="14" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group valid">
+                                        <label class="control-label">
+                                           Id do Pedido
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">
+                                                    flight
+                                                </i>
+                                            </span>
+                                            <input required type="text" placeholder="Id Pedido"  class="form-control"  id="IdPedido" name="IdPedido" />
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-wd btn-lg btn-block">Procurar</button>
+                                </div>
+                           }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                               
+</body>
+
+
+
+</html>
+<script src="/www/js/vendor/jquery.min.js"></script>
+<script src="/www/js/vendor/bootstrap.min.js"></script>
+<script src="/www/js/vendor/material.min.js"></script>
+<script src="/www/js/vendor/material-kit.js?v=1.1.0"></script>
+<script src="/www/js/vendor/sweetalert2.min.js"></script>
+
+<script src="/www/js/modulos/validacoes.js"></script>
+<script src="/www/js/vendor/jquery.mask.min.js"></script>
+<script src="/www/js/custom-validations.js"></script>
+
+<script>
+			function fMasc(objeto,mascara) 
+            {
+				obj=objeto;
+				masc=mascara;
+				setTimeout("fMascEx()",1);
+			};
+
+			function fMascEx() 
+            {
+				obj.value=masc(obj.value);
+			};
+
+			function mCPF(cpf)
+            {
+				cpf=cpf.replace(/\D/g,"");
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2");
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2");
+				cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
+				return cpf;
+			};
+</script>

@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Esse arquivo é usado pelo processo de publicação/pacote do seu projeto Web. É possível personalizar o comportamento deste processo
+ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Publish\MultiSeguroViagem.Site</_PublishTargetUrl>
+    <History>True|2023-06-27T20:46:50.8673665Z;True|2023-06-27T15:58:46.2674004-03:00;True|2023-05-19T12:55:56.6141225-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/DotNetZip.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/eRede.NetStandard.dll">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/eRede.NetStandard.pdb">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/Itaucripto-NET.dll">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/Itaucripto-NET.pdb">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.RegistrationByConvention.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Bson.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Driver.Core.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Driver.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Application.dll">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Application.pdb">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Common.dll">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Common.pdb">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Domain.dll">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Domain.pdb">
+      <publishTime>06/27/2023 17:46:39</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Infra.dll">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Infra.dll.config">
+      <publishTime>06/27/2023 14:04:01</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Infra.pdb">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.IoC.dll">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.IoC.pdb">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Service.dll">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Service.dll.config">
+      <publishTime>06/27/2023 14:04:01</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Service.pdb">
+      <publishTime>06/27/2023 17:46:40</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Site.dll">
+      <publishTime>06/27/2023 17:46:42</publishTime>
+    </File>
+    <File Include="bin/MultiSeguroViagem.Site.pdb">
+      <publishTime>06/27/2023 17:46:42</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/NotFoundMvc.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="bin/Unity.Mvc5.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>06/27/2023 14:04:04</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>06/27/2023 14:04:01</publishTime>
+    </File>
+    <File Include="OneSignalSDKUpdaterWorker.js">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="OneSignalSDKWorker.js">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="robots.txt">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="sitemap-index.xml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="sitemap.xml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="sitemapamp.xml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Cotador/Comparador.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Cotador/ComparadorEmailHtml.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Cotador/Cotacao.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Cotador/Cotacao365.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Cotador/CotacaoInvalida.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Email/_Agradecimento.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Email/_EsqueciMinhaSenha.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Home/IndexAmp.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Home/NoScript.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Login/Conta.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Login/DetalhesVoucherOnline.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Login/Index.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Login/MaisDetalhes.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Login/VoucherOnline.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Oferta/Destino.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Oferta/Operadora.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Oferta/PassagensAereas.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Oferta/Plano.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Oferta/Promocoes.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/Affinity.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/AprilCoris.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/AssistCard.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/AssistMed.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/FlyCard.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/GTA.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/Index.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/Intermac.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/UniversalAssistance.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Operadoras/VitalCard.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Pagamento/Avulso.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Pagamento/AvulsoSistema.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Pagamento/Comprovante.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Pagamento/Index.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Pagamento/Voucher.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Pagamento/VoucherAvulso.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/PDF/Index.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/Index.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/SeguroViagemCovid19.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/SeguroViagemEspanhol.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/SeguroViagemEuropa.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/SeguroViagemIngles.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/SeguroViagemIntercambio.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/SeguroViagemInternacional.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/SeguroViagem/SeguroViagemPortugues.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/Cotador/_CotadorPorDestinoLateral.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/Cotador/_ListaPlanos.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/HomePromocao/_ModalBanner.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/HomePromocao/_ModalBannerSeguro.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/HomePromocao/_Operadora.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/NotFound.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/_CoberturasModal.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutPagamento.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/Afiliados.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/Coberturas.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/ComoComprar.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/Contato.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/Depoimentos.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/Destinos.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/Faq.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/OQueESeguroViagem.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/PoliticaDePrivacidade.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/Sobre.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Sobre/TratadodeSchengen.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/Viajante/Viajantes.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/27/2023 17:46:49</publishTime>
+    </File>
+    <File Include="www/css/card.css">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="www/css/custom.css">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="www/css/material-kit.css">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="www/css/material-kit.min.css">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="www/css/pagamento.css">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="www/css/seo.css">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="www/css/vendor/bootstrap.min.css">
+      <publishTime>06/27/2023 14:04:02</publishTime>
+    </File>
+    <File Include="www/css/vendor/sweetalert2.min.css">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/files/TermoUso.pdf">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/afiliace.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/afiliace.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/apple-icon.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/arrow-left.cur">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/arrow-left.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/arrow-right.cur">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/arrow-right.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/aviao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/barco.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/barco2.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/bolsa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/bussola.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/card-america.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/card-europa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/card-na.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/carnaval.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/cartoes/Diners-logo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/cartoes/Hipercard-logo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/cartoes/JCB-logo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/cartoes/Mastercard-logo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/cartoes/Visa-logo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/certificado-1.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/certificado-2.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/certificado-pag.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/certificados.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/como-cotar-1.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/como-cotar-2.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/como-cotar-3.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/como-cotar-4.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/comodo-seal.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/conta.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/adriana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/ana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/artur.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/elisa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/etiene.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/fabianakenny.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/fernanda.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/Gabriel.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/tatiana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/depoimentos/valeria.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/Asia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/Bahamas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/Bariloche.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/coreioDoSul.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/emiradosArabes.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/estadosUnidos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/Japao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/NovaIorque.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/Oceania.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/destinos/orienteMedio.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/dg10.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/dg6.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/dg9.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/eiffel.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/aprovado.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/enviado.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/footer.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/hero1.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/hero2.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/logo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/mail.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/menu_01.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/menu_02.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/menu_03.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/menu_04.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/menu_05.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/recebido.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/social_01.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/social_02.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/email/social_03.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/faces/multiseguro-depoimento-1.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/faces/multiseguro-depoimento-2.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/faces/multiseguro-depoimento-3.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/favicon.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/flycard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/goldengate.jpeg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/goldengate.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/google-certificado.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/hotel.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/liberty.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/logomulti.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/mala.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/mapa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/moais.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multi1.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multi2.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multifeliz.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multiseguroviagem-afiliado.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multiseguroviagem-coberturas.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multiseguroviagem-faq.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multiseguroviagem-oque.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/multiseguroviagem.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/natal.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/acores.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/acrotiriedeceleia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/afeganistao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/africadosul.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/albania.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/alemanha.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/andorra.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/angola.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/anguila.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/antartida.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/antiguaebarbuda.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/antilhasholandesas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/arabiasaudita.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/argelia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/argentina.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/armenia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/aruba.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/asia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/australia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/austria.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/azerbaijao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bahamas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bahrein.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bangladesh.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/barbados.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/barem.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bariloche.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/belgica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/belize.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/benim.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bermudas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bielorrussia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bolivia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bosniaeherzegovina.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/botsuana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/brasil.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/brunei.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/bulgaria.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/burquinafaso.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/burundi.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/butao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/caboverde.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/camaroes.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/camboja.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/canada.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/catar.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/cazaquistao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/chade.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/chile.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/china.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/chipre.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/colombia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/comores.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/coreiadonorte.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/coreiadosul.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/costadomarfim.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/costarica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/croacia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/cuba.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/curacao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/dinamarca.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/djibuti.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/dominica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/egito.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/elsalvador.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/emiradosarabesunidos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/equador.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/eritreia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/escocia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/eslovaquia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/eslovenia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/espanha.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/estadosunidos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/estonia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/etiopia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/faroe.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/fiji.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/filipinas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/finlandia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/franca.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/gabao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/gambia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/gana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/georgia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/georgiadosulesandwichdosul.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/gibraltar.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/granada.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/grecia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/groelandia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guadalupe.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guam.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guatemala.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guernsey.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guiana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guianafrancesa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guinaequatorial.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guine.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/guinebissau.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/haiti.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/holanda.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/honduras.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/hongkong.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/hungria.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/iemen.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhadamadeira.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhademan.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhadenavassa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhadonatal.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhajanmayen.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhanorfolk.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasashmoreecartier.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhascanarias.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhascayman.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhascocos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhascook.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasdomardecoral.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasfalkland.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasfiji.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasheardemcdonald.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasmalvinas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasmarshall.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasparacel.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhaspitcairn.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhassalomão.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasspratly.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasturcasecaicos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasvirgensamericanas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhasvirgensbritânicas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ilhawake.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/india.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/indonesia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/inglaterra.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ira.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/iraque.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/irlanda.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/irlandadonorte.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/islandia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/israel.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/italia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/jamaica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/japao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/jersey.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/jordania.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/kosovo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/kuwait.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/laos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/lesoto.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/letonia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/libano.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/liberia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/libia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/liechtenstein.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/lituania.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/luxemburgo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/macau.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/macedonia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/Madagascar.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/malasia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/malawi.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/maldivas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/mali.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/malta.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/marianasdonorte.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/marrocos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/martinica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/mauricio.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/mauritania.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/mayotte.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/mexico.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/micronesia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/mocambique.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/moldavia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/monaco.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/mongolia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/montenegro.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/montserrat.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/myanmar.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/namibia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/nauru.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/nepal.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/nicaragua.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/niger.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/nigeria.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/niue.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/noruega.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/novacaledonia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/novazelandia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/oma.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/paisdegales.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/paisesbaixos.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/palau.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/palestina.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/panama.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/papua-novaguine.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/paquistao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/paraguai.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/peru.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/polinesiafrancesa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/polonia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/portorico.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/portugal.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/quenia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/quirguizistão.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/quiribati.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/reinounido.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/republicacentroafricana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/republicacheca.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/republicademocráticadocongo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/republicadocongo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/republicadominicana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/romenia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ruanda.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/russia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/saaraocidental.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/samoa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/samoaamericana.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/santahelena.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/santalucia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/saocristovaoeneves.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/saomarinho.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/saopedroemiquelon.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/saotomeeprincipe.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/saovicenteegranadinas.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/senegal.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/serraleoa.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/servia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/seychelles.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/singapura.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/siria.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/somalia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/srilanka.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/suazilandia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/sudao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/sudaodosul.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/suecia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/suica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/suriname.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/tailandia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/taiwan.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/tajiquistao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/tanzania.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/territoriobritanicodooceanoindico.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/timorleste.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/togo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/tokelau.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/tonga.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/trinindadeetobago.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/tunisia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/turquemenistao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/turquia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/tuvalu.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/ucrania.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/uganda.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/uruguai.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/uzbequistao.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/vanuatu.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/vaticano.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/venezuela.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/vietna.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/wallisefutuna.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/zambia.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/destino/zimbabue.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/affinity.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/april.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/assistcard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/assistmed.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/flycard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/gta.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/intermac.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/travelace.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/operadora/vitalcard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/ofertas/plano/generico.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/oglobo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraAffinity.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraApril.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraAssistCard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraAssistMed.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraFlyCard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraGTA.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraIntermac.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraMapfre.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraRealSeguro.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/flycard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/affinity.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/april.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/assistcard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/assistmed.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/flycard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/gta.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/Intermac.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/travelace.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/hq/vitalcard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraAffinity.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraApril.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraAssistCard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraAssistMed.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraFlyCard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraGTA.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraIntermac.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraMapfre.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraTravelAce.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/operadoraVital.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/placeholder.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoras/sulamerica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraTravelAce.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/operadoraVitalCard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/pag/meupedido.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/placeholder.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/PromoAssist.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/PromoIntermac.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/PromoTravel.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/search.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seguro.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_air_support_wy1q.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_camping_j8s0.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_chatting_2yvo.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_choose_80qg.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_co-workers_ujs6.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_Container_ship_urt4.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_departing_lsgy.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_destanation1_h3vq.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_ethereum_fb7n.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_relaxation_1_wbr7.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/seo/undraw_romantic_getaway_k2mf.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/sobre.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/socios.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/sulamerica.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/img/viagem-promocoes.jpg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/cardCredit.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/configInputDate.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/custom-validations.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/afiliaceTrackerOffer.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/carrinho/carrinho.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/common.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/cotacao.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/customListaPlanoReal.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/datePicker.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/intencao/intencao.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/intencao/intencaoCompra.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/oneSignal.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/pagamento.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/pagamentoAvulso.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/validacoes.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/viajante/adicionaViajante.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/modulos/viajante/viajante.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/moment.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/rdstation.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/atv-img-animation.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/bootstrap-datetimepicker.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/bootstrap-select/bootstrap-select.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/bootstrap-select/defaults-pt_BR.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/bootstrap-select/defaults-pt_BR.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/bootstrap-selectpicker.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/bootstrap-tagsinput.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/bootstrap.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/custom-masks.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/date-input-polyfill.dist.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/jasny-bootstrap.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/jquery.bxslider.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/jquery.flexisel.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/jquery.mask.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/jquery.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/jquery.unobtrusive-ajax.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/lazyload.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/main.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/material-kit.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/material-kit.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/material.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/moment-with-locales.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/moment.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/mysw.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/nouislider.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/scrollreveal.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/subscriber.php">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/sweetalert2.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/webfont.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/js/vendor/webfontloader.min.js">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/11.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/12.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/13.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/14.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/15.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/16.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/17.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/21.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/22.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/23.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/24.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/25.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/26.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/27.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/28.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/29.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/31.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/32.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/33.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/35.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/41.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/42.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/43.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/50.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/51.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/52.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/Cidades/53.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/estados.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/json/manifest.json">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/artur.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/etiene.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/fernanda.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/flycard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/Gabriel.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraAffinity.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraApril.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraAssistCard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraAssistMed.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraFlyCard.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraGTA.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraIntermac.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraTravelAce.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/operadoraVital.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/home/valeria.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/layout/certificado-1.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/layout/comodo-seal.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/layout/google-certificado.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/layout/operadoras.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/spriteHome.css">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/spriteHome.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/spriteHome2.css">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/spriteHome2.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/spriteLayout.css">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/sprites/spriteLayout.png">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/svg/sea-ship-icon.svg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+    <File Include="www/svg/whatsapp.svg">
+      <publishTime>06/27/2023 14:04:03</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

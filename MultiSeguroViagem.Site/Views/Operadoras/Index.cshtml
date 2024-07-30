@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Operadoras de Seguro Viagem | Multi Seguro Viagem";
+    ViewBag.MetaDescription = "Conheça as coberturas, destinos e preços das principais operadoras de assistência e seguro viagem do mercado.";
+    ViewBag.MetaKeywords = "seguro viagem, coberturas seguro viagem, operadoras seguro viagem, seguro de viagem";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br/sobre/coberturas";
+    ViewBag.OGTitle = "Operadoras de Seguro Viagem | Multi Seguro Viagem";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+}
+<div class="informacoes">
+    <div class="page-header header-small gradiente" data-parallax="true">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Operadoras de Seguro Viagem</h1>
+                    <h2 class="title sub-titulo" id="in-titulo-home">As maiores operadoras de assistência e seguro viagem estão aqui!</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+            <div class="about-description text-center col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h5 class="descricao-sobrenos">Conheça as coberturas, destinos e preços das principais operadoras de assistência e seguro viagem do mercado.</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="info">
+                        <div class="icon">
+                            <i class="material-icons gradienteicones">local_hospital</i>
+                        </div>
+                        <h4>Assistência Médica</h4>
+                        <p>O segurado receberá atendimento médico local, pela rede de atendimento autorizada. Mas caso não seja possível, o segurado receberá um reembolso pelas despesas médicas e hospitalares, conforme Condições Gerais do seguro contratado.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info">
+                        <div class="icon">
+                            <i class="material-icons gradienteicones">local_pharmacy</i>
+                        </div>
+                        <h4>Assistência Farmacêutica</h4>
+                        <p>O segurado receberá reembolso de despesas com medicamentos, desde que prescritos por orientação médica e durante o período de viagem, conforme Condições Gerais do seguro contratado.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info">
+                        <div class="icon">
+                            <i class="material-icons gradienteicones">undo</i>
+                        </div>
+                        <h4>Assistência Médica Para Pré-Existência</h4>
+                        <p>Atendimento para crises decorrentes de doença preexistente ou crônica, em caso de emergência ou urgência, é um item essencial para alguns viajantes. As normas estão no item Condições Gerais do seguro contratado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts
+{
+    <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+    <script src="/www/js/vendor/scrollreveal.min.js"></script>
+    <script>
+        // Scroll Reveal
+        window.sr = ScrollReveal({ mobile: false });
+        sr.reveal('.info');
+    </script>
+}

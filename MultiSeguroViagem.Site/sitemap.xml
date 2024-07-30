@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/Coberturas</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/Depoimentos</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/depoimentos/elisa.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/depoimentos/gabriel.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/depoimentos/tatiana.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/depoimentos/ana.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/depoimentos/valeria.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+   <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/Destinos</loc>
+    <lastmod>2017-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+   </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/Contato</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/Faq</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Login</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>MultiSeguro Viagem</image:title>
+      <image:caption>MultiSeguro Viagem</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/OQueESeguroViagem</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/aviao.png</image:loc>
+      <image:title>O que é Seguro Viagem? - Avião</image:title>
+      <image:caption>O que é Seguro Viagem? - Avião</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/bussola.png</image:loc>
+      <image:title>O que é Seguro Viagem? - Bússola</image:title>
+      <image:caption>O que é Seguro Viagem? - Bússola</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/barco.png</image:loc>
+      <image:title>O que é Seguro Viagem? - Barco</image:title>
+      <image:caption>O que é Seguro Viagem? - Barco</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/mala.png</image:loc>
+      <image:title>O que é Seguro Viagem? - Mala</image:title>
+      <image:caption>O que é Seguro Viagem? - Mala</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/barco2.png</image:loc>
+      <image:title>O que é Seguro Viagem? - Barquinho</image:title>
+      <image:caption>O que é Seguro Viagem? - Barquinho</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/seguro.png</image:loc>
+      <image:title>O que é Seguro Viagem? - Seguro</image:title>
+      <image:caption>O que é Seguro Viagem? - Seguro</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/PoliticaDePrivacidade</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/AprilCoris</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/hq/april.png</image:loc>
+      <image:title>Logo do Seguro Viagem April Coris - Multi Seguro Viagem</image:title>
+      <image:caption>Logo do Seguro Viagem April Coris - Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/AssistCard</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/hq/assistcard.png</image:loc>
+      <image:title>Logo do Seguro Viagem Assist Card - Multi Seguro Viagem</image:title>
+      <image:caption>Logo do Seguro Viagem Assist Card - Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/AssistMed</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/hq/assistmed.png</image:loc>
+      <image:title>Logo do Seguro Viagem Assist-Med - Multi Seguro Viagem</image:title>
+      <image:caption>Logo do Seguro Viagem Assist-Med - Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/FlyCard</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/hq/flycard.png</image:loc>
+      <image:title>Logo do Seguro Viagem Flycard - Multi Seguro Viagem</image:title>
+      <image:caption>Logo do Seguro Viagem Flycard - Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/GTA</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/hq/gta.png</image:loc>
+      <image:title>Logo do Seguro Viagem GTA - Multi Seguro Viagem</image:title>
+      <image:caption>Logo do Seguro Viagem GTA - Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/Intermac</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/hq/intermac.png</image:loc>
+      <image:title>Logo do Seguro Viagem Intermac Assistance - Multi Seguro Viagem</image:title>
+      <image:caption>Logo do Seguro Viagem Intermac Assistance - Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/VitalCard</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Operadoras/UniversalAssistance</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/hq/travelace.png</image:loc>
+      <image:title>Logo do Seguro Viagem Universal Assistance - Multi Seguro Viagem</image:title>
+      <image:caption>Logo do Seguro Viagem Universal Assistance - Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/operadoraApril.png</image:loc>
+      <image:title>April Coris - Seguro Viagem</image:title>
+      <image:caption>April Coris - Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/operadoraAssistCard.png</image:loc>
+      <image:title>Assist Card - Seguro Viagem</image:title>
+      <image:caption>Assist Card - Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/operadoraAssistMed.png</image:loc>
+      <image:title>Assist Med - Seguro Viagem</image:title>
+      <image:caption>Assist Med - Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/operadoraGTA.png</image:loc>
+      <image:title>GTA - Seguro Viagem</image:title>
+      <image:caption>GTA - Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/depoimentos/artur.png</image:loc>
+      <image:title>Multi Seguro Viagem - Depoimento do Artur</image:title>
+      <image:caption>Multi Seguro Viagem - Depoimento do Artur</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/operadoraIntermac.png</image:loc>
+      <image:title>Intermac - Seguro Viagem</image:title>
+      <image:caption>Intermac - Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras/operadoraTravelAce.png</image:loc>
+      <image:title>Universal Assistance - Seguro Viagem</image:title>
+      <image:caption>Universal Assistance - Seguro Viagem</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/socios.png</image:loc>
+      <image:title>Os criadores da Multi Seguro Viagem</image:title>
+      <image:caption>Os criadores da Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/multi1.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/oglobo.png</image:loc>
+      <image:title>Agência O Globo</image:title>
+      <image:caption>Agência O Globo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/multi2.png</image:loc>
+      <image:title>Uma plataforma EKTO MULTI SEGURO VIAGEM LTDA</image:title>
+      <image:caption>Uma plataforma EKTO MULTI SEGURO VIAGEM LTDA</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/Afiliados</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+   
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/afiliace.jpg</image:loc>
+      <image:title>Afiliace - Premium Marketing</image:title>
+      <image:caption>Afiliace - Premium Marketing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/Sobre/TratadodeSchengen</loc>
+    <lastmod>2017-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/logomulti.png</image:loc>
+      <image:title>Multi Seguro Viagem</image:title>
+      <image:caption>Multi Seguro Viagem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/bolsa.png</image:loc>
+      <image:title>Tratado de Schengen - Bolsa</image:title>
+      <image:caption>Tratado de Schengen - Bolsa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/hotel.png</image:loc>
+      <image:title>Tratado de Schengen - Hotel</image:title>
+      <image:caption>Tratado de Schengen - Hotel</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/mapa.png</image:loc>
+      <image:title>Tratado de Schengen - Mapa</image:title>
+      <image:caption>Tratado de Schengen - Mapa</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/operadoras.png</image:loc>
+      <image:title>Em até 6x sem juros</image:title>
+      <image:caption>Em até 6x sem juros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/certificado-1.png</image:loc>
+      <image:title>Seguro com certificado SSL</image:title>
+      <image:caption>Seguro com certificado SSL</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/google-certificado.png</image:loc>
+      <image:title>Google Safe Browsing</image:title>
+      <image:caption>Google Safe Browsing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.multiseguroviagem.com.br/www/img/comodo-seal.png</image:loc>
+      <image:title>COMODO Secure</image:title>
+      <image:caption>COMODO Secure</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/seguro-viagem-intercambio</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/seguro-viagem-internacional</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/seguro-viagem-europa</loc>
+    <lastmod>2018-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/amp</loc>
+    <lastmod>2020-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/asistencia-al-viajero-brasil</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+    <url>
+    <loc>https://www.multiseguroviagem.com.br/travelers-insurance-brazil</loc>
+    <lastmod>2020-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.multiseguroviagem.com.br/seguro-viagem-para-estrangeiros</loc>
+	<lastmod>2020-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
+<!--<guid value="" />-->
+<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->

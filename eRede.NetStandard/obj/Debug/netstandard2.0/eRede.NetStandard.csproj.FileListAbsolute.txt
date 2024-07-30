@@ -1,0 +1,10 @@
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\bin\Debug\netstandard2.0\eRede.NetStandard.deps.json
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\bin\Debug\netstandard2.0\eRede.NetStandard.dll
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\bin\Debug\netstandard2.0\eRede.NetStandard.pdb
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\obj\Debug\netstandard2.0\eRede.NetStandard.csproj.AssemblyReference.cache
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\obj\Debug\netstandard2.0\eRede.NetStandard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\obj\Debug\netstandard2.0\eRede.NetStandard.AssemblyInfoInputs.cache
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\obj\Debug\netstandard2.0\eRede.NetStandard.AssemblyInfo.cs
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\obj\Debug\netstandard2.0\eRede.NetStandard.csproj.CoreCompileInputs.cache
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\obj\Debug\netstandard2.0\eRede.NetStandard.dll
+C:\Repositorios\MultiSeguros\multiseguroviagem-site\eRede.NetStandard\obj\Debug\netstandard2.0\eRede.NetStandard.pdb

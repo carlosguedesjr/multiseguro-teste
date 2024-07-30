@@ -1,0 +1,370 @@
+﻿@using System.Configuration
+@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoCotadorModel
+
+
+@{
+  ViewBag.Title = "Cotador - Seguro Viagem | Multi Seguro Viagem";
+  ViewBag.MetaDescription = "Cote seu seguro viagem com até 10 operadoras! Destinos internacionais e nacionais em tempo real no maior comparador do Brasil";
+  ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, cotador seguro viagem, comparador seguro viagem";
+  ViewBag.OGURL = "https://multiseguroviagem.com.br/Cotador/Cotacao";
+  ViewBag.OGTitle = "Multi Seguro Viagem | Cotações de Seguro Viagem em Tempo Real";
+  ViewBag.OGSitename = "Multi Seguro Viagem";
+  ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+}
+
+<div class="cotacao">
+  <div class="header-2">
+    <div class="page-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 landing-padding-card">
+            <div class="card card-raised card-form-horizontal" id="in-card-card-raised-home">
+              <div class="card-content" id="in-card-card-content-home">
+
+                @using (Html.BeginForm("Cotacao", "Cotador", FormMethod.Post))
+                {
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group label-floating has-error">
+                        <label class="control-label">
+                          @Html.ValidationMessageFor(x => x.Destino, null, new { Class = "control-label" })
+                        </label>
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="material-icons">public</i>
+                        </span>
+                        <div class="form-group select-button">
+                          @Html.DropDownListFor(x => x.Destino, new List<SelectListItem>
+                                                    {
+                                                        new SelectListItem {Text = "Destino", Disabled = true, Selected = true },
+                                                        new SelectListItem {Text = "Selecione seu destino", Disabled = true },
+                                                        new SelectListItem {Text = "América do Norte", Value = "1"},
+                                                        new SelectListItem {Text = "África", Value = "2"},
+                                                        new SelectListItem {Text = "América Central", Value = "3"},
+                                                        new SelectListItem {Text = "América do Sul", Value = "4"},
+                                                        new SelectListItem {Text = "Ásia", Value = "5"},
+                                                        new SelectListItem {Text = "Brasil", Value = "6"},
+                                                        new SelectListItem {Text = "Europa", Value = "7"},
+                                                        new SelectListItem {Text = "Oceania", Value = "8"},
+                                                        new SelectListItem {Text = "Oriente Médio", Value = "9"}
+                                                    }, new { Class = "selectpicker", Data_Style = "form-control", Data_Message_Empty = "Selecione um destino" })
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group label-floating has-error">
+                        <label class="control-label">
+                          @Html.ValidationMessageFor(x => x.DataIda, null, new { Class = "control-label" })
+                        </label>
+                      </div>
+
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="material-icons">flight_takeoff</i>
+                        </span>
+                        <div class="form-group is-empty">
+                            @Html.TextBoxFor(cot => cot.DataIda, new { Class = "form-control datepicker", ReadOnly = "true", Placeholder = "Embarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de ida", Data_Type_Validation = "data" })
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+
+                      <div class="form-group label-floating has-error">
+                        <label class="control-label">
+                          @Html.ValidationMessageFor(x => x.DataVolta, null, new { Class = "control-label" })
+                        </label>
+                      </div>
+
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="material-icons inv">flight_land</i>
+                        </span>
+                        <div class="form-group is-empty">
+                            @Html.TextBoxFor(cot => cot.DataVolta, new { Class = "form-control datepicker", ReadOnly = "true", Placeholder = "Desembarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de volta", Data_Type_Validation = "data" })
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <button type="submit" class="btn btn-primary btn-block">Buscar planos</button>
+                    </div>
+                  </div>
+
+                    <div class="has-error">
+                        <label class="control-label">
+                        @Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessage("CotacaoInvalida").ToString()))
+                        </label>
+                    </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resumo-cotacao container hidden-xs hidden-sm" style="margin-top:15px; padding-top:0px !important;">
+          <div class="col-md-3">
+            <p><i class="material-icons">today</i><span>Total de </span><span id="spTotalDiasLegenda"></span><span> dias</span></p>
+          </div>
+          <div class="col-md-3">
+            <p><i class="material-icons">public</i><span id="spDestinoLegenda"></span></p>
+          </div>
+          <div class="col-md-3">
+            <p><i class="material-icons">flight_takeoff</i><span>Embarque em </span><span id="spEmbarqueLegenda"></span></p>
+          </div>
+          <div class="col-md-3">
+            <p><i class="material-icons inv">flight_land</i><span>Desembarque em </span><span id="spDesembarqueLegenda"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="main main-raised alturaListaPlanos" id="produtos">
+    <div class="bg-testimonial">
+      <div class="container">
+        <div class="row box-365">
+          <div class="col-md-12 text-center">
+            <h2 class="h3 title titulolimite">Caro Viajante,</h2>
+            <h2 class="h3 title titulolimite">O número de dias escolhido é superior ao limite permitido de 365 dias.</h2>
+            <p class="h5 description recomenda-titulo programa"><b>Mas calma, existe uma solução para sua viagem.</b> Nossa equipe pode ajudar você a fechar o plano certo para o período de 01 ano, conforme a sua necessidade e, claro, com o melhor preço do mercado.</p>
+          </div>
+          <div class="col-md-4 col-md-offset-1">
+            <div class="card card-raised">
+              <div class="card-content">
+                <h4>Mas por que não consegui cotar?</h4>
+                <p>Não é que você não conseguiu cotar. Acontece que o seguro viagem só pode ser contratado com mínimo de 3 dias e máximo de 365 dias.. Isso ocorre porque a maioria das operadoras emitem apólices com até 1 ano. Ou seja, se a sua cotação for equivalente a 366 dias, ela supera esse limite.</p>
+                <p>Mas isso não é problema =)</p>
+                <p>Você sairá do Brasil com uma apólice de 1 ano. Depois disso, é só renová-lo pelo período necessário. Nossas consultoras vão te explicar todos os detalhes! É bem simples</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-md-offset-1 cotacao365">
+
+            <h4 class="recomenda-titulo">Nós ligamos para você!</h4>
+
+            <form id="frm365" action="Contato365" method="post">
+              <input type="hidden" id="Destino365" name="Destino" />
+              <input type="hidden" id="DataIda365" name="DataIda" />
+              <input type="hidden" id="DataVolta365" name="DataVolta" />
+              <input type="hidden" id="Email365" name="Email" />
+
+              <div class="form-group margin-top-zero">
+                <div class="form-group label-floating has-error">
+                  <label class="control-label">
+                    <span class="control-label" data-valmsg-for="Nome" data-valmsg-replace="true" style="color: #ffa060 !important;"></span>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label class="label-control">Qual o seu nome?</label>
+                  <input type="text" id="nome" name="Nome" class="form-control recomenda-titulo" data-message-empty="Informe o seu nome" valida="campoVazio" />
+                </div>
+              </div>
+              <div class="form-group margin-top-zero">
+                <div class="form-group label-floating has-error">
+                  <label class="control-label">
+                    <span class="control-label" data-valmsg-for="Telefone" data-valmsg-replace="true" style="color: #ffa060 !important;"></span>
+                  </label>
+                </div>
+                <label class="label-control">Qual seu telefone, com DDD?</label>
+                <input type="text" name="Telefone" placeholder="(00) 0000-0000" class="form-control" maxlength="15" data-message-empty="Informe seu telefone" mask-telefone="true" valida="campoVazio" />
+              </div>
+              <div class="form-group margin-top-zero">
+                <div class="form-group label-floating has-error">
+                  <label class="control-label">
+                    <span class="control-label" data-valmsg-for="horario" data-valmsg-replace="true" style="color: #ffa060 !important;"></span>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label class="label-control">Qual o melhor horário?</label>
+                  <input type="text" id="horario" name="Horario" class="form-control timepicker recomenda-titulo" value="2:00 PM" data-message-empty="Informe o melhor horário" valida="campoVazio" />
+                </div>
+              </div>
+
+              <button class="btn btn-white">Solicitar contato</button>
+            </form>
+
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-8 col-md-offset-2 text-center cotacao365">
+            <h4>Se preferir</h4>
+
+            <p>De segunda à sexta, das 09hs às 18 hs, podemos ligar pra você em menos de 28 segundos!</p>
+            <p>Basta clicar no Ícone do Telefoninho Azul, no canto superior direito.</p>
+            <p>Obrigado</p>
+            <p>
+              @{
+                var whats = ConfigurationManager.AppSettings["whatsapp"];
+
+                <a href="https://api.whatsapp.com/send?phone=@whats&amp;text=Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20seguro%20viagem!" target="_blank" class="telefone-footer">
+                  <i class="fa fa-whatsapp icon-footer" aria-hidden="true"></i> <b>Ou clique para enviar um WhatsApp!</b>
+                </a>
+              }
+            </p>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="coberturasModal" tabindex="-1" role="dialog" aria-labelledby="coberturasLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div id="modalCobertura"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-simple" data-dismiss="modal"><i class="material-icons">close</i> Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+@section Scripts
+{
+  @if (HttpContext.Current.IsDebuggingEnabled)
+  {
+        <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/www/js/vendor/sweetalert2.min.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+        <script src="/www/js/vendor/jquery.mask.min.js"></script>
+
+        <script src="/www/js/modulos/validacoes.js"></script>
+        <script src="/www/js/modulos/cotacao.js"></script>
+        <script src="/www/js/modulos/datePicker.js"></script>
+  }
+  else
+  {
+        <script src="https://cdn.multiseguroviagem.com.br/js/bundleVendorCotador365.js"></script>
+        <script src="/www/bundles/bundleCotador365.js"></script>
+  }
+
+  <script>
+        setaUtmSource();
+
+        $("body").addClass("gradiente-cotacao");
+
+        (function legendas() {
+            var dataIda = $('#DataIda').val();
+            var dataVolta = $('#DataVolta').val();
+            $('#spDestinoLegenda').text($('#Destino option:selected').text());
+            $('#spEmbarqueLegenda').text(dataIda);
+            $('#spDesembarqueLegenda').text(dataVolta);
+            if (isNaN(dataIda) && isNaN(dataVolta))
+                $('#spTotalDiasLegenda').text(calculaDias(dataIda, dataVolta));
+
+        })();
+
+        datepickerSetup();
+
+        $(function() {
+            datepickerSetaMinMaxDate("#DataIda", "#DataVolta");
+        });
+
+        setSession('cotacao', @Html.Raw(Json.Encode(ViewBag.planos)));
+
+        executaFiltros('@Url.Action("_ListaPlanos", "Cotador")');
+
+        //Coberturas
+        $('body').on('click',
+          '.btnCoberturas',
+          function(obj) {
+
+              var idPlano = obj.target.value;
+
+              var model = getParseSession('cotacao');
+
+              var filtro = $.grep(model.Planos,
+                function(e) {
+                    return e.IdPlano == idPlano;
+                });
+
+              var jsonString = JSON.stringify(filtro[0].Coberturas);
+
+              var nome = filtro[0].Operadora.Nome + " - " + filtro[0].Nome;
+
+              var url = downloadCoberturas(filtro[0],
+                '@System.Configuration.ConfigurationManager.AppSettings["UriDownloadFile"]',
+                '@Url.Action("Index", "Pdf")?uri=');
+
+              //Remove Modal
+              $('#coberturasModal').data('modal', null);
+              $('#modalCobertura').html('');
+
+              $.ajax({
+                  url: '@Url.Action("_CoberturasModal", "Cotador")',
+                  data: {
+                      json: jsonString,
+                      nome: nome,
+                      urlDownload: url
+                  },
+                  method: "get",
+                  success: function(data) {
+
+                      $('#modalCobertura').html(data);
+                      $('#coberturasModal').modal();
+                  }
+              });
+          });
+
+        $('body').on('click',
+          '.btn-comprar',
+          function(obj) {
+
+              var idPlano = $(obj.target).closest("button").val();
+              var uriViajantes = '@Url.Action("Viajantes", "Viajante")' + '/' + idPlano;
+
+              var cotacoes = getParseSession('cotacao');
+
+              cotacoes.Planos = $.grep(cotacoes.Planos,
+                function(e) {
+                    return e.IdPlano == idPlano;
+                });
+
+              //Verifica se a data de ida não esta muito proxima
+              //if (!validaDataSemana(cotacoes.DataIda)) return false;
+
+              window.location.href = uriViajantes;
+          });
+
+        $(function() {
+            $('#horario').datetimepicker({
+                format: 'LT'
+            });
+        });
+
+        $('#frm365').on('submit', function(evt) {
+
+            if (!validaFormulario("#frm365"))
+                evt.preventDefault();
+
+            $("#Destino365").val($('#Destino option:checked').text());
+            $("#DataIda365").val($('#DataIda').val());
+            $("#DataVolta365").val($('#DataVolta').val());
+            $("#Email365").val(getSession('email') || 'indefinido');
+            $("#Horario365").val();
+            $("#Telefone365").val();
+        });
+
+        var sucesso = '@(ViewBag.Sucesso)';
+        if (sucesso) {
+            swal('Sucesso', sucesso, 'success');
+        }
+
+        var erro = '@(ViewBag.Erro)';
+        if (erro) {
+            swal('Oops', erro, 'error');
+        }
+
+        if (obtemParametroUri('Email'))
+            setSession('email', obtemParametroUri('Email'));
+
+        conversaoRDStation("Cotador");
+  </script>
+}

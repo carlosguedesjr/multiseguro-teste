@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE8AC5B0-1961-43C7-9856-B1B994E5B027}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiSeguroViagem.Domain</RootNamespace>
+    <AssemblyName>MultiSeguroViagem.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Entities\ArquivoUpload.cs" />
+    <Compile Include="Entities\Banner.cs" />
+    <Compile Include="Entities\Comprovante.cs" />
+    <Compile Include="Entities\ConfiguracaoHome.cs" />
+    <Compile Include="Entities\ContatoEmergencia.cs" />
+    <Compile Include="Entities\Cobertura.cs" />
+    <Compile Include="Entities\Cotacao.cs" />
+    <Compile Include="Entities\CupomDesconto.cs" />
+    <Compile Include="Entities\CupomOperadoras.cs" />
+    <Compile Include="Entities\BlackListFraude.cs" />
+    <Compile Include="Entities\RealSeguros.cs" />
+    <Compile Include="Entities\Destino.cs" />
+    <Compile Include="Entities\DiasUteisExcecao.cs" />
+    <Compile Include="Entities\DiasUteisSemana.cs" />
+    <Compile Include="Entities\EmailAgendado.cs" />
+    <Compile Include="Entities\Enum\EnumPagamentoOperadora.cs" />
+    <Compile Include="Entities\Enum\EnumPagamentoStatus.cs" />
+    <Compile Include="Entities\Enum\EnumPedidoStatus.cs" />
+    <Compile Include="Entities\Enum\EnumSexo.cs" />
+    <Compile Include="Entities\Enum\RdStationEstagioLead.cs" />
+    <Compile Include="Entities\IntencaoCompra.cs" />
+    <Compile Include="Entities\IntencaoPaga.cs" />
+    <Compile Include="Entities\Intencao.cs" />
+    <Compile Include="Entities\Operadora.cs" />
+    <Compile Include="Entities\Pagamento.cs" />
+    <Compile Include="Entities\PagamentoAvulso.cs" />
+    <Compile Include="Entities\PagamentoItau.cs" />
+    <Compile Include="Entities\PagamentoRedeCard.cs" />
+    <Compile Include="Entities\PagamentoOperadoras.cs" />
+    <Compile Include="Entities\PagamentoStatus.cs" />
+    <Compile Include="Entities\Pedido.cs" />
+    <Compile Include="Entities\PedidoItem.cs" />
+    <Compile Include="Entities\PedidoStatus.cs" />
+    <Compile Include="Entities\Plano.cs" />
+    <Compile Include="Entities\PlanoStatus.cs" />
+    <Compile Include="Entities\Preco.cs" />
+    <Compile Include="Entities\TarifasAssistCard.cs" />
+    <Compile Include="Entities\Token.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Entities\Viajante.cs" />
+    <Compile Include="Interfaces\Repositories\IBannerRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICoberturaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IComparacaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConfiguracaoHomeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IContatoEmergenciaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICupomDescontoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IDestinoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IDiasUteisRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEmailAgendadoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IIntencaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ILogRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IBlackListFraudeRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IOperadoraRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPagamentoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPedidoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPlanoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITokenRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Services\Application\IBannerService.cs" />
+    <Compile Include="Interfaces\Services\Application\ICoberturaService.cs" />
+    <Compile Include="Interfaces\Services\Application\IContatoEmergenciaService.cs" />
+    <Compile Include="Interfaces\Services\Application\ICotacaoService.cs" />
+    <Compile Include="Interfaces\Services\Application\ICupomDescontoService.cs" />
+    <Compile Include="Interfaces\Services\Application\IDestinoService.cs" />
+    <Compile Include="Interfaces\Services\Application\IDiasUteisService.cs" />
+    <Compile Include="Interfaces\Services\Application\IEmailAgendadoService.cs" />
+    <Compile Include="Interfaces\Services\Application\IEmissaoVoucherService.cs" />
+    <Compile Include="Interfaces\Services\Application\IIntencaoService.cs" />
+    <Compile Include="Interfaces\Services\Application\IPagamentoService.cs" />
+    <Compile Include="Interfaces\Services\Application\IPedidoService.cs" />
+    <Compile Include="Interfaces\Services\Application\IPlanoService.cs" />
+    <Compile Include="Interfaces\Services\Application\ITokenService.cs" />
+    <Compile Include="Interfaces\Services\Application\IUsuarioService.cs" />
+    <Compile Include="Interfaces\Services\Services\IItauService.cs" />
+    <Compile Include="Interfaces\Services\Services\IRedeCardService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\MultiSeguroViagem.Site\Bin\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultiSeguroViagem.Common\MultiSeguroViagem.Common.csproj">
+      <Project>{97238211-b550-4b6b-ba52-8c24fc4e2cd1}</Project>
+      <Name>MultiSeguroViagem.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

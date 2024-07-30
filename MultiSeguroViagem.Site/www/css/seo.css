@@ -1,0 +1,608 @@
+﻿.operadoras-pag .main-raised {
+    padding: 40px 0;
+}
+
+.operadoras-pag .page-header .container {
+    padding-top: 110px !important;
+}
+
+.operadoras-pag .page-header.header-small {
+    height: 65vh;
+    min-height: 350px;
+}
+
+@media (min-width: 979px) {
+    #sidebar.affix-top {
+        position: static;
+    }
+
+    #sidebar.affix {
+        position: fixed;
+        top: 170px;
+    }
+}
+
+.operadoras-pag .input-group .input-group-addon {
+    border: 0;
+    background: transparent;
+    padding: 12px 15px 0px 0;
+}
+
+.operadoras-pag .form-group {
+    padding-bottom: 0;
+    margin-top: 10px;
+}
+
+.operadoras-pag img {
+    max-width: 100%;
+}
+
+.operadoras-pag .card-title * {
+    color: white !important
+}
+
+.estados-unidos .gradiente {
+    background-image: url(../img/destinos/estadosUnidos.png);
+}
+
+.bahamas .gradiente {
+    background-image: url(../img/destinos/Bahamas.png);
+}
+
+.asia .gradiente {
+    background-image: url(../img/destinos/Asia.png);
+}
+
+.bariloche .gradiente {
+    background-image: url(../img/destinos/Bariloche.png);
+}
+
+.coreia-do-sul .gradiente {
+    background-image: url(../img/destinos/coreioDoSul.png);
+}
+
+.emirados-arabes .gradiente {
+    background-image: url(../img/destinos/emiradosArabes.png);
+}
+
+.japao .gradiente {
+    background-image: url(../img/destinos/Japao.png);
+}
+
+.novaiorque .gradiente {
+    background-image: url(../img/destinos/NovaIorque.png);
+}
+
+.oceania .gradiente {
+    background-image: url(../img/destinos/Oceania.png);
+}
+
+.oriente-medio .gradiente {
+    background-image: url(../img/destinos/orienteMedio.png);
+}
+
+.destinos #in-titulo-home {
+    color: #3d5afe;
+    line-height: 1em;
+}
+
+.breadcrumb {
+    padding: 15px 15px;
+    margin: 5px 20px;
+    list-style: none;
+    background-color: #fff
+}
+
+    .breadcrumb > li + li:before {
+        padding: 0 5px;
+        color: #ccc;
+        content: "keyboard_arrow_right";
+        font-family: 'Material Icons';
+        font-size: 12px;
+        z-index: 999
+    }
+
+.titulo-produto{
+    margin-top: -5px
+}
+
+.breadcrumb .material-icons {
+    margin: -5px -5px -2px;
+}
+.avaliacao .material-icons {
+    width: 24px;
+    font-size: 18px;
+}
+
+.avaliacao {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .avaliacao * {
+        color: #f7b43f
+    }
+
+.plano-oferta .ribbon4 {
+    margin-left: 15px;
+}
+
+.descricaoplano {
+    margin: 20px 0;
+}
+
+.operadora-idade {
+    text-transform: uppercase;
+    color: #3D5AFE
+}
+
+.mtbc{
+    margin-top: 20px
+}
+
+.plano-oferta .operadora-vantagens-preco-total{
+    font-size: 40px
+}
+
+.plano-oferta .operadora-vantagens-preco > * {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    color: #838383;
+}
+
+.plano-oferta .operadora-vantagens-preco{
+    margin-top: 0
+}
+
+.compra {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.compra *{
+    text-align: center
+}
+
+.modal-backdrop {
+    background: rgb(4, 0, 58);
+}
+
+.login-card .card [class*="header-"] .card-title a, .card [class*="header-"] .card-title, .card [class*="header-"] .icon i, .card [class*="content-"] .card-title a, .card [class*="content-"] .card-title, .card [class*="content-"] .icon i {
+    color: #ffffff!important;
+}
+
+.input-group .input-group-addon {
+    border: 0;
+    background: transparent;
+    padding: 16px 15px 0;
+}
+
+.cdp {
+    font-size: 12px;
+}
+
+.text-light-gray {
+    color: #a5a5a5!important;
+    letter-spacing: 1pt!important;
+}
+
+.operadoras-parceiras {
+    text-align: center;
+}
+
+.card-destino {
+    margin-bottom: 30px!important
+}
+
+
+.card-destino .card-image {
+    height: 120px;
+    overflow-y: hidden
+}
+
+.card-destino .card-image img {
+    margin-top: -22%;
+}
+
+
+.card-destino .card-image a {
+    display: inline-block;
+}
+
+.destinos .breadcrumb {
+    padding: 0 15px;
+    margin: 0 20px;
+    list-style: none;
+    background-color: #fff;
+}
+
+.operadoras-pag .cotacao-interno{
+    margin: 0
+}
+
+.seoop .main-raised {
+    padding: 0!important;
+}
+
+#loginModal .form-group.label-floating.has-error {
+    margin-top: -10px !important;
+}
+
+
+
+.everg .main-raised {
+    padding: 40px 0;
+}
+
+.everg .page-header .container {
+    padding-top: 110px !important;
+}
+
+.everg .page-header.header-small {
+    height: 65vh;
+    min-height: 350px;
+    background: linear-gradient(135deg, #e6f1ff, #d2eaff);
+}
+
+.page-header.header-small {
+    background: linear-gradient(135deg, #e6f1ff, #d2eaff);
+}
+
+.everg .input-group .input-group-addon {
+    border: 0;
+    background: transparent;
+    padding: 12px 15px 0px 0;
+}
+
+.everg .form-group {
+    padding-bottom: 0;
+    margin-top: 10px;
+}
+
+.everg h2 {
+    color: #304FFE !important;
+}
+
+.everg .info:hover .gradienteicones {
+    color: #3d5afe;
+    transform: scale(1.1);
+    transition: all 0.3s ease !important;
+    -webkit-transition: all 0.3s ease !important
+}
+
+.everg .info:hover h4 {
+    color: #3d5afe;
+    transition: all 0.2s ease !important;
+    -webkit-transition: all 0.2s ease !important
+}
+
+.everg .info {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 40px 0 30px;
+}
+
+.everg .bg-testimonial *{
+    color: #fff!important
+}
+
+.everg .bg-testimonial a {
+    font-weight: bold;
+    color: #b5ffec!important
+}
+
+.everg .imgafter {
+    margin-top: -40px;
+}
+
+.everg .documento {
+    padding: 2px 5px;
+    border: 1px solid;
+    border-radius: 4px;
+    line-height: 2.2em;
+    font-weight: 900;
+}
+
+.everg .bg-tabela {
+    background: #622ecc;
+    background: linear-gradient(45deg, #ffffff, #e8e8e8);
+    margin: 50px 0;
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 0 60px 20px rgb(255, 255, 255);
+}
+
+    .everg .bg-tabela h3 {
+        color: #494949 !important
+    }
+
+.everg .card .card-footer a, .card .card-footer button {
+    position: unset;
+}
+
+.everg .card .card-footer {
+    background: #FAFBFD;
+}
+/*Spacing - Remover o que não usar depois*/
+.mt-0 {
+    margin-top: 0px !important;
+}
+
+.mt-5 {
+    margin-top: 5px !important;
+}
+
+.mt-10 {
+    margin-top: 10px !important;
+}
+
+.mt-15 {
+    margin-top: 15px !important;
+}
+
+.mt-20 {
+    margin-top: 20px !important;
+}
+
+.mt-25 {
+    margin-top: 25px !important;
+}
+
+.mt-30 {
+    margin-top: 30px !important;
+}
+
+.mt-40 {
+    margin-top: 40px !important;
+}
+
+.mt-50 {
+    margin-top: 50px !important;
+}
+
+.mt-60 {
+    margin-top: 60px !important;
+}
+
+.mt-80 {
+    margin-top: 80px !important;
+}
+
+.mb-0 {
+    margin-bottom: 0px !important;
+}
+
+.mb-5 {
+    margin-bottom: 5px !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px !important;
+}
+
+.mb-15 {
+    margin-bottom: 15px !important;
+}
+
+.mb-20 {
+    margin-bottom: 20px !important;
+}
+
+.mb-25 {
+    margin-bottom: 25px !important;
+}
+
+.mb-30 {
+    margin-bottom: 30px !important;
+}
+
+.mb-40 {
+    margin-bottom: 40px !important;
+}
+
+.mb-50 {
+    margin-bottom: 50px !important;
+}
+
+.mb-60 {
+    margin-bottom: 60px !important;
+}
+
+.mb-80 {
+    margin-bottom: 80px !important;
+}
+
+.pt-0 {
+    padding-top: 0px !important;
+}
+
+.pt-5 {
+    padding-top: 5px !important;
+}
+
+.pt-10 {
+    padding-top: 10px !important;
+}
+
+.pt-15 {
+    padding-top: 15px !important;
+}
+
+.pt-20 {
+    padding-top: 20px !important;
+}
+
+.pt-25 {
+    padding-top: 25px !important;
+}
+
+.pt-30 {
+    padding-top: 30px !important;
+}
+
+.pt-40 {
+    padding-top: 40px !important;
+}
+
+.pt-50 {
+    padding-top: 50px !important;
+}
+
+.pt-60 {
+    padding-top: 60px !important;
+}
+
+.pt-80 {
+    padding-top: 80px !important;
+}
+
+.pb-0 {
+    padding-bottom: 0px !important;
+}
+
+.pb-5 {
+    padding-bottom: 5px !important;
+}
+
+.pb-10 {
+    padding-bottom: 10px !important;
+}
+
+.pb-15 {
+    padding-bottom: 15px !important;
+}
+
+.pb-20 {
+    padding-bottom: 20px !important;
+}
+
+.pb-25 {
+    padding-bottom: 25px !important;
+}
+
+.pb-30 {
+    padding-bottom: 30px !important;
+}
+
+.pb-40 {
+    padding-bottom: 40px !important;
+}
+
+.pb-50 {
+    padding-bottom: 50px !important;
+}
+
+.pb-60 {
+    padding-bottom: 60px !important;
+}
+
+.pb-80 {
+    padding-bottom: 80px !important;
+}
+
+@media only screen and (max-width: 800px) {
+
+    /* Force table to not be like tables anymore */
+    .everg .no-more-tables table,
+    .everg .no-more-tables thead,
+    .everg .no-more-tables tbody,
+    .everg .no-more-tables th,
+    .everg .no-more-tables td,
+    .everg .no-more-tables tr {
+        display: block;
+    }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        .everg .no-more-tables thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    .everg .no-more-tables tr {
+        border: 1px solid #ccc;
+    }
+
+    .everg .no-more-tables td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50% !important;
+        white-space: normal;
+        text-align: left;
+    }
+
+        .everg .no-more-tables td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        /*
+	Label the data
+	*/
+        .everg .no-more-tables td:before {
+            content: attr(data-title);
+            padding: 5px 8px;
+        }
+}
+
+.everg .main a[href]:not([href^="#"]):not(.btn) {
+    -webkit-transition: background-size .4s ease;
+    transition: background-size .3s ease;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(62%, transparent), color-stop(0, #fff87e)) center center/0% 75% no-repeat;
+    background: linear-gradient(to bottom, transparent 62%, rgba(0, 255, 140, 0.2) 0) center center/0% 75% no-repeat;
+}
+
+.everg .main a[href]:hover:not(.btn) {
+    background-size: 100% 100%;
+}
+
+.everg .main a[href]:active:not(.btn) {
+    background-size: 80% 100%;
+}
+
+.bg-faq {
+    background: #622ecc;
+    background: linear-gradient(169deg, #fbfbfb 60%, #dfe6ff);
+    margin: 50px 0;
+    position: relative;
+    z-index: 999;
+}
+
+.everg h2 {
+    font-size: 2.2em;
+}
+
+.everg h3 {
+    font-size: 1.625em;
+}
+
+.everg .h4, .everg h4 {
+    font-size: 1.3em;
+}
+
+.everg .card .content-info {
+    background: linear-gradient(60deg, #00bcd4, #e2f0ff) !important;
+}
+
+    .everg .card .content-info h3 {
+        font-size: 2.025em;
+    }
+
+.everg .blog .card .card-content .footer {
+    position: absolute;
+    float: right;
+    right: 10px;
+    bottom: 4px;
+}

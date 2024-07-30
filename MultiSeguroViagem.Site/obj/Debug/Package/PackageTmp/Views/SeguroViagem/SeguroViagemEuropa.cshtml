@@ -1,0 +1,305 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoHomeModel
+@{
+    ViewBag.Title = "Multi Seguro Viagem | Seguro Viagem Europa (até 50% OFF)";
+    ViewBag.MetaDescription = "Seguro Viagem para Europa: Cote, Compare e Decida Aqui. Melhor Condição do Mercado.Parcele em 6x s/Juros ou Com Desconto no Boleto. Adquira um Cupom Aqui!.";
+    ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br/seguroviagemeuropa";
+    ViewBag.OGTitle = "Seguro Viagem Europa | Multi Seguro Viagem";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+}
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="everg">
+    <div class="page-header header-small gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Seguro Viagem Europa</h1>
+                    <h2 class="title titleh2home" id="in-titulo-home">Todas as Operadoras estão Aqui (até 50% OFF)</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+            <div class="col-md-4 col-md-push-8" id="rightCol">
+                <div class="card" id="sidebar">
+                    <div class="card-content">
+                        <div>
+                            <h2 class="h4">Cote seu <strong>seguro viagem</strong> online</h2>
+                        </div>
+                        @{ Html.RenderPartial("HomePromocao/_Operadora"); }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-pull-4">
+                <div class="description">
+                    <p>
+                        Realizar uma viagem ao continente Europeu é o sonho de muitas pessoas, seja por conta da cultura dos países europeus, dos grandes centros históricos, museus e pontos turísticos ou então para conhecer novas culturas, estudar ou mesmo relaxar nos mais variados países e opções de hospedagem na Europa.
+                    </p>
+                    <img class="img-rounded img-responsive" alt="Seguro Viagem Europa" src="~/www/img/seo/europa.png">
+                    <p>
+                        Se estiver planejando uma viagem a Europa, um dos itens mais importantes a serem definidos é a aquisição de um plano de Seguro Viagem Europa, além de essencial para garantir que qualquer imprevisto não atrapalhe todo o seu planejamento financeiro da viagem, a contratação de um plano de <strong>Seguro Viagem</strong> é obrigatório no continente Europeu, e mais ainda, existe um valor de cobertura mínimo a ser contratado que deve ser respeitada caso não queira ter problemas em sua estadia no continente.
+                    </p>
+                    <h3>Seguro Viagem Europa é obrigatório?</h3>
+                    <p>Essa é uma pergunta muito comum feita por pessoas que estão visitando o continente e a resposta é SIM! O Seguro Viagem é obrigatório na maioria dos países do continente europeu, em resumo todos os países que fazem parte do  <a href="@Url.Action("TratadodeSchengen", "Sobre")">Tratado de Schengen</a> exigem a contratação de um plano de seguro viagem com cobertura médica equivalente à pelo menos EUR 30.000,00. </p>
+                    <p>A Multi Seguro Viagem possui um filtro exclusivo em seu site, que ao realizar a sua cotação para o continente Europeu, são exibidos apenas os planos que se enquadram no tratado de Schengen, desta forma você poderá escolher o plano com este quesito garantido pela seguradora escolhida.</p>
+                    <p>Para facilitar, listamos abaixo quais países fazem parte atualmente do tratado de Schengen, caso durante sua viagem você passar por um desses países é importante possuir um plano de seguro viagem ativo.</p>
+                    <h4>Países participantes do Tratado de Schengen:</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Alemanha</li>
+                                <li>Áustria</li>
+                                <li>Bélgica</li>
+                                <li>Dinamarca</li>
+                                <li>Eslováquia</li>
+                                <li>Eslovénia</li>
+                                <li>Espanha</li>
+                                <li>Estónia</li>
+                                <li>Finlândia</li>
+                                <li>França</li>
+                                <li>Grécia</li>
+                                <li>Hungria</li>
+                                <li>Islândia</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Itália</li>
+                                <li>Letónia</li>
+                                <li>Liechtenstein</li>
+                                <li>Lituânia</li>
+                                <li>Luxemburgo</li>
+                                <li>Malta</li>
+                                <li>Noruega</li>
+                                <li>Países Baixos (Holanda)</li>
+                                <li>Polónia</li>
+                                <li>Portugal</li>
+                                <li>República Checa</li>
+                                <li>Suécia</li>
+                                <li>Suíça</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content content-primary text-center">
+                                <h3 class="card-title">
+                                    <a href="@Url.Action("TratadodeSchengen", "Sobre")">Tratado de Schengen</a>
+                                </h3>
+                                <p class="card-description">
+                                    Alguns países da Europa exigem um seguro viagem! Saiba tudo sobre o Tratado de Schengen e não perca sua viagem!
+                                </p>
+                                <div class="footer text-center">
+                                    <a href="@Url.Action("TratadodeSchengen", "Sobre")" target="_blank" class="btn btn-white btn-round">Saiba mais</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Porque contratar o Seguro Viagem Europa?</h3>
+                    <p>
+                        É muito importante ressaltar que além da obrigatoriedade no continente, o plano de Seguro Viagem tem uma função muito importante de proteção financeira e uma série de assistências aos viajantes que são fundamentais no acontecimento de imprevistos durante sua viagem.
+                    </p>
+                    <p>
+                        Ninguém deseja que acidentes ou imprevistos aconteçam durante sua viagem, porém é muito melhor estar protegido caso eles aconteçam, do que correr o risco de estragar todo um planejamento de uma viagem por conta de algo que poderia ser resolvido de maneira mais simples com a assistência prestada pelo plano de Seguro Viagem.
+
+                    </p>
+                    <p>
+                        O Custo do Seguro Viagem é calculado pela quantidade de dias de duração de sua viagem e também pelos valores de cobertura escolhidos no momento da contratação, quanto mais completas as coberturas, maior o investimento do seguro e consequentemente melhores os benefícios em caso de imprevistos.
+                    </p>
+                    <p>
+                        É importante ressaltar que o investimento realizado no seguro viagem para Europa, normalmente não chega a 5% dos custos de sua viagem, em caso de ocorrência de um acidente ou imprevisto coberto pelo seguro, com certeza o valor investido na contratação do plano, não chegará nem perto do valor de pagamento de um atendimento médico no exterior por exemplo.
+                    </p>
+                    <h3>Qual plano de Seguro Viagem para Europa devo contratar?</h3>
+                    <p>
+                        A escolha do plano de seguro viagem é bastante pessoal, já que a ideia principal da contratação é que o plano atenda a cobertura das principais necessidades do perfil de sua viagem e também de seu perfil pessoal.
+                    </p>
+                    <p>
+                        A Multi Seguro Viagem comercializa planos de mais de 9 seguradoras renomadas no mercado de Seguro Viagem e possui disponível a comparação de aproximadamente 60 diferentes planos de seguro disponíveis para contratação online, portanto com certeza será possível encontrar um plano adequado a sua necessidade, caso tenha duvidas na contratação, nossa equipe de consultores terá o maior prazer em ajuda-lo nesta decisão.
+                    </p>
+                    <p>
+                        Para facilitar a sua escolha, listamos abaixo três opções de planos, divididos em básico, intermediário e completo que podem lhe atender em sua próxima viagem a Europa:
+                    </p>
+
+                    <h3>Os planos mais indicados de Seguro Viagem Europa são:</h3>
+                    <h4 class="h5-blue"><i class="material-icons">star_border</i> Básico</h4>
+                    <h5>Multi Seguros 30E</h5>
+                    <ul>
+                        <li>
+                            Seguradora: Universal Assistance
+                        </li>
+                        <li>
+                            Assistência Médica: EUR 30.000,00
+                        </li>
+                        <li>
+                            Extravio de Bagagem: EUR 1.000,00
+                        </li>
+                        <li>
+                            Custo médio por dia de US$ 3,00*
+                        </li>
+                    </ul>
+
+                    <h4 class="h5-blue"><i class="material-icons">star_half</i> Intermediário</h4>
+                    <h5>Multi Seguros 50E</h5>
+                    <ul>
+                        <li>
+                            Seguradora: Universal Assistance
+                        </li>
+                        <li>
+                            Assistência Médica: EUR 50.000,00
+                        </li>
+                        <li>
+                            Extravio de Bagagem: EUR 1.000,00
+                        </li>
+                        <li>
+                            Custo médio por dia de US$ 3,40*
+                        </li>
+                    </ul>
+
+                    <h4 class="h5-blue"><i class="material-icons">star</i> Completo</h4>
+                    <h5>Multi Seguros 250E</h5>
+                    <ul>
+                        <li>
+                            Seguradora: Universal Assistance
+                        </li>
+                        <li>
+                            Assistência Médica: EUR 250.000,00
+                        </li>
+                        <li>
+                            Extravio de Bagagem: EUR 1.000,00
+                        </li>
+                        <li>
+                            Custo médio por dia de US$ 11,00*
+                        </li>
+                    </ul>
+                    <p><small>Todas as informações de preço são estimativas e podem ser revistas pela seguradora a qualquer momento, sem necessidade de aviso prévio, sendo válida sempre a condição de contratação disponível no sistema oficial de contratação do seguro no dia e horário da emissão da apólice de seguros. </small></p>
+                    <div class="row">
+                        <h3>Depoimenos de Clientes da Multi Seguro Viagem</h3>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-content content-info">
+                                    <h3 class="h5 category-social">
+                                        <i class="material-icons">message</i> Depoimentos
+                                    </h3>
+                                    <h4 class="card-title">
+                                        <a href="@Url.Action("Depoimentos", "Sobre")">Veja alguns depoimentos de clientes em nossa página dedicada</a>
+                                    </h4>
+                                    <div class="footer">
+                                        <a href="@Url.Action("Depoimentos", "Sobre")" class="btn btn-white btn-round">Ver depoimentos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="fb-page" data-href="https://www.facebook.com/multiseguroviagem/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/multiseguroviagem/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/multiseguroviagem/">Multi Seguro Viagem</a></blockquote></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content content-primary">
+                                <h5 class="category-social">
+                                    <i class="fa fa-newspaper-o"></i> Blog da Multi
+                                </h5>
+                                <h4 class="card-title">
+                                    <a href="https://blog.multiseguroviagem.com.br/?s=interc%C3%A2mbio">Leia sobre a Seguro Viagem Internacional e muito mais em nosso blog!</a>
+                                </h4>
+                                <p class="card-description">
+                                    Uma seleção de conteúdos feitos para viajantes exigentes. Saiba tudo sobre viagens, assistências e seguros em nosso blog!
+                                </p>
+                                <div class="footer text-center">
+                                    <a href="https://blog.multiseguroviagem.com.br/?s=interc%C3%A2mbio" target="_blank" class="btn btn-white btn-round">Ir para o blog</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+        <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/www/js/vendor/scrollreveal.min.js"></script>
+        <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+        <script src="/www/js/custom-validations.js"></script>
+        <script src="/www/js/modulos/datePicker.js"></script>
+
+    }
+    else
+    {
+        <script src="/www/bundles/bundleVendorIndex.js"></script>
+        <script src="/www/bundles/bundleIndex.js"></script>
+        <script async defer src="/www/js/modulos/afiliaceTrackerOffer.js"></script>
+    }
+    <script async>
+
+    </script>
+
+
+    <link href="/www/css/seo.css" rel="stylesheet" />
+    <script>
+        // Scroll Reveal
+        datepickerSetup();
+
+        var $body = $(document.body);
+        var navHeight = $('.navbar').outerHeight(true) + 10;
+
+        $('#sidebar').affix({
+            offset: {
+                top: 150,
+                bottom: 430
+            }
+        });
+
+        $body.scrollspy({
+            target: '#rightCol',
+            offset: navHeight
+        });
+
+        $('#sidebar').width($('#sidebar').parent().width());
+
+        $(document).on('click', 'a[href^="#0"]', function (event) {
+            event.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top - 100
+            }, 500);
+        });
+        $(function () {
+            $("a[href^='http']:not([href*='multiseguroviagem.com.br'])").each(function () {
+                $(this).click(function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    window.open(this.href, '_blank');
+                }).addClass('externalLink');
+            });
+        });
+
+
+    </script>
+}

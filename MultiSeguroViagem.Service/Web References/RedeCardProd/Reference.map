@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="https://ecommerce.userede.com.br/Redecard.Adquirencia.Wcf/KomerciWcf.svc?disco" filename="KomerciWcf.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://ecommerce.userede.com.br/Redecard.Adquirencia.Wcf/KomerciWcf.svc?xsd=xsd2" filename="KomerciWcf.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://ecommerce.userede.com.br/Redecard.Adquirencia.Wcf/KomerciWcf.svc?wsdl" filename="KomerciWcf.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://ecommerce.userede.com.br/Redecard.Adquirencia.Wcf/KomerciWcf.svc?xsd=xsd0" filename="KomerciWcf0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://ecommerce.userede.com.br/Redecard.Adquirencia.Wcf/KomerciWcf.svc?xsd=xsd1" filename="KomerciWcf1.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

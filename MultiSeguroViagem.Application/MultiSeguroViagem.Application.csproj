@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0DCAB3B-41AB-4798-A60E-3DCCBDEC2729}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiSeguroViagem.Application</RootNamespace>
+    <AssemblyName>MultiSeguroViagem.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Model\Affinity\AffinityEmissaoModel.cs" />
+    <Compile Include="Model\Affinity\AffinityViajantesModel.cs" />
+    <Compile Include="Model\April\AprilEmissaoModel.cs" />
+    <Compile Include="Model\April\AprilViajantesModel.cs" />
+    <Compile Include="Model\AssistCard\AssistCardEmissaoModel.cs" />
+    <Compile Include="Model\AssistCard\AssistCardViajanteModel.cs" />
+    <Compile Include="Model\AssistMed\AssistMedEmissaoModel.cs" />
+    <Compile Include="Model\AssistMed\AssistMedViajantesModel.cs" />
+    <Compile Include="Model\FunilRdStationModel.cs" />
+    <Compile Include="Model\Gta\GtaEmissaoModel.cs" />
+    <Compile Include="Model\Gta\GtaViajantesModel.cs" />
+    <Compile Include="Model\Intermac\IntermacEmissaoModel.cs" />
+    <Compile Include="Model\Intermac\IntermacViajantesModel.cs" />
+    <Compile Include="Model\TravelAce\TravelAceEmissaoModel.cs" />
+    <Compile Include="Model\TravelAce\TravelAceViajantesModel.cs" />
+    <Compile Include="Model\VendaRdStationModel.cs" />
+    <Compile Include="Model\VitalCard\VitalCardEmissaoModel.cs" />
+    <Compile Include="Model\VitalCard\VitalCardViajanteModel.cs" />
+    <Compile Include="Model\VoucherModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BannerService.cs" />
+    <Compile Include="Services\CoberturaService.cs" />
+    <Compile Include="Services\ContatoEmergenciaService.cs" />
+    <Compile Include="Services\CotacaoService.cs" />
+    <Compile Include="Services\CupomDescontoService.cs" />
+    <Compile Include="Services\DestinoService.cs" />
+    <Compile Include="Services\DiasUteisService.cs" />
+    <Compile Include="Services\EmailAgendadoService.cs" />
+    <Compile Include="Services\EmissaoVoucherService.cs" />
+    <Compile Include="Services\IntencaoService.cs" />
+    <Compile Include="Services\PagamentoService.cs" />
+    <Compile Include="Services\PedidoService.cs" />
+    <Compile Include="Services\PlanoService.cs" />
+    <Compile Include="Services\TokenService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultiSeguroViagem.Common\MultiSeguroViagem.Common.csproj">
+      <Project>{97238211-b550-4b6b-ba52-8c24fc4e2cd1}</Project>
+      <Name>MultiSeguroViagem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MultiSeguroViagem.Domain\MultiSeguroViagem.Domain.csproj">
+      <Project>{de8ac5b0-1961-43c7-9856-b1b994e5b027}</Project>
+      <Name>MultiSeguroViagem.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

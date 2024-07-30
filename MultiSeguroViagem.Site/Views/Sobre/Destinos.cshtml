@@ -1,0 +1,141 @@
+﻿@model ICollection<MultiSeguroViagem.Domain.Entities.DestinoSeo>
+
+@{
+    ViewBag.Title = "Destinos | Multi Seguro Viagem";
+    ViewBag.MetaDescription = "Veja todos os destinos para sua assistência e seguro viagem!";
+    ViewBag.MetaKeywords = "paises que exigem seguro viagem, o que é seguro viagem, seguro viagem o que é, seguro de viagem, assistência viagem";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br/Sobre/destinos";
+    ViewBag.OGTitle = "Multi Seguro Viagem | Destinos";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+}
+<div class="informacoes destinosseo ">
+    <div class="page-header header-small gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Destinos de Seguro Viagem</h1>
+                    <h2 class="title sub-titulo" id="in-titulo-home">Veja todos os destinos para sua assistência e seguro viagem!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+            <div class="col-md-12">
+
+                <div class="row">
+                    @{
+                        var destinoCotador = "";
+                        foreach (var destino in Model)
+                        {
+                            if (!string.Equals(destinoCotador, destino.NomeDestinoCotador))
+                            {
+                                destinoCotador = destino.NomeDestinoCotador;
+                                <div class="panel-group" id="accordion-@destino.NomeDestinoCotador.Replace(" ", "")" role="tablist" aria-multiselectable="true">
+                                    <div class="panel">
+                                        <div class="panel-heading" role="tab" id="heading-@destino.NomeDestinoCotador.Replace(" ", "")">
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion-@destino.NomeDestinoCotador.Replace(" ", "")" href="#collapse-@destino.NomeDestinoCotador.Replace(" ", "")" aria-expanded="true" aria-controls="collapse-@destino.NomeDestinoCotador.Replace(" ", "")">
+                                                <h4 class="panel-title">
+                                                    @destino.NomeDestinoCotador
+                                                    <i class="material-icons">keyboard_arrow_down</i>
+                                                </h4>
+                                            </a>
+                                        </div>
+                                        <div id="collapse-@destino.NomeDestinoCotador.Replace(" ", "")" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-@destino.NomeDestinoCotador.Replace(" ", "")">
+                                            <div class="panel-body">
+                                                @{
+                                                    foreach (var destinoSeo in Model)
+                                                    {
+                                                        if (string.Equals(destinoCotador, destinoSeo.NomeDestinoCotador))
+                                                        {
+                                                            <div class="col-md-3">
+                                                                <ul>
+                                                                    <a href="/oferta/@destinoSeo.Slug"><i class="material-icons">keyboard_arrow_right</i> @destinoSeo.Nome</a>
+                                                                </ul>
+                                                            </div>
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                        }
+                                                    }
+                    }
+
+                    @*<div class="col-md-4">
+                            <h3>América do Sul</h3>
+                            <ul>
+                                <a href="">Brasil</a>
+                            </ul>
+                            <ul>
+                                <a href="">Argentina</a>
+                            </ul>
+                            <ul>
+                                <a href="">Uruguai</a>
+                            </ul>
+                            <ul>
+                                <a href="">Bolívia</a>
+                            </ul>
+                            <ul>
+                                <a href="">Guiana</a>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h3>América do Norte</h3>
+                            <ul>
+                                <a href="">Brasil</a>
+                            </ul>
+                            <ul>
+                                <a href="">Argentina</a>
+                            </ul>
+                            <ul>
+                                <a href="">Uruguai</a>
+                            </ul>
+                            <ul>
+                                <a href="">Bolívia</a>
+                            </ul>
+                            <ul>
+                                <a href="">Guiana</a>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h3>América Central</h3>
+                            <ul>
+                                <a href="">Brasil</a>
+                            </ul>
+                            <ul>
+                                <a href="">Argentina</a>
+                            </ul>
+                            <ul>
+                                <a href="">Uruguai</a>
+                            </ul>
+                            <ul>
+                                <a href="">Bolívia</a>
+                            </ul>
+                            <ul>
+                                <a href="">Guiana</a>
+                            </ul>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts
+{
+    <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+    <script src="/www/js/vendor/scrollreveal.min.js"></script>
+
+    <script>
+        window.sr = ScrollReveal({ mobile: false });
+        sr.reveal('.title', 200);
+
+
+    </script>
+}

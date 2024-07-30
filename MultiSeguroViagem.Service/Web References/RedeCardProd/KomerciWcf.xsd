@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Redecard.Komerci.External.WcfKomerci" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Redecard.Komerci.External.WcfKomerci" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="GetAuthorizedCredit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ano" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cavv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Complemento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cpf" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cvc2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distribuidor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Eci" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Endereco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Filiacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iata" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdentificacaoFatura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nrcartao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumPedido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Numero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Origem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parcelas" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Portador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recorrente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxaEmbarque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Transacao" type="xs:int" />
+      <xs:element minOccurs="0" name="Xid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAuthorizedCredit" nillable="true" type="tns:GetAuthorizedCredit" />
+  <xs:complexType name="CreditAuthorizationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodRet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hora" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Juros" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsgAvs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Msgret" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumAutor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumPedido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumSqn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RespAvs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValParcelas" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValTotalJuros" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditAuthorizationResponse" nillable="true" type="tns:CreditAuthorizationResponse" />
+  <xs:complexType name="ExcecaoAmigavel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Mensagem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExcecaoAmigavel" nillable="true" type="tns:ExcecaoAmigavel" />
+  <xs:complexType name="GetAuthorizedDebit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ano" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cavv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cep" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Complemento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cpf" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cvc2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distribuidor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Eci" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Endereco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Filiacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iata" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdentificacaoFatura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nrcartao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumPedido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Numero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Origem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parcelas" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Portador" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxaEmbarque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Transacao" type="xs:int" />
+      <xs:element minOccurs="0" name="Xid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAuthorizedDebit" nillable="true" type="tns:GetAuthorizedDebit" />
+  <xs:complexType name="Authorization">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodRet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hora" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsgAvs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Msgret" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumAutor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumPedido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumSqn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RespAvs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Authorization" nillable="true" type="tns:Authorization" />
+  <xs:complexType name="VoidTransactionTID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Filiacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumAutor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumSqn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoidTransactionTID" nillable="true" type="tns:VoidTransactionTID" />
+  <xs:complexType name="Confirmation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodRet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hora" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MsgRet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumSqn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Confirmation" nillable="true" type="tns:Confirmation" />
+  <xs:complexType name="ConfirmTxnTID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Filiacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumAutor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumSqn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parcelas" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConfirmTxnTID" nillable="true" type="tns:ConfirmTxnTID" />
+  <xs:complexType name="QueryRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Filiacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumPedido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryRequest" nillable="true" type="tns:QueryRequest" />
+  <xs:complexType name="QueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HEADER" nillable="true" type="tns:HeaderClass" />
+      <xs:element minOccurs="0" name="REGISTRO" nillable="true" type="tns:RegistroClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryResponse" nillable="true" type="tns:QueryResponse" />
+  <xs:complexType name="HeaderClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DATA_REQUISICAO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FILIACAO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HORA_REQUISICAO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HeaderClass" nillable="true" type="tns:HeaderClass" />
+  <xs:complexType name="RegistroClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AVS" nillable="true" type="tns:AvsQueryClass" />
+      <xs:element minOccurs="0" name="COD_RET" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATA_CANC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATA_CON_PRE_AUT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DATA_EXP_PRE_AUT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FILIACAO_DSTR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HORA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDENTIFICACAOFATURA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOEDA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MSG_RET" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOM_PORTADOR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NR_CARTAO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMAUTOR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMPEDIDO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMSQN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ORIGEM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARCELAS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TAXA_EMBARQUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRANSACAO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_x0033_DS" nillable="true" type="tns:ThreeDClass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegistroClass" nillable="true" type="tns:RegistroClass" />
+  <xs:complexType name="AvsQueryClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CEP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPLEMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CPF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENDERECO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MSG_AVS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NU_ENDERECO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RESP_AVS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AvsQueryClass" nillable="true" type="tns:AvsQueryClass" />
+  <xs:complexType name="ThreeDClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CAVV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ECI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ThreeDClass" nillable="true" type="tns:ThreeDClass" />
+</xs:schema>

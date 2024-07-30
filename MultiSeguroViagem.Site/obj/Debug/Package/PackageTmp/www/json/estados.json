@@ -1,0 +1,110 @@
+﻿{
+  "11": {
+    "Nome": "Rondônia",
+    "Sigla": "RO"
+  },
+  "12": {
+    "Nome": "Acre",
+    "Sigla": "AC"
+  },
+  "13": {
+    "Nome": "Amazonas",
+    "Sigla": "AM"
+  },
+  "14": {
+    "Nome": "Roraima",
+    "Sigla": "RR"
+  },
+  "15": {
+    "Nome": "Pará",
+    "Sigla": "PA"
+  },
+  "16": {
+    "Nome": "Amapá",
+    "Sigla": "AP"
+  },
+  "17": {
+    "Nome": "Tocantins",
+    "Sigla": "TO"
+  },
+  "21": {
+    "Nome": "Maranhão",
+    "Sigla": "MA"
+  },
+  "22": {
+    "Nome": "Piauí",
+    "Sigla": "PI"
+  },
+  "23": {
+    "Nome": "Ceará",
+    "Sigla": "CE"
+  },
+  "24": {
+    "Nome": "Rio Grande do Norte",
+    "Sigla": "RN"
+  },
+  "25": {
+    "Nome": "Paraíba",
+    "Sigla": "PB"
+  },
+  "26": {
+    "Nome": "Pernambuco",
+    "Sigla": "PE"
+  },
+  "27": {
+    "Nome": "Alagoas",
+    "Sigla": "AL"
+  },
+  "28": {
+    "Nome": "Sergipe",
+    "Sigla": "SE"
+  },
+  "29": {
+    "Nome": "Bahia",
+    "Sigla": "BA"
+  },
+  "31": {
+    "Nome": "Minas Gerais",
+    "Sigla": "MG"
+  },
+  "32": {
+    "Nome": "Espírito Santo",
+    "Sigla": "ES"
+  },
+  "33": {
+    "Nome": "Rio de Janeiro",
+    "Sigla": "RJ"
+  },
+  "35": {
+    "Nome": "São Paulo",
+    "Sigla": "SP"
+  },
+  "41": {
+    "Nome": "Paraná",
+    "Sigla": "PR"
+  },
+  "42": {
+    "Nome": "Santa Catarina",
+    "Sigla": "SC"
+  },
+  "43": {
+    "Nome": "Rio Grande do Sul",
+    "Sigla": "RS"
+  },
+  "50": {
+    "Nome": "Mato Grosso do Sul",
+    "Sigla": "MS"
+  },
+  "51": {
+    "Nome": "Mato Grosso",
+    "Sigla": "MT"
+  },
+  "52": {
+    "Nome": "Goiás",
+    "Sigla": "GO"
+  },
+  "53": {
+    "Nome": "Distrito Federal",
+    "Sigla": "DF"
+  }
+}

@@ -1,0 +1,349 @@
+﻿@using System.Configuration
+@{
+  var whats = ConfigurationManager.AppSettings["whatsapp"];
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>@Html.Raw(ViewBag.Title)</title>
+    <meta name="description" content="@Html.Raw(ViewBag.MetaDescription)">
+    <meta name="keywords" content="@Html.Raw(ViewBag.MetaKeywords)">
+
+    <meta content="pt_BR" property="og:locale" />
+    <meta content="@Html.Raw(ViewBag.OGURL)" property="og:url" />
+    <meta content="@Html.Raw(ViewBag.OGTitle)" property="og:title" />
+    <meta content="@Html.Raw(ViewBag.OGSitename)" property="og:site_name" />
+    <meta content="@Html.Raw(ViewBag.MetaDescription)" property="og:description" />
+    <meta content="@Html.Raw(ViewBag.OGImage)" property="og:image" />
+    <meta content="@Html.Raw(ViewBag.OGImage)" property="og:image:secure_url" />
+    <meta content="image/jpeg" property="og:image:type" />
+    <meta content="1200" property="og:image:width" />
+    <meta content="630" property="og:image:height" />
+    <meta content="website" property="og:type" />
+    <meta name="google-site-verification" content="AB2PiIHAvjKaZG0kJhdlGWYHy6M_xjzXSCea4CLYWWo" />
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="76x76" href="/www/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/www/img/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700|Roboto+Slab:400,700|Material+Icons" />
+
+    <link href="/www/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="/www/css/material-kit.css" rel="stylesheet" />
+    <link href="/www/css/custom.css?v=2.0" rel="stylesheet" />
+    <script src="https://userj.jelastic.saveincloud.net/server/ust.min.js" async></script>
+    
+
+
+</head>
+<body>
+    <!-- Menu -->
+    <nav class="navbar navbar-primary navbar-fixed-top" color-on-scroll="100">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Navegação</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="zapzap" href="https://api.whatsapp.com/send?phone=@whats&text=Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20seguro%20viagem!"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                <div class="logo-container">
+                    <div class="logo">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="https://cdn.multiseguroviagem.com.br/img/logomulti.png" alt="Multi Seguro Viagem" title="Multi Seguro Viagem">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="button-container">
+                        <a href="#footer" class="btn btn-primary btn-round phone" data-toggle="tooltip" data-placement="bottom" title="Esse site é seguro com protocolo HTTPs. Veja nossos certificados de segurança no final da página.">
+                            <i class="material-icons">lock_outline</i> Ambiente Seguro
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        @RenderBody()
+    </div>
+
+    <footer class="footer footer-multi hidden-print" id="footer">
+        <div class="container">
+            <div class="col-md-4 text-left">
+                <p class="h6"><strong>Suporte e vendas</strong></p>
+                <p>
+                    <a href="tel:19-3201-0447" class="telefone-footer"><i class="fa fa-phone icon-footer" aria-hidden="true"></i> (19) 3201 0447</a>
+                </p>
+                <p>
+                    <a href="https://api.whatsapp.com/send?phone=@whats&text=Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20seguro%20viagem!" target="_blank" class="telefone-footer">
+                        <i class="fa fa-whatsapp icon-footer" aria-hidden="true"></i> Envie um WhatsApp
+                    </a>
+                </p>
+                <img class="margin-top-dez operadoras-cartao" title="Em até 6x sem juros" alt="Em até 6x sem juros" src="/www/img/operadoras.png">
+
+            </div>
+            <div class="col-md-4 text-left">
+                <p class="h6">
+                    <strong>Segurança e Certificações</strong>
+                </p>
+                <img class="margin-top-dez operadoras-cartao" alt="Seguro com certificado SSL" title="Seguro com certificado SSL" src="/www/img/certificado-1.png"><br />
+                <a href="https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html#url=https://multiseguroviagem.com.br/" target="_blank"><img class="margin-top-dez operadoras-cartao" alt="Google Safe Browsing" title="Google Safe Browsing" src="/www/img/google-certificado.png"></a><br />
+                <img class="margin-top-dez operadoras-cartao" alt="COMODO Secure" title="COMODO Secure" src="/www/img/comodo-seal.png"><br />
+            </div>
+            <div class="col-md-4 text-left">
+                <p class="h6">
+                    <strong>Dados legais</strong>
+                </p>
+                &copy;
+                @DateTime.Now.Year, Uma empresa da EKTO GRUPO | SEGUROS | CONSÓRCIOS | INVESTIMENTOS
+                <p class="dados-legais">
+                    EKTO MULTI SEGURO VIAGEM LTDA<br />
+                    CNPJ: 43.514.278/0001-90
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <template id="carrinhoVazio">
+        <div class="col-md-12">
+            <div class="row">
+                <h3 class="Title">Seu carrinho está vazio</h3>
+            </div>
+            <div class="row">
+                <p>Adicione itens para completar sua compra</p>
+            </div>
+        </div>
+    </template>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link rel="manifest" href="/www/json/manifest.json" />
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/jquery.min.js"></script>
+        <script src="/www/js/vendor/jquery.unobtrusive-ajax.min.js"></script>
+        <script src="/www/js/vendor/bootstrap.min.js"></script>
+        <script src="/www/js/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+        <script src="/www/js/vendor/bootstrap-select/defaults-pt_BR.min.js"></script>
+        <script src="/www/js/vendor/material.min.js"></script>
+        <script src="/www/js/vendor/material-kit.js?v=1.1.0"></script>
+        <script src="/www/js/modulos/oneSignal.js"></script>
+
+        <script src="/www/js/rdstation.js"></script>
+        <script src="/www/js/modulos/common.js"></script>
+    }
+    else
+    {
+        <script src="/www/bundles/bundleVendorLayout.js"></script>
+        <script src="/www/bundles/bundleLayout.js"></script>
+    }
+
+    <script>
+        if (isMobile(navigator.userAgent)) {
+            $('.selectpicker').selectpicker('mobile');
+           
+        }
+
+        jQuery('.phone').click(function (e) {
+            e.preventDefault();
+            var target = this.hash;
+            if (this.href != '#') {
+                jQuery('html, body').animate({
+                    scrollTop: jQuery(target).offset().top - 60
+                }, 1000);
+            }
+        });
+
+        $(document).ready(function () {
+
+            $('#btnLogOut').on('click', function () {
+                $.ajax({
+                    url: '@Url.Action("LogOut", "Login")'
+                }).done(function () {
+                    window.location = '@Url.Action("Index", "Home")';
+                });
+            });
+
+            $('.form-group:has(label.control-label span.control-label:not(:empty))').addClass("has-error");
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+    @if (!HttpContext.Current.IsDebuggingEnabled)
+    {
+        <!--
+    <script async src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
+        <script async>
+            $(function() { configuraOneSignal() });
+        </script>
+            -->
+
+         <!-- Tracking RD Station -->
+        <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/b7eccb4a-ea38-469f-91b2-10ba1b6cb86c-loader.js"></script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-53755418-1"></script>
+
+        <script async>
+             /* chat 
+            var LHCChatOptions = {};
+            LHCChatOptions.opt = { widget_height: 340, widget_width: 300, popup_height: 520, popup_width: 500, domain: 'multiseguroviagem.com.br/' };
+            (function () {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                var referrer = document.referrer ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf('://') + 1)) : '';
+                var location = document.location ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : '';
+                po.src = '//chat.multiseguroviagem.com.br/index.php/por/chat/getstatus/(click)/internal/(position)/bottom_right/(ma)/br/(check_operator_messages)/true/(top)/350/(units)/pixels/(leaveamessage)/true?r=' + referrer + '&l=' + location;
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+            */
+        </script>
+
+        <script async>
+              //WhatsHelp.io widget
+                (function () {
+                 var options = {
+                                facebook: "567659879954269", // Facebook page ID
+                                whatsapp: "+55 19 32010447", // WhatsApp number
+                                call: "(19) 3201-0447", // Call phone number
+                                email: "contato@multiseguroviagem.com.br", // Email
+                                company_logo_url: "https://cdn.multiseguroviagem.com.br/img/logomulti.png", // URL of company logo (png, jpg, gif)
+                                greeting_message: "Olá como poderiamos lhe ajudar? entre em contato conosco.", // Text of greeting message
+                                call_to_action: "Entre em contato", // Call to action
+                                wa_vb_message: "Mande nós uma mensagem !!", // Message for WhatsApp
+                                button_color: "#2ecc71", // Color of button
+                                position: "right", // Position may be 'right' or 'left'
+                                order: "facebook,whatsapp,email,call" // Order of buttons
+                            };
+                    var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+                    var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+                    s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+                    var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+                     })();
+            /* callpage
+            var __cp = { "id": "J2KHzI0a9FXEPJ4yAh4T264nfEVy7c0hOSqROPtyiJc", "version": "1.1" };
+            (function (window, document) {
+                var cp = document.createElement('script');
+                cp.type = 'text/javascript';
+                cp.async = true;
+                cp.src = "++cdn-widget.callpage.io+build+js+callpage.js".replace(/[+]/g, '/').replace(/[=]/g, '.');
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(cp, s);
+                if (window.callpage) {
+                    alert('You could have only 1 CallPage code on your website!');
+                } else {
+                    window.callpage = function (method) {
+                        if (method == '__getQueue') {
+                            return this.methods;
+                        } else if (method) {
+                            if (typeof window.callpage.execute === 'function') {
+                                return window.callpage.execute.apply(this, arguments);
+                            } else {
+                                (this.methods = this.methods || []).push({ arguments: arguments });
+                            }
+                        }
+                    };
+                    window.callpage.__cp = __cp;
+                    window.callpage('api.button.autoshow');
+                }
+            })(window, document);
+
+            setTimeout(function() {
+                $(".cp-callpage__button").on("click", function () {
+                    $(".cp-form-simple-control").attr("placeholder", "Digite seu telefone");
+                });
+            }, 5000);
+            */
+        </script>
+<!--
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1906433329635406');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1906433329635406&ev=PageView&noscript=1" />
+        </noscript>
+    -->
+
+        <script>
+            //*--- analytics ---*/
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-53755418-1', 'auto');
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+
+            // Novo código Analytics
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'AW-856332561');
+            gtag('config', 'AW-815983568');
+        </script>
+        <!--
+        <script>
+             //*--- afiliace ---*/
+            !function () {
+                var a = document.createElement("script"); a.type = "text/javascript", a.async = !0, a.src = "//configusa.veinteractive.com/tags/3757A51B/97E6/4C3F/8030/D893A9C06F65/tag.js"; var b = document.getElementsByTagName("head")[0]; if (b) b.appendChild(a, b); else {
+                    var b = document.getElementsByTagName("script")[0]; b.parentNode.insertBefore(a, b);
+                }
+            }();
+        </script>
+            -->
+
+        /*--- Pixel da ShopBack 16-01-18 
+        <script type="text/javascript">
+            window._st_account = 2254;
+            (function () {
+                var ss = document.createElement('script');
+                ss.type = 'text/javascript';
+                ss.async = true;
+                ss.src = '//app.shoptarget.com.br/js/tracking.js';
+                var sc = document.getElementsByTagName('script')[0];
+                sc.parentNode.insertBefore(ss, sc);
+            })();
+        </script>
+        ---*/
+
+        /*--- Código Bing
+        <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5979026"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript><img src="//bat.bing.com/action/0?ti=5979026&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+        ---*/
+        /*--- ClickGUARD---*/
+        <script type="application/javascript">
+            (function(){
+                window.cg_convert = function (x, y) { if (window._cg_convert) window._cg_convert(x || null, y || null); else setTimeout(function(){ cg_convert(x || null, y || null) },500); };
+                var script = document.createElement("script"); script.async = true; script.defer = true; script.type = "application/javascript";
+                script.src = 'https://io.clickguard.com/s/cHJvdGVjdG9y/wdtnubKk';
+                document.body.appendChild(script);
+            })();
+        </script>
+        <noscript><img src="https://io.clickguard.com/n/cHJvdGVjdG9y/wdtnubKk" alt="noscript" /></noscript>
+    }
+    }
+</body>
+</html>

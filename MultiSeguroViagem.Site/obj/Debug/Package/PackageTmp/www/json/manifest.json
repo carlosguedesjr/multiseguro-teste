@@ -1,0 +1,10 @@
+﻿{
+  "name": "MultiSeguro Viagem",
+  "short_name": "Multi",
+  "start_url": "https://www.multiseguroviagem.com.br/",
+  "display": "standalone",
+  "gcm_sender_id": "1097014367444",
+  "DO_NOT_CHANGE_GCM_SENDER_ID": "Do not change the GCM Sender ID"
+}
+
+/*--- One Signal---*/

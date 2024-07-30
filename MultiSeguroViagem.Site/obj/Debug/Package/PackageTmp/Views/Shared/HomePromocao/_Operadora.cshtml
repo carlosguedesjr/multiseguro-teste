@@ -1,0 +1,233 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoHomeModel
+@using System.Text.RegularExpressions;
+
+@using (Html.BeginForm("Cotacao", "Home", FormMethod.Post, new { Id = "frmCotacaoOperadora" }))
+{
+    @Html.AntiForgeryToken()
+    string url = Request.Url.AbsoluteUri;
+    string[] palavra = url.Split('/');
+
+    if (palavra.Length >= 5)
+    {
+        string operadora = palavra[4];
+        const string pattern = @"(?<=\w)(?=[A-Z])";
+       string resultado = Regex.Replace(operadora, pattern, " ", RegexOptions.None);
+        operadora = resultado.Substring(0, 1).ToUpper() + resultado.Substring(1);
+        @Html.HiddenFor(x => operadora)
+    }
+
+    @Html.HiddenFor(x => x.Origem)
+
+    <div class="errorForm">
+        <label class="control-label">
+            @Html.ValidationMessageFor(x => x.Destino, null, new { Class = "control-label", Data_Valmsg_For = "Destino" })
+        </label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="material-icons">public</i>
+        </span>
+        <div class="form-group select-button">
+            @Html.DropDownListFor(x => x.Destino, new List<SelectListItem>
+{
+new SelectListItem {Text = "Destino", Disabled = true, Selected = true },
+new SelectListItem {Text = "Selecione seu destino", Disabled = true },
+new SelectListItem {Text = "América do Norte", Value = "1"},
+new SelectListItem {Text = "África", Value = "2"},
+new SelectListItem {Text = "América Central", Value = "3"},
+new SelectListItem {Text = "América do Sul", Value = "4"},
+new SelectListItem {Text = "Ásia", Value = "5"},
+new SelectListItem {Text = "Brasil", Value = "6"},
+new SelectListItem {Text = "Europa", Value = "7"},
+new SelectListItem {Text = "Oceania", Value = "8"},
+new SelectListItem {Text = "Oriente Médio", Value = "9"}
+}, new { Id = "Destino", Class = "selectpicker", Data_Style = "form-control", Data_Message_Empty = "Selecione um destino" })
+        </div>
+    </div>
+
+    <div class="errorForm">
+        <label class="control-label margin-top-zero margin-0">
+            @Html.ValidationMessageFor(c => c.DataIda, null, new { Class = "control-label", Data_Valmsg_For = "DataIda" })
+        </label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="material-icons">flight_takeoff</i>
+        </span>
+        <div class="form-group is-empty">
+            @Html.TextBoxFor(c => c.DataIda, null, new { Id = "DataIda", Class = "form-control datepicker datepickermobile dataida", Placeholder = "Embarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de ida", Data_Type_Validation = "data" })
+        </div>
+    </div>
+    <div class="errorForm">
+        <label class="control-label margin-top-zero margin-0">
+            @Html.ValidationMessageFor(c => c.DataVolta, null, new { Class = "control-label", Data_Valmsg_For = "DataVolta" })
+        </label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="material-icons inv">flight_land</i>
+        </span>
+        <div class="form-group is-empty">
+            @Html.TextBoxFor(c => c.DataVolta, null, new { Id = "DataVolta", Class = "form-control datepicker datepickermobile datavolta", Placeholder = "Desembarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de volta", Data_Type_Validation = "data" })
+        </div>
+    </div>
+    <div class="errorForm">
+        <label class="control-label margin-top-zero margin-0">
+            @Html.ValidationMessageFor(c => c.Email, null, new { Class = "control-label", Data_Valmsg_For = "Email" })
+        </label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="material-icons">mail</i>
+        </span>
+        <div class="form-group is-empty">
+            @Html.TextBoxFor(c => c.Email, null, new { Id = "Email", Class = "form-control", Type = "email", Placeholder = "Informe seu email", Data_Message_Empty = "Informe seu email", Data_Type_Validation = "email" })
+        </div>
+    </div>
+    <div class="errorForm">
+        <label class="control-label margin-top-zero margin-0">
+            @Html.ValidationMessageFor(c => c.Telefone, null, new { Class = "control-label", Data_Valmsg_For = "telefone" })
+        </label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="material-icons">call</i>
+        </span>
+        <div class="form-group is-empty">
+            @Html.TextBoxFor(c => c.Telefone, null, new { Id = "telefone", Class = "form-control telefone", Type = "text", Placeholder = "Informe seu telefone", Data_Message_Empty = "Informe seu telefone", MaxLength = "20" })
+        </div>
+    </div>
+    <div class="errorForm">
+        <label class="control-label margin-top-zero margin-0">
+            @Html.ValidationMessageFor(c => c.Nome, null, new { Class = "control-label", Data_Valmsg_For = "nome" })
+        </label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="material-icons">perm_identity</i>
+        </span>
+        <div class="form-group is-empty">
+            @Html.TextBoxFor(c => c.Nome, null, new { Id = "nome", Class = "form-control nome", Type = "text", Placeholder = "Informe seu Nome", Data_Message_Empty = "Informe seu Nome" })
+        </div>
+    </div>
+
+    <button type="submit" id="btnCotarModal" class="btn btn-primary btn-block margin-top-5-percent">Ver Resultados</button>
+
+}
+<script src="/www/js/vendor/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script async defer>
+    function getDateString(data) {
+        var dia = data.getUTCDate();
+        var mes = (data.getUTCMonth() + 1);
+
+        return ((dia < 10) ? '0' + dia : dia) +
+            '/' +
+            ((mes < 10) ? '0' + mes : mes) +
+            '/' +
+            data.getUTCFullYear();
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+        $("#Destino option:first").hide();
+        $("#Destino").selectpicker('refresh');
+
+        $('#Email').blur(function (evt) {
+            setSession('email', evt.target.value);
+        });
+
+        function datepicker() {
+            $('.datepicker').datetimepicker({
+                useCurrent: false,
+                format: 'DD/MM/YYYY',
+                locale: 'pt-br',
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down",
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove',
+                    inline: true
+                }
+            });
+
+            $('.selectpicker').selectpicker({
+                dropupAuto: false
+            });
+        }
+
+        if (isMobile(navigator.userAgent)) {
+
+            $('#DataIda, #DataIdaBanner').on('focus touchstart touchend touchcancel touchleave touchmove', function () {
+                this.type = 'date';
+            });
+
+            $('#DataIda, #DataIdaBanner').on('change', function (obj) {
+                this.type = 'text';
+
+                if (obj.target.value !== '') {
+                    var data = new Date(obj.target.value);
+                    this.value = converteDataMobile(data);
+                }
+            });
+
+            $('#DataVolta, #DataVoltaBanner').on('focus touchstart touchend touchcancel touchleave touchmove', function () {
+                this.type = 'date';
+            });
+
+            $('#DataVolta, #DataVoltaBanner').on('change', function (obj) {
+                this.type = 'text';
+
+                if (obj.target.value !== '') {
+                    var data = new Date(obj.target.value);
+                    this.value = converteDataMobile(data);
+                }
+            });
+        } else {
+            datepicker();
+
+            $(document).ready(function () {
+                $('#DataIda, #DataIdaBanner').on("dp.change", function (e) {
+                    $('#DataVolta, #DataVoltaBanner').each(function (ind, obj) {
+                        $(obj).data("DateTimePicker").minDate(e.date);
+                    });
+                });
+
+                $("#DataVolta, #DataVoltaBanner").on("dp.change", function (e) {
+                    $('#DataIda, #DataIdaBanner').each(function (ind, obj) {
+                        $(obj).data("DateTimePicker").maxDate(e.date);
+                    });
+                });
+
+                $('#DataIda, #DataIdaBanner').each(function (ind, obj) {
+                    $(obj).data("DateTimePicker").minDate(new Date());
+                    $(obj).data("DateTimePicker").useCurrent(true);
+                });
+            });
+        }
+
+        $('#frmCotacaoOperadora').on('submit', function (e) {
+
+            if (!validaForm('#frmCotacaoOperadora'))
+                e.preventDefault();
+
+            $('#frmCotacaoOperadora #Origem').val(getLocalStorage('utmSource') || 'Indefinido');
+        });
+    });
+
+    jQuery("input.telefone")
+        .mask("(99) 9999-9999?9")
+        .focusout(function (event) {
+            var target, phone, element;
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+            phone = target.value.replace(/\D/g, '');
+            element = $(target);
+        });
+</script>
+
+
+

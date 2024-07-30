@@ -1,0 +1,252 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.PedidoModel
+@using System;
+@using System.Text;
+
+<link href="/www/css/pagamento.css" rel="stylesheet" />
+
+<div class="profile-page mais-detalhes">
+    <div class="page-header gradiente" data-parallax="true"></div>
+
+    <div class="main main-raised">
+        <div class="profile-content">
+
+            <div class="container">
+                <div class="row">
+                    <h2 class="title precos-titulo" id="tituloviajantes" style="display:inline-block">Pedido @Model.IdPedido</h2>
+                    <a class="btn btn-round btn-voltar voltar">
+                        <i class="material-icons">undo</i> Voltar
+                    </a>
+                </div>
+            </div>
+            <div class="container">
+                <div>
+                    <div class="steps col-md-8">
+                        <section id="cd-timeline" class="cd-container">
+                            <div class="cd-timeline-block">
+                                <div class="cd-timeline-img">
+                                    <img src="/www/img/pag/meupedido.png" alt="Meu pedido">
+                                </div>
+                                <div class="cd-timeline-content">
+                                    <p class="detalhesdopedido"><span class="title">Acompanhe o status de seu pedido</span></p>
+
+                                </div>
+                            </div>
+
+                            @{
+                                var pedidoClass = "aprovado";
+                                var pagamentoClass = "futuro";
+                                var voucherClass = "futuro";
+                                var pedidoStatus = "Pedido realizado";
+                                var pagamentoStatus = "";
+                                var voucherStatus = "";
+
+                                switch (Model.Status.IdPedidoStatus)
+                                {
+                                    case 1:
+                                        pagamentoClass = "aprovado";
+                                        pagamentoStatus = Model.Status.Status;
+                                        break;
+                                    case 2:
+                                        pagamentoClass = "pendente";
+                                        pagamentoStatus = Model.Status.Status;
+                                        break;
+                                    case 3:
+                                        pedidoClass = "reprovado";
+                                        pedidoStatus = "Pedido cancelado";
+                                        break;
+                                    case 4:
+                                        pedidoClass = "pendente";
+                                        pedidoStatus = Model.Status.Status;
+                                        break;
+                                    case 5:
+                                        pagamentoClass = "aprovado";
+                                        voucherClass = "aprovado";
+                                        voucherStatus = Model.Status.Status;
+                                        break;
+                                    case 6:
+                                        pagamentoClass = "aprovado";
+                                        pagamentoStatus = Model.Status.Status;
+                                        break;
+                                    case 7:
+                                        pagamentoClass = "vencido";
+                                        pagamentoStatus = Model.Status.Status;
+                                        break;
+                                    case 8:
+                                        pagamentoClass = "aguardando";
+                                        pagamentoStatus = Model.Status.Status;
+                                        break;
+                                    case 9:
+                                        pagamentoClass = "aprovado";
+                                        pagamentoStatus = Model.Status.Status;
+                                        break;
+                                    case 10:
+                                        pagamentoClass = "pendente";
+                                        pagamentoStatus = Model.Status.Status;
+                                        break;
+
+                                }
+
+                                <div class="cd-timeline-block">
+                                    <div class="cd-timeline-img @pedidoClass">
+                                        <div class="icone-pagamento">
+                                            <i class="material-icons">shopping_cart</i>
+                                        </div>
+                                    </div>
+                                    <div class="cd-timeline-content">
+                                        <span class="title">@pedidoStatus</span>
+                                        @*@{
+                                              System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("pt-BR");
+                                              var data = (pedidoClass == "reprovado") ? (DateTime)Model.DataCancelamento : Model.DataCriacao;
+                                              var dataFormat = string.Concat(data.ToString("dd"), " de ", data.ToString("MMMM", culture), " às ", data.ToString("hh:MM"), "h de ", data.ToString("yyyy"));
+                                            <p><strong>@dataFormat</strong></p>
+                                            }*@
+                                    </div>
+                                </div>
+
+                                <div class="cd-timeline-block">
+                                    <div class="cd-timeline-img @pagamentoClass">
+                                        <div class="icone-pagamento">
+                                            <i class="material-icons">monetization_on</i>
+                                        </div>
+                                    </div>
+                                    <div class="cd-timeline-content">
+                                        <span class="title">
+                                            @pagamentoStatus
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="cd-timeline-block">
+                                    <div class="cd-timeline-img @voucherClass">
+                                        <div class="icone-pagamento">
+                                            <i class="material-icons">confirmation_number</i>
+                                        </div>
+                                    </div>
+                                    <div class="cd-timeline-content">
+                                        <span class="title">
+                                            @voucherStatus
+                                        </span>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </section>
+                    </div>
+                    <div class="col-md-4">
+                        @if (Model.Arquivos != null)
+                        {
+                            foreach (var item in Model.Arquivos)
+                            {
+                                var uriExterna = System.Configuration.ConfigurationManager.AppSettings["UriDownloadFile"] + item.IdFileUploads + '/' + item.DataCadastro;
+                                <a href='@uriExterna' class="btn btn-primary btn-block">
+                                    <i class="material-icons">file_download</i> @item.Arquivo
+                                </a>
+                            }
+                        }
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 class="title">Informações</h4>
+                                <p><span class="title">Número do pedido: </span>@Model.IdPedido</p>
+                                <p><span class="title">Status: </span>@Model.Status.Status</p>
+                                <p><span class="title">Data da compra </span>@Model.DataCriacao.ToString("dd/MM/yyy")</p>
+                                <p><span class="title">Planos: </span>@Model.NomePlano</p>
+                                <p><span class="title">Valor total: </span>R$@Model.ValorTotal</p>
+
+                                <a href="/www/files/TermoUso.pdf" target="_blank" class="btn btn-info btn-block btn-sm">
+                                    <i class="material-icons">file_download</i> Avisos ao viajante
+                                </a>
+                                @foreach (var condicao in ViewBag.CondicoesGerais)
+                                {
+                                    if (condicao != null)
+                                    {
+                                        var uriExterna = System.Configuration.ConfigurationManager.AppSettings["UriDownloadFile"] + condicao.IdFileUploads.ToString() + '/' + condicao.DataCadastro;
+                                        <a href='@uriExterna' class="btn btn-info btn-block btn-sm">
+                                            <i class="material-icons">file_download</i> @condicao.Arquivo
+                                        </a>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    @if (ViewBag.Viajantes != null)
+                    {
+                        foreach (var viajante in ViewBag.Viajantes)
+                        {
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <h4 class="title">@viajante.NomePlano - Viajante</h4>
+                                        <p>
+                                            <span class="title">Nome: </span>@viajante.Nome
+                                        </p>
+                                        <p>
+                                            <span class="title">CPF: </span>@viajante.Cpf
+                                        </p>
+                                        <p>
+                                            <span class="title">Data de Nascimento: </span>@viajante.DataNascimento.ToString("dd/MM/yyy")
+                                        </p>
+                                        <p>
+                                            <span class="title">Sexo: </span>@(viajante.Sexo == 1 ? "Masculino" : "Feminino")
+                                        </p>
+
+
+                                        @if (!string.IsNullOrEmpty(viajante.UriVoucher) && (viajante.UriVoucher.Contains("travelace") || viajante.UriVoucher.Contains("intermac")) && (Model.Status.IdPedidoStatus == 9 || Model.Status.IdPedidoStatus == 5))
+                                        {
+                                            <p>
+                                                <span class="title">Codigo Voucher: </span>@viajante.CodigoVoucher
+                                            </p>
+                                            <p>
+                                                @{ string Url = viajante.UriVoucher; }
+                                                <b><a href="@Url" target="_blank">Visualizar Voucher</a></b>
+                                            </p>
+                                        }
+                                        else
+                                        {
+                                            <p>
+                                                <span class="title">Codigo Voucher: </span>@viajante.CodigoVoucher
+                                            </p>
+                                            <p>
+                                                @{ string Url = "https://sistema.multiseguroviagem.com.br/confereclick?url=" + viajante.UriVoucher + "&IdPedido=" + Model.IdPedido; }
+                                                <b><a href="@Url" target="_blank">Visualizar Voucher</a></b>
+                                            </p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+    <script src="/www/js/vendor/scrollreveal.min.js"></script>
+
+    <script>
+        // Scroll Reveal
+        window.sr = ScrollReveal({ mobile: false });
+
+        sr.reveal('.description .info-title', { delay: 200 }, 300);
+        sr.reveal('.description p', { delay: 400 }, 300);
+        sr.reveal('.img-rounded', 200);
+
+
+        //---------------------- Voltar
+
+        $('.voltar').on('click',
+            function () {
+                var action = '@Url.Action("VoucherOnline", "Login")';
+                window.location = action;
+            });
+
+        //---------------------- Fim voltar
+    </script>
+}

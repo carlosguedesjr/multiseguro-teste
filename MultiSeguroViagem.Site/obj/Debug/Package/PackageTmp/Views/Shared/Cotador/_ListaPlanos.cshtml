@@ -1,0 +1,388 @@
+﻿@using System.Globalization
+@using System;
+@using System.Collections;
+@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoCotadorModel
+@{
+    string Navegador = Request.Browser.Browser;
+    DateTime Data_Volta = DateTime.Parse(Model.DataVolta);
+    DateTime Data_Ida = DateTime.Parse(Model.DataIda);
+    string Destino = Model.Destino;
+
+    int bitAtivo = 0;
+    int qtdPlanos = 0;
+    int cont = 0;
+
+    string strSegunda = "0";
+    string strTerca = "0";
+    string strQuarta = "0";
+    string strQuinta = "0";
+    string strSexta = "0";
+    string strSabado = "0";
+    string strDomingo = "0";
+
+
+    var Confere = Model.Planos.Where(a => a.RealSeguros != null).Select(a => a.RealSeguros.FirstOrDefault().bitAtivo).DefaultIfEmpty("NADA");
+    string teste = Confere.FirstOrDefault();
+    if (teste != "NADA")
+    {
+        Int32.TryParse(Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().bitAtivo, out bitAtivo);
+        Int32.TryParse(Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().qtdPlanos, out qtdPlanos);
+
+        strSegunda = Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().strSegunda;
+        strTerca = Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().strTerca;
+        strQuarta = Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().strQuarta;
+        strQuinta = Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().strQuinta;
+        strSexta = Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().strSexta;
+        strSabado = Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().strSabado;
+        strDomingo = Model.Planos.FirstOrDefault().RealSeguros.FirstOrDefault().strDomingo;
+    }
+
+
+
+    int dias = (int)((Data_Volta - Data_Ida).TotalDays + 1);
+    decimal PrecoAjuste = 0;
+    string PrecoAjusteCompara = null;
+    string AjusteMelhorIdade = " ";
+    var BlackListEmails = new ArrayList();
+    var BlackListTelefones = new ArrayList();
+    int[] numbers = new int[5];
+    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+    decimal parcela = 0;
+}
+<input type="hidden" runat='server' id="DataVolta" value="@Data_Volta" />
+<input type="hidden" runat='server' id="DataIda" value="@Data_Ida" />
+<input type="hidden" runat='server' id="Destino" value="@Destino" />
+<input type="hidden" runat='server' id="bitAtivo" value="@bitAtivo" />
+<input type="hidden" runat='server' id="qtdPlanos" value="@qtdPlanos" />
+<input type="hidden" runat='server' id="strSegunda" value="@strSegunda" />
+<input type="hidden" runat='server' id="strTerca" value="@strTerca" />
+<input type="hidden" runat='server' id="strQuarta" value="@strQuarta" />
+<input type="hidden" runat='server' id="strQuinta" value="@strQuinta" />
+<input type="hidden" runat='server' id="strSexta" value="@strSexta" />
+<input type="hidden" runat='server' id="strSabado" value="@strSabado" />
+<input type="hidden" runat='server' id="strDomingo" value="@strDomingo" />
+
+@foreach (var item in Model.Planos)
+{
+    if (teste != "NADA")
+    {
+        if (cont == 0)
+        {
+            foreach (var itemBlackList in item.RealSeguros)
+            {
+                if (itemBlackList.strTelefone != null)
+                {
+                    BlackListTelefones.Add(itemBlackList.strTelefone);
+                }
+                if (itemBlackList.strEmail != null)
+                {
+                    BlackListEmails.Add(itemBlackList.strEmail);
+                }
+            }
+        }
+        cont++;
+    }
+}
+<div id="listaCotacoes">
+    <div class="cotacao-interno realseguros" id="realseguros">
+    </div>
+    <!--
+    @if (Model.Planos.FirstOrDefault().Destino.IdDestino == 6)
+    {
+        
+        <div class="cotacao-interno">
+            <div class="card">
+                <div class="card-content cotacao-card alinhando-ads">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                   
+                    <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px"  data-ad-client="ca-pub-1284532310232457"  data-ad-slot="4279634595">
+                    </ins>
+                    <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+    }
+    -->
+                @foreach (var item in Model.Planos)
+                {
+                    int Bit_Teste = 0;
+                    parcela = decimal.Parse(item.PrecoComercial, new CultureInfo("pt-BR"))/6;
+                   
+                    decimal desconto = (decimal.Parse(item.PrecoComercial, new CultureInfo("pt-BR")) / 100) * 5;
+                    decimal boleto = decimal.Parse(item.PrecoComercial, new CultureInfo("pt-BR")) - desconto;
+                    foreach (var itemCobertura in item.Coberturas)
+                    {
+
+                        if (itemCobertura.Nome == "Marítimo Cruzeiro")
+                        {
+                            Bit_Teste = 1;
+                        }
+                    }
+
+                    if ((item.IdStatusMinDias == 1 && decimal.Parse(item.Preco) > 0) || (item.IdStatusMinDias == 0 && dias >= item.CotacaoDiasMinimo && dias <= item.CotacaoDiasMaximo && decimal.Parse(item.Preco) > 0))
+                    {
+
+                        if (item.Coberturas.Count == 0) { continue; }
+
+                        <div class="cotacao-interno">
+                            <div class="card">
+                                <div class="card-content cotacao-card">
+                                    @if (item.MaisVendido)
+                                    {
+                                        <span class="ribbon4" style="text-transform: uppercase;">Mais vendido</span>
+                                    }
+                                    <div class="col-md-2" style="text-align: center;">
+                                        <img title="@item.Operadora.Nome" alt="@item.Operadora.Nome" src="/www/img/@item.Operadora.ImagemLogo" class="operadora">
+                                    </div>
+
+
+                                    <div class="col-md-2 operadora-titulo-box">
+                                        <h4 class="title operadora-titulo">@item.Nome</h4>
+                                        <button class="btn btn-xs btn-coberturas btnCoberturas" value="@item.IdPlano" data-toggle="modal" data-target="#coberturasModal">VER COBERTURAS</button>
+                                        @if (!Convert.ToBoolean(ViewData["Seo"]))
+                                        {
+                                            <div class="togglebutton cotacaotoggle">
+                                                <label>
+                                                    <input class="compararPlano" type="checkbox" value="@item.IdPlano" plano="@item.Nome">
+                                                    <b>Comparar</b>
+                                                </label>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="col-md-2 col-sm-6 col-xs-6 operadora-vantagens">
+                                        <i class="material-icons operadora-vantagens-icone">favorite</i>
+                                        @if (Bit_Teste == 1)
+                                        {
+                                            <img class="logo_barco" src="/www/svg/sea-ship-icon.svg" data-toggle="tooltip" data-placement="top" title="Este plano inclui viagens Cruzeiro/Marítimo para o destino selecionado" />
+                                        }
+                                        <h6 class="title operadora-vantagens-title">@item.Coberturas[0].Nome.ToUpper()</h6>
+                                        <h4 class="title operadora-vantagens-preco">@item.Coberturas[0].MoedaCobertura @($"{Math.Round(item.Coberturas.FirstOrDefault(c => c.Nome == "Assistência Médica").ValorCobertura, 2):N}")</h4>
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-6 operadora-vantagens">
+                                        <i class="material-icons operadora-vantagens-icone">work</i>
+                                        <h6 class="title operadora-vantagens-title">@item.Coberturas[1].Nome.ToUpper()</h6>
+                                        <h4 class="title operadora-vantagens-preco">@item.Coberturas[1].MoedaCobertura @($"{Math.Round(item.Coberturas.FirstOrDefault(c => c.Nome == "Perda de Bagagem").ValorCobertura, 2):N}")</h4>
+                                    </div>
+                                    @if (item.MelhorIdadeMinima <= 0)
+                                    { AjusteMelhorIdade  = "ajuste-posicao-melhor-idade"; }
+                                    else
+                                    {
+                                        AjusteMelhorIdade = " ";
+                                    }
+                                <div class="col-md-2 col-sm-12 col-xs-12 operadora-vantagens-preco @AjusteMelhorIdade">
+
+                                    @if (Convert.ToBoolean(ViewData["Seo"]))
+                                    {
+
+                                        <div class="operadora-vantagens-preco">
+                                            <h6 class="title operadora-vantagens-title">A PARTIR DE</h6>
+                                            <p class="title operadora-vantagens-preco-total">R$ @decimal.Parse(item.PrecoComercial, new CultureInfo("pt-BR")).ToString("n2")</p>
+                                            <h6 class="title operadora-vantagens-title">Por viajante</h6>
+                                        </div>
+                                    }
+                                    @if (item.AjustePorcentagem > 0)
+                                    {
+                                        PrecoAjuste = (decimal.Parse(item.Preco, new CultureInfo("pt-BR")) * (100 / (100 - item.AjustePorcentagem)));
+                                        PrecoAjusteCompara = PrecoAjuste.ToString("n2");
+                                    }
+                                    else
+                                    {
+                                        PrecoAjusteCompara = item.Preco;
+                                    }
+                                    @if (PrecoAjuste > decimal.Parse(item.PrecoComercial, new CultureInfo("pt-BR")))
+                                    {
+                                        <p class="texto-cotador-precos"><span class="texto-cotador-precos">DE: </span><span class="preco-valor-alto">R$ @PrecoAjusteCompara</span></p>
+                                    }
+                                    <p class="title operadora-vantagens-preco-total"><span class="texto-cotador-precos">POR: </span>R$ @decimal.Parse(item.PrecoComercial, new CultureInfo("pt-BR")).ToString("n2")</p>
+                                    <p class="operadora-idade parcela-cotador">6 x R$ @parcela.ToString("n2") sem juros !</p>
+                                    <p class="ou-cotador">ou</p>
+                                    <p class="boleto-cotador">R$ @boleto.ToString("n2")</p>
+                                    <p><span class="texto-boleto">no Boleto</span></p>
+                                </div>
+                                    <div class="col-md-2 col-sm-12 col-xs-12 operadora-vantagens-preco">
+                                        @Html.Hidden("hdnIdPlano", item.IdPlano)
+                                        @Html.Hidden("hdnEstudante", item.Estudante)
+                                        @if (!Navegador.Equals("Safari"))
+                                        {
+                                            <button class="btn btn-primary btn-comprar" value="@item.IdPlano">
+                                                <i class="material-icons">shopping_cart</i> Comprar
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-primary btn-comprar" value="@item.IdPlano">Comprar</button>
+                                        }
+
+                                        <p class="title operadora-idade-comprar">IDADE: 0 A @(item.MelhorIdadeMaxima > 0 ? item.MelhorIdadeMaxima : item.IdadeMaxima) ANOS</p>
+                                        @if (decimal.Parse(item.PrecoMelhorIdade, new CultureInfo("pt-BR")) > 0 && !Convert.ToBoolean(ViewData["Seo"]))
+                                        {
+                                            if (item.MelhorIdadeMinima > 0)
+                                            {
+                                                <p class="operadora-idade idade-maximo-cotador">A partir de @item.MelhorIdadeMinima anos</p>
+
+                                                <p class="title operadora-idade-preco">R$ @(decimal.Parse(item.PrecoMelhorIdade, new CultureInfo("pt-BR")).ToString("n2"))</p>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+
+</div>
+
+    <script>
+        setTimeout(function ()
+        {
+            $(document).ready(function ()
+            {
+                function getQueryParam(param, defaultValue = undefined)
+                {
+                    location.search.substr(1)
+                    .split("&")
+                    .some(function(item) { // returns first occurence and stops
+                        return item.split("=")[0] == decodeURIComponent(param) && (defaultValue = decodeURIComponent(item.split("=")[1]), true)
+                    });
+                    return defaultValue;
+                }
+
+
+                var bitBlacklist = 0;
+                var arrayTelefones = '@serializer.Serialize(BlackListTelefones)';
+                var arrayEmails = '@serializer.Serialize(BlackListEmails)';
+
+                arrayTelefones = arrayTelefones.replace(/&quot;/g, '').replace(/[\[\].!'><|://\\;&*()_+=]/g,"").split(",");
+                arrayEmails = arrayEmails.replace(/&quot;/g, '"').replace(/[\[\]!'><|://\\;&*()_+=]/g,"").replace(/[\"\]]/g,"").split(",");
+
+                var arrUniqueTels = [];
+                $.each(arrayTelefones, function(i, el){
+                    if($.inArray(el, arrUniqueTels) === -1) arrUniqueTels.push(el);
+                });
+
+                var arrUniqueEmails = [];
+                $.each(arrayEmails, function(i, el){
+                    if($.inArray(el, arrUniqueEmails) === -1) arrUniqueEmails.push(el);
+                });
+
+
+                var telefone = getQueryParam('Telefone').replace(/[\-\]. !'><|://\\;&*()_+=]/g,"");
+                var email = getQueryParam('Email');
+
+                if(arrUniqueTels.includes(telefone)){
+                    bitBlacklist = 1;
+                }
+                if(arrUniqueEmails.includes(email)){
+                    bitBlacklist = 1;
+                }
+
+                today = new Date();
+                dayIndex = today.getDay();
+                Limite = $('#qtdPlanos').val();
+
+                $('.logo_barco').tooltip();
+
+                if($('#bitAtivo').val() == 1){
+
+                    if(dayIndex == 0)
+                    {
+                       var Domingo = $('#strDomingo').val().split(" ate ");
+                       if(today.getHours() < Domingo[0]  || today.getHours() > Domingo[1])
+                       {
+                            if(bitBlacklist == 0)
+                            {
+                                if(@teste != "NADA"){
+                                    ConsultaReal(Limite);
+                                }
+                            }
+                       }
+                    }
+                    if(dayIndex == 1)
+                    {
+                       var Segunda = $('#strSegunda').val().split(" ate ");
+                       if(today.getHours() < Segunda[0]  || today.getHours() > Segunda[1])
+                       {
+                            if(bitBlacklist == 0)
+                            {
+                                if(@teste != "NADA"){
+                                    ConsultaReal(Limite);
+                                }
+                            }
+                       }
+                    }
+                    if(dayIndex == 2)
+                    {
+                       var Terca = $('#strTerca').val().split(" ate ");
+                       if(today.getHours() < Terca[0] || today.getHours() > Terca[1])
+                       {
+                            if(bitBlacklist == 0)
+                            {
+                                if(@teste != "NADA"){
+                                    ConsultaReal(Limite);
+                                }
+                            }
+                       }
+                    }
+                    if(dayIndex == 3)
+                    {
+                       var Quarta = $('#strQuarta').val().split(" ate ");
+                       if(today.getHours() < Quarta[0]  || today.getHours() > Quarta[1])
+                       {
+                            if(bitBlacklist == 0)
+                            {
+                                if(@teste != "NADA"){
+                                    ConsultaReal(Limite);
+                                }
+                            }
+                       }
+                    }
+                    if(dayIndex == 4)
+                    {
+                       var Quinta = $('#strQuinta').val().split(" ate ");
+                       if(today.getHours() < Quinta[0]  || today.getHours() > Quinta[1])
+                       {
+                            if(bitBlacklist == 0)
+                            {
+                                if(@teste != "NADA"){
+                                    ConsultaReal(Limite);
+                                }
+                            }
+                       }
+
+                    }
+                    if(dayIndex == 5)
+                    {
+                       var Sexta = $('#strSexta').val().split(" ate ");
+                       if(today.getHours() < Sexta[0]   || today.getHours() > Sexta[1])
+                       {
+                            if(bitBlacklist == 0)
+                            {
+                                if(@teste != "NADA"){
+                                    ConsultaReal(Limite);
+                                }
+                            }
+                       }
+                    }
+                    if(dayIndex == 6)
+                    {
+                       var Sabado = $('#strSabado').val().split(" ate ");
+                       if(today.getHours() < Sabado[0]  || today.getHours() > Sabado[1])
+                       {
+                            if(bitBlacklist == 0)
+                            {
+                                if(@teste != "NADA"){
+                                    ConsultaReal(Limite);
+                                }
+                            }
+                       }
+
+                    }
+
+                }
+            });
+        }, 2000);
+   </script>

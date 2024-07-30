@@ -1,0 +1,304 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Login.LoginCadastroModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Multi Seguro Viagem | Entrar</title>
+    <meta name="description" content="Entre em sua conta para acompanhar seus pedidos, vouchers e consultar seus dados">
+    <meta name="keywords" content="seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional">
+    <link rel="canonical" href="https://www.multiseguroviagem.com.br/Login" />
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://multiseguroviagem.com.br/login">
+    <meta property="og:title" content="Entrar">
+    <meta property="og:site_name" content="Multi Seguro Viagem">
+    <meta property="og:description" content="Entre em sua conta para acompanhar seus pedidos, vouchers e consultar seus dados">
+    <meta property="og:image" content="https://multiseguroviagem.com.br/www/img/multiseguroviagem.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <meta property="og:type" content="website">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="76x76" href="/www/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/www/img/favicon.png">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link href="/www/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+    <link href="/www/css/material-kit.css?v=1.1.0" rel="stylesheet" />
+    <link href="/www/css/custom.css" rel="stylesheet" />
+</head>
+
+<body class="login-page">
+<nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+    <div class="container">
+        <div class="navbar-header">
+
+            <a href="@Url.Action("Index", "Home")">
+
+                <div class="logo">
+                    <img src="/www/img/logomulti.png" alt="MultiSeguro Viagem">
+                </div>
+
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header header-filter gradiente">
+    <div class="container">
+        <div class="row">
+            <div class="rotating-card-container manual-flip col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 login-card">
+                <div class="card card-rotate card-signup">
+                    <div class="front">                            
+                        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { Id="frmLogin"}))
+                        {
+
+                            <div class="header header-info text-center">
+                                <h4 class="card-title">Log in</h4>
+                            </div>
+                            <div class="card-content text-left" style="padding: 0 20px 0 20px;">
+                                <div class="form-group valid">
+                                    <label class="control-label">
+                                        @Html.ValidationMessageFor(log => log.Login.Email, null, new { Class = "control-label"})
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                        @Html.TextBoxFor(log => log.Login.Email, new { Class = "form-control", Placeholder = "Email", Valida = "campoVazio email", Data_Message_Empty = "Informe o email" })
+                                    </div>
+                                </div>
+                                <div class="form-group valid">
+                                    <label class="control-label">
+                                        @Html.ValidationMessageFor(log => log.Login.Senha, null, new { Class = "control-label" })
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">lock_outline</i>
+                                        </span>
+                                        @Html.PasswordFor(log => log.Login.Senha, new { Class = "form-control", Placeholder = "Senha", Valida = "campoVazio", Data_Message_Empty = "Informe a senha" })
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-wd btn-lg btn-block">Entrar</button>
+                            </div>
+                            if (ViewBag.ErroLogin != null && ViewBag.ErroLogin != "")
+                            {
+                                <div class="alert-login">
+                                    <div class="alert alert-danger">
+                                        <div class="container-fluid">
+                                            <div class="alert-icon">
+                                                <i class="material-icons">error_outline</i>
+                                            </div>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                            </button>
+                                            @ViewBag.ErroLogin
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <div class="footer login-botoes">
+                            <a href="#" class="btn btn-primary btn-simple btn-block esqueciSenha">Esqueci minha senha</a>
+                        </div>
+                        <div class="col-md-6 text-left margin-top-dez pull-left">
+                            <button class="btn btn-block text-center btnVoltar"><i class="material-icons">undo</i> Voltar</button>
+                        </div>
+                        <div class="col-md-6 text-right margin-top-dez pull-right">
+                            <button class="btn btn-block btn-success text-center jsAnimacao">Cadastrar-se <i class="material-icons">navigate_next</i></button>
+                        </div>
+                    </div>
+
+                    <div class="back" style="display:block !important;">
+                        @using (Html.BeginForm("Cadastro", "Login", FormMethod.Post, new { Id="frmCadastro"}))
+                        {
+                            <div class="header header-info text-center">
+                                <h4 class="card-title">Cadastro</h4>
+                            </div>
+                            <div class="card-content text-left">
+                                <div class="form-group valid">
+                                    <label class="control-label">
+                                        @Html.ValidationMessageFor(cad => cad.Cadastro.Nome, null, new { Class = "control-label" })
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">face</i>
+                                        </span>
+                                        @Html.TextBoxFor(cad => cad.Cadastro.Nome, new { Class = "form-control", Placeholder = "Nome", Valida = "campoVazio nomeCompleto", Data_Message_Empty = "Informe o nome" })
+                                    </div>
+                                </div>
+                                <div class="form-group valid">
+                                    <label class="control-label">
+                                        @Html.ValidationMessageFor(cad => cad.Cadastro.Email, null, new { Class = "control-label" })
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                        @Html.TextBoxFor(cad => cad.Cadastro.Email, new { Class = "form-control", Placeholder = "Email", Valida = "campoVazio email", Data_Message_Empty = "Informe o email" })
+                                    </div>
+                                </div>
+                                <div class="form-group valid">
+                                    <label class="control-label">
+                                        @Html.ValidationMessageFor(cad => cad.Cadastro.Senha, null, new { Class = "control-label" })
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">lock_outline</i>
+                                        </span>
+                                        @Html.PasswordFor(cad => cad.Cadastro.Senha, new { Class = "form-control", Placeholder = "Senha", Valida = "campoVazio", Data_Message_Empty = "Informe a senha" })
+                                    </div>
+                                </div>
+                                <div class="footer text-center margin-top-zero">
+                                    <button type="submit" class="btn btn-primary btn-wd btn-lg btn-block">Cadastrar</button>
+                                </div>
+                            </div>
+                            if (ViewBag.ErroCadastro != null && ViewBag.ErroCadastro != "")
+                            {
+                                <div class="alert-login">
+                                    <div class="alert alert-danger">
+                                        <div class="container-fluid">
+                                            <div class="alert-icon">
+                                                <i class="material-icons">error_outline</i>
+                                            </div>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                            </button>
+                                            @ViewBag.ErroCadastro
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <div class="text-left col-md-6 margin-top-dez pull-left">
+                            <button class="btn btn-block text-center btnVoltar"><i class="material-icons">undo</i> Voltar</button>
+                        </div>
+                        <div class="text-right col-md-6 margin-top-dez pull-right">
+                            <button class="btn btn-block btn-success text-center jsAnimacao"><i class="material-icons">navigate_before</i> Faça Login</button>
+                        </div>                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+<div class="modal fade" id="senhaModal" tabindex="-1" role="dialog" aria-labelledby="senhaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close-coberturas" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modalLabel"><b>Esqueci minha senha</b></h4>
+            </div>
+            <div class="modal-body">
+                <form id="frmEsqueciSenha">
+                    <div class="">
+                        <label class="control-label margin-top-zero">
+                            @Html.ValidationMessageFor(log => log.Login.EmailRecuperarSenha, null, new { Class = "control-label" })
+                        </label>
+                        <div class="form-group margin-top-zero">
+                            @Html.TextBoxFor(log => log.Login.EmailRecuperarSenha, new { Class = "form-control", Placeholder = "E-mail", Data_Message_Empty = "Informe o e-mail", Data_Type_Validation = "email" })
+                        </div>
+                        <div class="footer text-center margin-top-zero">
+                            <button id="btnModalEnviar" class="btn btn-primary btn-wd btn-lg">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="/www/js/vendor/jquery.min.js"></script>
+<script src="/www/js/vendor/bootstrap.min.js"></script>
+<script src="/www/js/vendor/material.min.js"></script>
+<script src="/www/js/vendor/material-kit.js?v=1.1.0"></script>
+<script src="/www/js/vendor/sweetalert2.min.js"></script>
+
+<script src="/www/js/modulos/validacoes.js"></script>
+
+<script>
+
+    $('.esqueciSenha').on('click', function () {
+
+        $('#Login_EmailRecuperarSenha').val($('#Login_Email').val());
+        $('#senhaModal').modal();
+    });
+
+    $('#btnModalEnviar').on('click', function (event) {
+
+        event.preventDefault();
+ 
+
+        if (!validaFormulario('#frmEsqueciSenha')) {
+
+            $('.valid:has(label.control-label span.control-label:not(:empty))').addClass("has-error");
+            $('.valid:has(label.control-label span.control-label:empty)').removeClass("has-error");
+            return false;
+        }
+
+        $.ajax({
+            url: '@Url.Action("EsqueciSenha", "Login")',
+            data: { email: $('#Login_EmailRecuperarSenha').val().trim() },
+            method: "get",
+            contentType: 'json',
+            async: false,
+            success: function (response) {
+
+                if (response.success) {
+
+                    $("#senhaModal .close").click();
+                    swal('Sucesso!', 'Uma nova senha foi enviada para o endereço de e-mail informado.', 'success');
+                }
+                else
+                    swal('Oops!', response.message, 'warning');
+            }
+        });
+    });
+
+    $(function () {
+
+        validacao('#frmLogin');
+
+        validacao('#frmCadastro');
+
+        $('.btnVoltar').on('click', function () {
+
+            var cotacao = window.sessionStorage.cotacao;
+            var uri = "@Url.Action("Index", "Home")";
+
+            if (cotacao) {
+
+                cotacao = JSON.parse(cotacao);
+                uri = "@Url.Action("Cotacao", "Cotador")?Destino=" + cotacao.Destino + "&DataIda=" + cotacao.DataIda + "&DataVolta=" + cotacao.DataVolta;
+            }
+
+            window.location.href = uri;
+        });
+
+        $('.jsAnimacao').on("click", function () {
+
+            var card = $('.rotating-card-container');
+
+            if (card.hasClass('hover')) {
+                card.removeClass('hover');
+                return;
+            }
+
+            card.addClass('hover');
+        });
+
+        if ("@ViewBag.ErroCadastro")
+            $(".jsAnimacao:first").trigger("click");
+    });
+</script>
+</html>

@@ -1,0 +1,879 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoHomeModel
+@using System;
+@using System.Collections.Generic;
+@using System.Text;
+@using System.Collections.Specialized;
+@using System.Net;
+@{
+    ViewBag.Title = "Comparar Seguro Viagem [até 70% OFF] é com a Multi Seguro Viagem";
+    ViewBag.MetaDescription = "Cote e Compare o Melhor Seguro Viagem Internacional. Simples e rápido, você visualiza diversas opções. Inclui alterações sem limites.";
+    ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br";
+    ViewBag.OGTitle = "Comparar Seguro Viagem [até 70% OFF] é com a Multi Seguro Viagem";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+    string Navegador = Request.Browser.Browser;
+    string hidden = "hidden";
+    string css = "";
+    string css_botao = "";
+    string borda = "";
+    string css_botao_resultados = "";
+}
+@if (Navegador.Equals("Safari"))
+{
+    hidden = "";
+    css = "ajuste-mobile-safari";
+    css_botao = "ajuste-mobile-safari-botao";
+    borda = "borda-safari";
+    css_botao_resultados = "ajuste-botao-resultados-safari";
+}
+
+<div class="spriteHome"></div>
+<script async>
+    var spriteHome = document.querySelector(".spriteHome");
+    spriteHome.innerHTML = '<link href="https://cdn.multiseguroviagem.com.br/css/spriteHome2.css" rel="stylesheet"/>';
+</script>
+<!--
+<script src="/www/js/vendor/main.js"></script>
+-->
+<div class="header-2 home">
+
+    @{
+        var caminhoImagemBackground = $"{System.Configuration.ConfigurationManager.AppSettings["UrnBanner"]}{ViewBag.Configuracoes.CaminhoImagemBackground}";
+    }
+
+
+    <div class="page-header gradiente" id="image">
+        <ul class="breadcrumb ajuste-breadcrumb" style="display: none;">
+            <li><a href="https://www.multiseguroviagem.com.br">Home</a></li>
+            <li>seguro-viagem</li>
+        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="title" id="in-titulo-home">
+                        @Html.Raw(ViewBag.Configuracoes.H1)
+                    </h1>
+                    <h2 class="title titleh2home" id="in-titulo-home">
+                        @Html.Raw(ViewBag.Configuracoes.H2)
+                    </h2>
+                </div>
+                <div class="col-md-12 landing-padding-card">
+                    <div class="card card-raised card-form-horizontal" id="in-card-card-raised-home">
+                        <div class="card-content" id="in-card-card-content-home">
+                            @using (Html.BeginForm("Cotacao", "Home", FormMethod.Post, new { Id = "frmCotacao" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                ;
+
+                                @Html.HiddenFor(x => x.Origem)
+                                @Html.HiddenFor(x => x.Cpaff)
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">
+                                                @Html.ValidationMessageFor(x => x.Destino, null, new { Class = "control-label" })
+                                            </label>
+                                        </div>
+                                        <div class="input-group @css">
+                                            @if (!Navegador.Equals("Safari"))
+                                            {
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">public</i>
+                                                </span>
+                                            }
+                                            <div class="form-group select-button ">
+                                                @Html.DropDownListFor(x => x.Destino, new List<SelectListItem>
+                                                {
+                                                  new SelectListItem {Text = "Destino", Disabled = true, Selected = true},
+                                                  new SelectListItem {Text = "Selecione seu destino", Disabled = true},
+                                                  new SelectListItem {Text = "América do Norte", Value = "1"},
+                                                  new SelectListItem {Text = "África", Value = "2"},
+                                                  new SelectListItem {Text = "América Central", Value = "3"},
+                                                  new SelectListItem {Text = "América do Sul", Value = "4"},
+                                                  new SelectListItem {Text = "Ásia", Value = "5"},
+                                                  new SelectListItem {Text = "Brasil", Value = "6"},
+                                                  new SelectListItem {Text = "Europa", Value = "7"},
+                                                  new SelectListItem {Text = "Oceania", Value = "8"},
+                                                  new SelectListItem {Text = "Oriente Médio", Value = "9"}
+                                                 }, new { Class = "selectpicker", Data_Style = "form-control", Data_Message_Empty = "Selecione um destino" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">
+                                                @Html.ValidationMessageFor(x => x.DataIda, null, new { Class = "control-label" })
+                                            </label>
+                                        </div>
+
+                                        <div class="input-group @css">
+                                            @if (!Navegador.Equals("Safari"))
+                                            {
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">flight_takeoff</i>
+                                                </span>
+                                            }
+                                            <div class="form-group is-empty">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {
+                                                    @Html.TextBoxFor(cot => cot.DataIda, new { Class = "form-control datepicker", ReadOnly = "true", Placeholder = "Embarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de ida", Data_Type_Validation = "data" })
+                                                }
+                                                else
+                                                {
+                                                    <input mask-data-nascimento="true" autocomplete="off" class="datepicker form-control " data-message-empty="Selecione a data de ida" data-type-validation="data" placeholder="Embarque no Brasil" data-val="true" data-val-required="Informe a data de ida" id="DataIda" name="DataIda" type="text" style="border-bottom:solid 1px #D3D3D3 !important" value="">
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+
+                                        <div class="form-group label-floating has-error">
+                                            <label class="control-label">
+                                                @Html.ValidationMessageFor(x => x.DataVolta, null, new { Class = "control-label" })
+                                            </label>
+                                        </div>
+
+                                        <div class="input-group @css">
+                                            @if (!Navegador.Equals("Safari"))
+                                            {
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons inv">flight_land</i>
+                                                </span>
+                                            }
+                                            <div class="form-group is-empty">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {
+                                                    @Html.TextBoxFor(cot => cot.DataVolta, new { Class = "form-control datepicker", ReadOnly = "true", Placeholder = "Desembarque no Brasil", Autocomplete = "off", Data_Message_Empty = "Selecione a data de volta", Data_Type_Validation = "data" })
+                                                }
+                                                else
+                                                {
+                                                    <input mask-data-nascimento="true" autocomplete="off" class="datepicker form-control " data-message-empty="Selecione a data de Volta" data-type-validation="data" placeholder="Desembarque no Brasil" data-val="true" data-val-required="Informe a data de ida" id="DataVolta" name="DataVolta" type="text" style="border-bottom:solid 1px #D3D3D3 !important" value="">
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        @if (!Navegador.Equals("Safari"))
+                                        {
+                                            <input type="button" id="btnCotar" class="btn btn-primary btn-block" value="Buscar planos" />
+                                        }
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row @hidden" id="in-col-md-offset-2-home">
+                                    <div class="col-md-3 form-group margin-top-zero">
+                                        <label class="control-label margin-0 has-error">
+                                            @Html.ValidationMessageFor(x => x.Email, null, new { Class = "control-label" })
+                                        </label>
+
+                                        <div class="input-group @css" data-toggle="tooltip" data-placement="left">
+                                            @if (!Navegador.Equals("Safari"))
+                                            {
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">mail</i>
+                                                </span>
+
+                                            }
+
+                                            <div class="form-group is-empty ">
+                                                @Html.TextBoxFor(cot => cot.Email, new { Class = "form-control", Type = "email", Placeholder = "Informe seu email", Data_Message_Empty = "Digite seu e-mail", Data_Type_Validation = "email" })
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group margin-top-zero">
+                                        <label class="control-label margin-0 has-error">
+                                            @Html.ValidationMessageFor(x => x.Telefone, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group @css" data-toggle="tooltip" data-placement="left">
+                                            @if (!Navegador.Equals("Safari"))
+                                            {
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">call</i>
+                                                </span>
+                                            }
+                                            <div class="form-group is-empty ">
+                                                @Html.TextBoxFor(cot => cot.Telefone, new { Class = "form-control telefone", Placeholder = "Telefone de contato...", Valida = "campoVazio", Data_Message_Empty = "Informe o telefone", MaxLength = "20", Mask_Telefone = "true", Data_Type_Validation = "telefone" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group margin-top-zero">
+                                        <label class="control-label margin-0 has-error">
+                                            @Html.ValidationMessageFor(x => x.Nome, null, new { Class = "control-label" })
+                                        </label>
+                                        <div class="input-group @css" data-toggle="tooltip" data-placement="left">
+                                            @if (!Navegador.Equals("Safari"))
+                                            {
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">perm_identity</i>
+                                                </span>
+                                            }
+                                            <div class="form-group is-empty ">
+                                                @Html.TextBoxFor(cot => cot.Nome, new { Class = "form-control", Placeholder = "Informe seu Nome", Valida = "campoVazio", Data_Message_Empty = "Informe o seu nome", MaxLength = "50" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" id="btnResultado" class="@css_botao_resultados btn btn-primary btn-block margin-top-5-percent">Ver resultados</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 landing-padding-card">
+                    <div class="area-botoes-home">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <a href="tel:1932010447 " class="botoes-home btn btn-primary btn-block ">
+                                            @if (!Navegador.Equals("Safari"))
+                                            {<i class="fa fa-phone" aria-hidden="true"></i>}TELEVENDAS: (19) 3201-0447
+                                        </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <a class="btn btn-primary btn-block botoes-home" href="https://api.whatsapp.com/send?phone=551932010447" target="_blank">
+                                        @if (!Navegador.Equals("Safari"))
+                                        {<i class="fa fa-whatsapp" aria-hidden="true"></i>} WHATSAPP: +55 (19) 3201-0447
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row promo-linha hidden">
+        @{
+            if (ViewBag.Configuracoes.Banners != null && ViewBag.Configuracoes.ExibirBanners)
+            {
+                foreach (var banner in ViewBag.Configuracoes.Banners)
+                {
+                    {
+                        var caminho = $"{System.Configuration.ConfigurationManager.AppSettings["UrnBanner"]}{banner.CaminhoImagem}";
+
+                        <div class="col-md-4 ">
+                            <div class="card card-background banner-home modal-js" operadora="Travel Ace" style="background-image: url(@caminho);">
+                                <p>Compre agora »</p>
+                                @{
+                                    if (banner.Tag != "")
+                                    {
+                                        <div class="card-content promo-home" operadora="Travel Ace">
+                                            <span class="ribbon4" operadora="Travel Ace">@banner.Tag.ToUpper()</span>
+                                        </div>
+                                    }
+
+                                    var filtroOperadora = banner.FiltroOperadora != null ? banner.FiltroOperadora : "";
+                                    var filtroDestino = banner.FiltroDestino != null ? banner.FiltroDestino : "";
+
+                                    <input type="hidden" class="filtroOperadora-js" value="@filtroOperadora" />
+                                    <input type="hidden" class="filtroDestino-js" value="@filtroDestino" />
+                                }
+
+                                <input type="hidden" class="tituloModal-js" value="@banner.TituloModal" />
+                                <input type="hidden" class="tituloModalBloco1-js" value="@banner.TituloModalBloco1" />
+                                <input type="hidden" class="descricaoModalBloco1-js" value="@banner.DescricaoModalBloco1" />
+                                <input type="hidden" class="tituloModalBloco2-js" value="@banner.TituloModalBloco2" />
+                                <input type="hidden" class="descricaoModalBloco2-js" value="@banner.DescricaoModalBloco2" />
+                                <input type="hidden" class="identificador-js" value="@banner.Identificador" />
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+
+        @{ Html.RenderPartial("HomePromocao/_ModalBanner"); }
+    </div>
+</div>
+</div>
+</div>
+
+<div class="main main-raised home-main">
+    <div class="container">
+        <div class="features-1" id="operadoras">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="h3 title titulo-operadoras-home">As melhores operadoras de seguro viagem estão aqui!</h2>
+                </div>
+            </div>
+            <div class="carousel-client">
+
+                <a class="slide" href="@Url.Action("AprilCoris", "Operadoras")">
+                    <div class="icon-operadoraApril"><img /></div>
+                </a>
+                <a class="slide" href="@Url.Action("Affinity", "Operadoras")">
+                    <div class="icon-operadoraAffinity"><img /></div>
+                </a>
+                <a class="slide" href="@Url.Action("AssistCard", "Operadoras")">
+                    <div class="icon-operadoraAssistCard"><img /></div>
+                </a>
+                <a class="slide" href="@Url.Action("GTA", "Operadoras")">
+                    <div class="icon-operadoraGTA"><img /></div>
+                </a>
+                <a class="slide" href="@Url.Action("TravelAce", "Operadoras")">
+                    <div class="icon-operadoraTravelAce"><img /></div>
+                </a>
+                <a class="slide" href="@Url.Action("Intermac", "Operadoras")">
+                    <div class="icon-operadoraIntermac"><img /></div>
+                </a>
+                <a class="slide" href="@Url.Action("VitalCard", "Operadoras")">
+                    <div class="icon-operadoraVital"><img /></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="row col-md-12 text-center">
+            <a class="btn btn-lg btn-round btn-primary btn-verdestinos" href="@Url.Action("Destinos", "Sobre")">
+                <i class="material-icons">public</i>
+                Veja todos os destinos de Seguro Viagem
+            </a>
+        </div>
+
+        <div class="row comocomprar">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="h3 title" data-toggle="tooltip" title="How to buy your Travel Insurance">Como comprar seu seguro viagem</h2>
+                </div>
+            </div>
+            <div class="line-como"></div>
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="icon icon-info">
+                        <i class="material-icons">flight_takeoff</i>
+                    </div>
+                    <h5 class="info-title">Informe seu destino e data da viagem</h5>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="icon icon-success">
+                        <i class="material-icons">group_add</i>
+                    </div>
+                    <h5 class="info-title">Escolha um plano e adicione os viajantes</h5>
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="icon icon-danger">
+                        <i class="material-icons">payment</i>
+                    </div>
+                    <h5 class="info-title">Efetue o pagamento por cartão ou boleto bancário</h5>
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="icon icon-danger">
+                        <i class="material-icons">mood</i>
+                    </div>
+                    <h5 class="info-title">Prontinho! Você receberá a apólice por email</h5>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="features-3">
+            <div class="row" id="in-features-3-row-home">
+                @*<div class="col-md-6 hidden-sm hidden-xs">
+                        <div>
+                            <div class="icon-multifeliz"></div>
+                        </div>
+                    </div>*@
+                <div class="col-md-12">
+                    <h2 class="h3 title titulo-diferenciais text-center">Por que escolher a Multi Seguro Viagem?</h2>
+                    <div class="col-md-4 info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="material-icons">timeline</i>
+                        </div>
+                        <div class="description">
+                            <h4 class="info-title">Líderes do mercado</h4>
+                            <p>Aqui você encontra as melhores operadoras, nacionais e internacionais. São planos de qualidade, com preço justo e pagamento facilitado. Quer mais?!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="material-icons">view_list</i>
+                        </div>
+                        <div class="description">
+                            <h4 class="info-title">Compare e compre seu seguro online</h4>
+                            <p>Para facilitar a sua vida e comparar seguro viagem, avalie os planos e compre a cobertura ideal para o seu perfil e o perfil da sua viagem, 100% online.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="material-icons">lock</i>
+                        </div>
+                        <div class="description">
+                            <h4 class="info-title">Mais facilidade e segurança</h4>
+                            <p>Viaje tranquilo com quem mais entende de Seguro Viagem. Aqui você tem uma plataforma ágil, para resolver tudo em um só lugar, com toda a segurança.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonials-1 bg-testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center" id="in-testimonials-home">
+
+                    <h2 class="title" id="clientes">Milhares de clientes satisfeitos</h2>
+                    <p class="h5 description">Nós já garantimos a satisfação e segurança à mais de 10 mil clientes, sempre com um atendimento repleto de respeito e compromisso, mostrando que a Multi Seguro Viagem é confiável, ética e eficaz em seus serviços.</p>
+                </div>
+            </div>
+            <div class="row test-carousel hidden-sm hidden-xs">
+                <div class="carousel-testimonials" id="in-testimonials-row-home">
+                    <div class="slide">
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    Solicitei uma visita do médico, não demorou 10 minutos, ele chegou, me examinou, deu uma injeção e remédios. Tudo isso em função de uma picada de algum bicho, minha perna inchou. Hoje estou bem. Nota 11, Excelente. Parabéns pelo atendimento, coisa de primeiro mundo.
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Artur Villarinho</p>
+                                <p class="h6">São Paulo - SP</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-artur"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    Minha experiência com a empresa Multi Seguro Viagem foi sempre muito boa. Trato tudo pelo WhatsApp e os consultores sempre respondem super rápido. O que eu acho do atendimento? Muito bom! São sempre atenciosos.
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Fernanda Salles</p>
+                                <p class="h6">Belo Horizonte - MG</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-fernanda"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    Agradeço pelo trabalho e atendimento. Já faz tempo que sou cliente da empresa e sempre tive um ótimo atendimento, eles sempre buscam nos oferecer o melhor plano. Graças a Deus nunca precisei acionar o seguro e espero não precisar, mas sempre pude contar com a atenção da consultora no momento de fechar uma assistência seguro. Gratidão!
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Elisa Elisabete V. Tinti</p>
+                                <p class="h6">São Paulo - SP</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-etiene"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    O fato de sempre voltar a fazer o seguro e indicar essa empresa é, sem sombra de dúvidas, pelo atendimento diferenciado e atencioso de sempre. Sempre me orientam, não apenas pelo menor preço, mas também pelo melhor plano.
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Valéria Schneider</p>
+                                <p class="h6">Contagem - MG</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-valeria"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    Fechar o seguro viagem pela Multi Seguro Viagem foi muito prático e rápido! Seguro é algo que você sabe que é importante, mas não sabe comparar muito, então o atendimento que apresenta as diferentes opções faz toda a diferença para uma boa escolha! Com certeza fecharei o seguro de minha próxima viagem por aqui!
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Tatiana Muniz Ventura</p>
+                                <p class="h6">São Paulo - SP</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-Gabriel"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row test-carousel hidden-md hidden-lg">
+                <div class="carousel-testimonials-2" id="in-testimonials-row-home">
+                    <div class="slide">
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    Solicitei uma visita do médico, não demorou 10 minutos, ele chegou, me examinou, deu uma injeção e remédios. Tudo isso em função de uma picada de algum bicho, minha perna inchou. Hoje estou bem.
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Artur Villarinho</p>
+                                <p class="h6">São Paulo - SP</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-artur"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    Minha experiência com a empresa Multi Seguro Viagem foi sempre muito boa. Trato tudo pelo WhatsApp e os consultores sempre respondem super rápido. O que eu acho do atendimento? Muito bom! São sempre atenciosos.
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Fernanda Salles</p>
+                                <p class="h6">Belo Horizonte - MG</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-fernanda"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    Uma empresa ter um cliente recorrente, como é meu caso, é sinônimo de qualidade no atendimento. Além disto, o atendimento prestado vem de encontro às expectativas desejadas e esperadas de um bom prestador de serviços. Indicaria a empresa a amigos. Nota máxima, nota 10!
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Etiene Ferreira Rosa</p>
+                                <p class="h6">São José dos Campos - SP</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-etiene"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    O fato de sempre voltar a fazer o seguro e indicar essa empresa é, sem sombra de dúvidas, pelo atendimento diferenciado e atencioso de sempre. Sempre me orientam, não apenas pelo menor preço, mas também pelo melhor plano.
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Valéria Schneider</p>
+                                <p class="h6">Contagem - MG</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-valeria"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide">
+                        <div class="card card-testimonial">
+                            <div class="icon">
+                                <i class="material-icons">format_quote</i>
+                            </div>
+                            <div class="card-content">
+                                <p class="h5 card-description">
+                                    É a primeira vez que solicito esse serviço com a Multi Seguro Viagem e fui super bem atendido. Sanaram minhas dúvidas e se mostraram sempre muito solícitos, além do preço excelente! Super recomendo.
+                                </p>
+                            </div>
+                            <div class="footer">
+                                <p class="h4 card-title">Gabriel Lucas</p>
+                                <p class="h6">Campinas - SP</p>
+                                <div class="card-avatar">
+                                    <a>
+                                        <div class="icon-gabriel"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="@Url.Action("Depoimentos", "Sobre")">
+                    <div class="btn btn-primary depo">
+                        Veja mais depoimentos
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<iframe id="frmTrackAfiliace" frame-track="true" class="iframe-hidden" src=""></iframe>
+
+@section Scripts
+{
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+        <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+        <script src="/www/js/vendor/jquery.mask.min.js"></script>
+        <script src="/www/js/custom-validations.js"></script>
+        <script src="/www/js/modulos/datePicker.js"></script>
+    }
+    else
+    {
+        <script src="https://cdn.multiseguroviagem.com.br/js/bundleVendorIndex.js"></script>
+        <script src="/www/js/vendor/jquery.mask.min.js"></script>
+        <script src="/www/bundles/bundleIndex.js"></script>
+        <script async src="https://cdn.multiseguroviagem.com.br/js/afiliaceTrackerOffer.js"></script>
+    }
+
+    <script async>
+        //============================================================================================= SCRIPTS QUE PODEM SER ASYNC
+        $('.carousel-client').bxSlider({
+            auto: true,
+            minSlides: 1,
+            maxSlides: 5,
+            controls: true,
+            pager: false,
+            nextText: '<i class="fa fa-angle-right"></i>',
+            prevText: '<i class="fa fa-angle-left"></i>'
+        });
+
+        var model = @Html.Raw(Json.Encode(Model));
+        if (model) {
+            $('#btnCotar').addClass('disabled').removeClass('btn-primary');
+            $('#in-col-md-offset-2-home').removeClass('hidden').addClass('slideDown');
+        }
+
+        $('#Email, #EmailBanner').blur(function(evt) {
+            setSession('email', evt.target.value);
+            setSession('contador', 0);
+        });
+
+        $('.carousel-testimonials').bxSlider({
+            auto: true,
+            minSlides: 1,
+            maxSlides: 3,
+            moveSlides: 1,
+            controls: true,
+            slideWidth: 390,
+            pager: false,
+            nextText: '<i class="fa fa-angle-right"></i>',
+            prevText: '<i class="fa fa-angle-left"></i>'
+        });
+
+        $('.carousel-testimonials-2').bxSlider({
+            auto: true,
+            minSlides: 1,
+            maxSlides: 1,
+            slideMargin: 25,
+            moveSlides: 1,
+            controls: false,
+            pager: true,
+            nextText: '<i class="fa fa-angle-right"></i>',
+            prevText: '<i class="fa fa-angle-left"></i>'
+        });
+
+
+        $('#Origem').val(getLocalStorage('utmSource') || 'Indefinido');
+
+        if (!isMobile(navigator.userAgent)) {
+            $('#image').css('background-image', 'url(@caminhoImagemBackground)');
+        }
+    </script>
+
+    <script>
+        //============================================================================================= SCRIPTS QUE NÃO PODEM SER ASYNC
+        setaUtmSource();
+
+        setaCupomAfiliado();
+
+        if (window.sessionStorage.getItem('cpaff')) {
+            $('#Cpaff').val(window.sessionStorage.getItem('cpaff'));
+        }
+        else {
+            $('.promo-linha').removeClass('hidden');
+        }
+
+        $("#Destino option:first").hide();
+        $("#Destino").selectpicker('refresh');
+
+        datepickerSetup();
+
+        $(function () {
+            datepickerSetaMinMaxDate("#DataIda", "#DataVolta");
+            datepickerSetaMinMaxDate("#DataIdaBanner", "#DataVoltaBanner");
+        });
+
+        $('#btnCotar').click(function () {
+            if (!validaForm('#frmCotacao')) return false;
+
+            $('#btnCotar').addClass('disabled').removeClass('btn-primary');
+            $('#in-col-md-offset-2-home').removeClass('hidden').addClass('slideDown');
+        });
+        var cont = 0;
+        $('#btnResultado').click(function (event) {
+
+            event.preventDefault();
+            if (cont == 0) {
+                if (validaForm('#frmCotacao')) {
+                    var tokenProd = "1|QwRssH4OnhBrS0tc5MbgrY6Thx3DS36Z4PZjyth8";
+                    var dataIntencao = {
+                        'str_nome': $('#Nome').val(),
+                        'str_telefone': $('#Telefone').val(),
+                        'str_email': $('#Email').val(),
+                        'dat_ida': $('#DataIda').val(),
+                        'dat_volta': $('#DataVolta').val(),
+                        'str_destino': $('#Destino :selected:not([value=""])').text(),
+                        'str_origem': window.location.href
+                    }
+
+                    $.ajax({
+                        method: "POST",
+                        url: "https://api2.multiseguroviagem.com.br/api/intencoes/salva",
+                        cache: false,
+                        sync: false,
+                        type: 'post',
+                        data: JSON.stringify(dataIntencao),
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        headers: {
+                            "Authorization": "Bearer " + tokenProd,
+                            'Access-Control-Allow-Origin': 'https://api2.multiseguroviagem.com.br',
+                            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+                        },
+                        success: function (result) {
+
+                            document.getElementById('frmCotacao').submit();
+                        },
+                        error: function (result) {
+
+                            document.getElementById('frmCotacao').submit();
+                        }
+                    });
+
+
+                    cont++;
+                }
+
+            }
+            if (!validaForm('#frmCotacao')) return false;
+
+        });
+
+        $('form').one('submit',
+            function () {
+
+                conversaoRDStation("Formulário Home");
+            });
+
+        $(function () {
+            enviaTagOneSignal(window.OneSignal, { "pgIndex": "true" });
+        });
+    </script>
+
+    <script async type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Organization",
+        "url": "https://multiseguroviagem.com.br",
+        "logo": "https://multiseguroviagem.com.br/www/img/favicon.png",
+        "name": "Multi Seguro Viagem",
+        "alternateName": "Multi Seguro",
+        "contactPoint": {
+        "@@type": "ContactPoint",
+        "telephone": "+55-19-3201-0447",
+        "contactType": "Customer service",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
+        },
+        "sameAs": [
+        "https://www.facebook.com/multiseguroviagem/",
+        "https://www.instagram.com/multiseguroviagem/",
+        "https://www.youtube.com/user/MultiSeguroViagem"
+        ]
+        }
+    </script>
+}

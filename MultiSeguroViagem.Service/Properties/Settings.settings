@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MultiSeguroViagem.Service.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MultiSeguroViagem_Service_RedeCardProd_KomerciWcf" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://ecommerce.userede.com.br/Redecard.Adquirencia.Wcf/KomerciWcf.svc</Value>
+    </Setting>
+    <Setting Name="MultiSeguroViagem_Service_RedeCardHom_KomerciWcf" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://scommerce.userede.com.br/Redecard.Komerci.External.WcfKomerci/KomerciWcf.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

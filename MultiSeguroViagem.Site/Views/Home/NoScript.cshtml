@@ -1,0 +1,198 @@
+﻿@using System.Configuration
+@model MultiSeguroViagem.Site.Models.Site.FormumarioContatoModel
+
+@{
+  ViewBag.Title = "Seguro Viagem | Até 65% OFF no melhor comparador";
+  ViewBag.MetaDescription = "Seguro Viagem: Cote, Compare e Decida Aqui. Melhor Condição do Mercado.Parcele em 6x s/Juros ou Com Desconto no Boleto. Adquira Seu Cupom de Desconto Aqui!";
+  ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+  ViewBag.OGURL = "https://multiseguroviagem.com.br";
+  ViewBag.OGTitle = "Multi Seguro Viagem | Cotações de Seguro Viagem em Tempo Real";
+  ViewBag.OGSitename = "Multi Seguro Viagem";
+  ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+
+  Layout = null;
+
+  var whats = ConfigurationManager.AppSettings["whatsapp"];
+}
+
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>@Html.Raw(ViewBag.Title)</title>
+
+
+  <link rel="icon" type="image/png" href="/www/img/favicon.png">
+
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700|Roboto+Slab:400,700|Material+Icons" />
+  <link href="/www/css/vendor/bootstrap.min.css" rel="stylesheet" />
+  <link href="/www/css/material-kit.css" rel="stylesheet" />
+  <link href="/www/css/custom.css" rel="stylesheet" />
+
+  <link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-primary navbar-fixed-top" color-on-scroll="100">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse">
+          <span class="sr-only">Navegação</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="zapzap" href="https://api.whatsapp.com/send?phone=@whats&text=Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20seguro%20viagem!">
+          <i class="fa fa-whatsapp" aria-hidden="true"></i>
+        </a>
+
+        <div class="logo-container">
+          <div class="logo">
+            <img src="/www/img/logomulti.png" alt="Multi Seguro Viagem" title="Multi Seguro Viagem">
+          </div>
+        </div>
+
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="http://blog.multiseguroviagem.com.br/" target="_blank">
+              <i class="material-icons">question_answer</i> Blog
+            </a>
+          </li>
+          <li>
+            <a href="tel:19-3201-0447">
+              <i class="material-icons">phone</i>(19) 3201 0447
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://api.whatsapp.com/send?phone=@whats&text=Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20seguro%20viagem!">
+              <img src="/www/svg/whatsapp.svg" /> WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="profile-page">
+    <div class="page-header gradiente" data-parallax="true">
+      <h2 class="title text-center" style="padding-top: 90px; color: #3d5afe">Oops...</h2>
+      <h4 class="title text-center" style="color: #3d5afe">Algo está errado!</h4>
+    </div>
+
+    <div class="main main-raised">
+      <div class="container text-center">
+
+        <div class="description text-center" style="color: rgba(0,0,0, 0.87);">
+          <p>
+            Por alguns dos motivos listados abaixo você não conseguirá acessar este site.<br />
+            <b>Mas não se preocupe!</b><br />
+            Preencha seus dados que nossa equipe entrará em contato com você, ou se preferir, utilize outro navegador.
+          </p>
+        </div>
+
+        @*<div class="col-md-4">
+              <div class="card card-nav-tabs">
+                  <div class="header header-primary">
+                      <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                      <h5 style="margin: 0;">Navegador Antigo</h5>
+                  </div>
+                  <div class="content">
+                      <p> Toma vergonha e atualiza esse navegador antigo! </p>
+                  </div>
+              </div>
+          </div>*@
+
+        <div class="col-md-offset-2 col-md-4">
+          <div class="card card-nav-tabs">
+            <div class="header header-info">
+              <h5 style="margin: 0;">Internet Explorer</h5>
+            </div>
+            <div class="content">
+              <p>O conteúdo deste site utiliza uma tecnologia avançada, não compatível com o Internet Explorer.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card card-nav-tabs">
+            <div class="header header-danger">
+              <h5 style="margin: 0;">JavaScript</h5>
+            </div>
+            <div class="content">
+              <p>O JavaScript do seu navegador está desabilitado! Habilite para acessar o site.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-offset-3 col-md-6">
+
+          <h3>Solicite sua cotação</h3>
+
+          @using (Html.BeginForm("Contato", "Home", FormMethod.Post, new { Id = "frmNoScript" }))
+          {
+            @Html.HiddenFor(x => x.Mensagem, new { Value = "Lead" })
+
+            <div class="form-group label-floating has-error">
+              <label class="control-label">
+                @Html.ValidationMessageFor(x => x.Nome, null, new { Class = "control-label" })
+              </label>
+
+              @Html.TextBoxFor(x => x.Nome, new { Placeholder = "Nome", Class = "form-control", Autocomplete = "off", Valida = "campoVazio nomeCompleto", Data_message_Empty = "Informe o nome" })
+            </div>
+
+            <div class="form-group label-floating has-error">
+              <label class="control-label">
+                @Html.ValidationMessageFor(x => x.Email, null, new { Class = "control-label" })
+              </label>
+
+              @Html.TextBoxFor(x => x.Email, new { Placeholder = "Email", Class = "form-control", Autocomplete = "off", Valida = "campoVazio email", Data_message_Empty = "Informe o e-mail" })
+            </div>
+
+            <div class="form-group label-floating has-error">
+              <label class="control-label">
+                @Html.ValidationMessageFor(x => x.Telefone, null, new { Class = "control-label" })
+              </label>
+
+              @Html.TextBoxFor(x => x.Telefone, new { Placeholder = "Telefone/WhatsApp", Class = "form-control", Autocomplete = "off", Valida = "campoVazio", Data_message_Empty = "Informe o telefone", Mask_Telefone = "true" })
+            </div>
+
+                        <button type="submit" class="btn btn-primary btn-block margin-top-5-percent">Enviar!</button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/www/js/vendor/jquery.min.js"></script>
+  <script src="/www/js/vendor/jquery.unobtrusive-ajax.min.js"></script>
+  <script src="/www/js/vendor/jquery.mask.min.js"></script>
+  <script src="/www/js/vendor/sweetalert2.min.js"></script>
+
+  <script src="/www/js/modulos/common.js"></script>
+  <script src="/www/js/modulos/validacoes.js"></script>
+
+  <script>
+    if (typeof jQuery !== "undefined") {
+        var sucesso = '@(ViewBag.Sucesso)';
+        if (sucesso) {
+            swal('Sucesso', sucesso, 'success');
+        }
+
+        var erro = '@(ViewBag.Erro)';
+        if (erro) {
+            swal('Oops', erro, 'error');
+        }
+
+        $(frmNoScript).on('submit', function (evt) {
+            if (!validaFormulario("#frmNoScript"))
+                evt.preventDefault();
+        });
+    }
+  </script>
+
+</body>

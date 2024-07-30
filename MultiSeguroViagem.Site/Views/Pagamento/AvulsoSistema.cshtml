@@ -1,0 +1,571 @@
+﻿@using System.Globalization
+@model MultiSeguroViagem.Site.Models.Site.Pagamento.PagamentoAvulsoModel
+@{
+    string Navegador = Request.Browser.Browser;
+}
+
+<div class="pagamento">
+    <div class="header-2">
+        <div class="page-header gradiente">
+        </div>
+    </div>
+
+    <div class="main main-raised" id="produtos">
+        <div class="container">
+            <div class="col-md-8">
+                <div class="row">
+                    <h2 class="title precos-titulo" id="tituloviajantes" style="display:inline-block">Pagamento</h2>
+                </div>
+                <div class="row">
+                    <p class="viajantes-desc">Após a aprovação do pagamento, você receberá o voucher de seu seguro viagem em seu email.</p>
+                </div>
+            </div>
+
+        </div>
+        @if (string.Equals(ViewBag.Pagamento.Status, "1"))
+        {
+            <div class="container" id="formulario-pagamento">
+                @using (Html.BeginForm("FinalizarCompraAvulso", "Pagamento", FormMethod.Post, new { ID = "frmFinalizarCompraAvulsoSistema" }))
+                {
+
+                    @Html.HiddenFor(pag => pag.ValorTotal, new { ID = "hdValorTotal" })
+                    @Html.HiddenFor(pag => pag.ValorDescontoBoleto, new { ID = "hdnValorDescontoBoleto" })
+                    @Html.HiddenFor(pag => pag.IdPagamento, new { ID = "hdnIdPagamento", Model.IdPagamento })
+                    @Html.HiddenFor(pag => pag.IdPedido, new { ID = "hdnIdPedido", Model.IdPedido })
+                    @Html.HiddenFor(pag => pag.IdOperadorasPagamento, new { ID = "hdnIdOperadorasPagamento", Value = Model.IdOperadorasPagamento ?? ViewBag.Pagamento.OperadorasAceitas })
+                    @Html.Hidden("hdnDescontoBoleto", Model.ValorDescontoBoleto ?? "")
+
+                    <div>
+                        <div class="col-md-8 pad-0-pag">
+
+                            <div class="col-md-12">
+                                <div class="card-content">
+
+                                    @*Bloco 1 - Dados pessoais*@
+                                    <div class="row">
+                                        <h3 class="title pagtitle">
+                                            <span class="icone-carrinho">1.</span>
+                                            Dados do responsável pela compra
+                                        </h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.NomeCompleto, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">face</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.NomeCompleto, new { Class = "form-control", Placeholder = "Nome completo", ReadOnly = "true", Valida = "campoVazio nomeCompleto", Data_Message_Empty = "Informe o nome", MaxLength = "150" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Documento, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">description</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Documento, new { Class = "form-control", Placeholder = "CPF/CNPJ", MaxLength = "19", ReadOnly = "true", Valida = "campoVazio cpfCnpj", Data_Message_Empty = "Informe o documento" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Email, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">email</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Email, new { Class = "form-control", Placeholder = "Email...", ReadOnly = "true", Valida = "campoVazio email", Data_Message_Empty = "Informe o e-mail", MaxLength = "150" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="valid form-group margin-top-zero">
+
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Cep, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">directions</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Cep, new { Class = "form-control", Placeholder = "CEP...", ReadOnly = "true", Valida = "campoVazio", Data_Message_Empty = "Informe o CEP", MaxLength = "9", Mask_Cep = "true" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pagamento -->
+                                    <div class="row">
+                                        <h3 class="title pagtitle">
+                                            <span class="icone-carrinho">2.</span> Dados de pagamento
+                                        </h3>
+                                    </div>
+
+
+                                    <div class="row pad-0-mobile-none">
+                                        <div class="valid form-group margin-top-zero">
+                                            <label class="control-label margin-top-zero margin-0">
+                                                @Html.ValidationMessageFor(pag => pag.OperadoraPagamento, null, new { Class = "control-label" })
+                                            </label>
+                                            <div class="input-group">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {
+                                                    <span class="input-group-addon">
+                                                        <i class="material-icons">shopping_basket</i>
+                                                    </span>
+                                                }
+                                                <div class="form-group select-button margin-top-zero">
+                                                    @Html.DropDownListFor(
+                                                                 x => x.OperadoraPagamento,
+                                                                 ViewBag.MetodoPagamento as IEnumerable<SelectListItem>,
+                                                                 new { ID = "OperadoraPagamento", Class = "selectpicker", Data_Style = "form-control", Title = "Método de pagamento", Valida = "campoVazio", Data_Message_Empty = "Informe o método de pagamento" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="divCartaoCredito" class="row"></div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div id="ResumoPedidoMobile"></div>
+
+                                <div class="row row-wrap">
+                                    <div class="valid form-group margin-top-zero is-empty has-error">
+                                        <div class="checkbox margin-top-zero">
+                                            <label class="control-label margin-top-zero margin-0">
+                                                @Html.ValidationMessageFor(pag => pag.TermosUso, null, new { Class = "control-label" })
+                                            </label>
+                                            <label>
+                                                @Html.CheckBoxFor(pag => pag.TermosUso, new { Valida = "campoChecado", Data_Message_Checked = "É necessário concordar com o termo" })
+                                                Li e concordo com os
+                                                <a id="linkTermos" class="link-termos">termos de uso</a>
+                                                e declaro que os viajantes desta compra estão no Brasil.
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="erroGeral has-error">
+                                        <span class="control-label">@Html.ValidationMessage("erroCamposVazio")</span>
+                                    </div>
+                                    <button id="btnFinalizar" type="submit" class="btn btn-success btn-block btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processando" style="margin-top: 15px"><i class="material-icons">shopping_cart</i> Pagar Agora</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="ResumoPedido" class="col-md-4"></div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="container">
+                <div class="alert alert-danger">
+                    <div class="container-fluid">
+                        <div class="alert-icon">
+                            <i class="material-icons">error_outline</i>
+                        </div>
+                        <span><strong>Oops...</strong></span><br />
+                        Este link de pagamento está expirado, entre em contato com nossa equipe através do telefone (19) 3201-0447
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<template id="TemplateRedeCard">
+    <link href="/www/css/card.css" rel="stylesheet" />
+
+    @Html.HiddenFor(pag => pag.Bandeira, new { Class = "hdnBandeira" })
+
+    <div class="col-md-3 pad-0-mobile-none">
+        <div class="valid form-group margin-top-zero">
+            <label class="control-label margin-top-zero margin-0">
+                @Html.ValidationMessageFor(pag => pag.Parcelas, null, new { Class = "control-label" })
+            </label>
+            <div class="input-group">
+                @if (!Navegador.Equals("Safari"))
+                {
+                    <span class="input-group-addon">
+                        <i class="material-icons">playlist_add</i>
+                    </span>
+                }
+                <div class="form-group select-button margin-top-zero">
+                    @Html.DropDownListFor(x => x.Parcelas, new List<SelectListItem>
+                        {
+                            new SelectListItem {Text = "À vista", Value = "00"},
+                            new SelectListItem {Text = "2x sem juros", Value = "02"},
+                            new SelectListItem {Text = "3x sem juros", Value = "03"},
+                            new SelectListItem {Text = "4x sem juros", Value = "04"},
+                            new SelectListItem {Text = "5x sem juros", Value = "05"},
+                            new SelectListItem {Text = "6x sem juros", Value = "06"},
+                        }, new { Class = "selectpicker", Data_Style = "form-control", Valida = "campoVazio", Data_Message_Empty = "Informe as o número de parcelas" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="valid form-group margin-top-zero">
+            <label class="control-label margin-top-zero margin-0">
+                @Html.ValidationMessageFor(pag => pag.NumeroCartao, null, new { Class = "control-label" })
+            </label>
+            <div class="input-group">
+                @if (!Navegador.Equals("Safari"))
+                {
+                    <span class="input-group-addon">
+                        <i class="material-icons">payment</i>
+                    </span>
+                }
+                @Html.TextBoxFor(pag => pag.NumeroCartao, new { Class = "form-control number", Placeholder = "Número do cartão", MaxLength = "19", Valida = "campoVazio", Data_Message_Empty = "Informe o numero do cartão", AutoComplete = "off", Mask_Cartao_Credito = "true" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="valid form-group margin-top-zero">
+            <label class="control-label margin-top-zero margin-0">
+                @Html.ValidationMessageFor(pag => pag.MesAno, null, new { Class = "control-label" })
+            </label>
+            <div class="input-group">
+                @if (!Navegador.Equals("Safari"))
+                {
+                    <span class="input-group-addon">
+                        <i class="material-icons">date_range</i>
+                    </span>
+                }
+                @Html.TextBoxFor(pag => pag.MesAno, new { Class = "form-control expire", Placeholder = "Validade (Mês/Ano)", MaxLength = "7", Valida = "campoVazio", Data_Message_Empty = "Informe o mês/ano", AutoComplete = "off", Mask_Ano_Validade = "true" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="valid form-group margin-top-zero">
+            <label class="control-label margin-top-zero margin-0">
+                @Html.ValidationMessageFor(pag => pag.NomeCartao, null, new { Class = "control-label" })
+            </label>
+            <div class="input-group">
+                @if (!Navegador.Equals("Safari"))
+                {
+                    <span class="input-group-addon">
+                        <i class="material-icons">sort</i>
+                    </span>
+                }
+                @Html.TextBoxFor(pag => pag.NomeCartao, new { Class = "form-control inputname", Placeholder = "Nome impresso no cartão", MaxLength = "30", Valida = "campoVazio", Data_Message_Empty = "Nome impresso no cartão", AutoComplete = "off" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="valid form-group margin-top-zero">
+            <label class="control-label margin-top-zero margin-0">
+                @Html.ValidationMessageFor(pag => pag.CodigoSeguranca, null, new { Class = "control-label" })
+            </label>
+            <div class="input-group">
+                @if (!Navegador.Equals("Safari"))
+                {
+                    <span class="input-group-addon">
+                        <i class="material-icons">verified_user</i>
+                    </span>
+                }
+                @Html.TextBoxFor(pag => pag.CodigoSeguranca, new { Class = "form-control ccv", Placeholder = "Código de segurança", MaxLength = "3", Valida = "campoVazio", Data_Message_Empty = "Informe o código de segurança", AutoComplete = "off", Mask_Codigo_Seguranca = "true" })
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="ResumoPedidoConteudo">
+    <div id="rightCol">
+        <div class="card resumo-card" id="sidebar">
+            <div class="card-content cotacao-card" style="padding-left: 15px!important;">
+                <h4 class="title operadora-titulo">Resumo do pedido</h4>
+                @if (Model.IdPedido > 0)
+                {
+                    <div id="Pedidos">
+                        <p>
+                            <i class="material-icons">style</i>
+                            <b>Plano:&nbsp</b>
+                            <span id="nomePlano">
+                                @Html.TextBoxFor(pag => pag.NomePlano, new { ReadOnly = "true", Style = "border: none;" })
+                            </span>
+                        </p>
+                        <p>
+                            <i class="material-icons">public</i>
+                            <b>Destino:&nbsp</b>
+                            <span id="destino">
+                                @Html.TextBoxFor(pag => pag.NomeDestino, new { ReadOnly = "true", Style = "border: none;" })
+                            </span>
+                        </p>
+                        <p>
+                            <i class="material-icons">flight_takeoff</i>
+                            <b>Embarque:&nbsp</b>
+                            <span id="dataIda">
+                                @Html.TextBoxFor(pag => pag.DataIda, new { ReadOnly = "true", Style = "border: none;" })
+                            </span>
+                        </p>
+                        <p>
+                            <i class="material-icons">flight_land</i>
+                            <b>Desembarque:&nbsp</b>
+                            <span id="dataVolta">
+                                @Html.TextBoxFor(pag => pag.DataVolta, new { ReadOnly = "true", Style = "border: none;" })
+                            </span>
+                        </p>
+                    </div>
+                }
+                <p class="title" style="margin-bottom: 0; margin-top: 15px">
+                    Valor parcial: R$ <span id="spValorParcial">@Model.ValorTotal</span>
+                </p>
+                <h4 class="title operadora-titulo" style="margin-top:0">
+                    Valor total: R$ <span id="spValorTotal">@((Convert.ToDecimal(Model.ValorTotal, new CultureInfo("en-US")) - (Convert.ToDecimal(Model.ValorDescontoCupom, new CultureInfo("en-US")) + Convert.ToDecimal(Model.ValorDescontoBoleto, new CultureInfo("en-US")))).ToString(new CultureInfo("en-US")))</span> <span id="spPorcentagemTotal"></span>
+                </h4>
+
+                <p id="pValorCartaoCredito" class="title hidden" style="margin-bottom:0;margin-top:15px"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+</template>
+
+<div class="modal fade" id="modalTermos" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close-coberturas" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modalLabel">TERMO DE USO / AVISO AO VIAJANTE</h4>
+            </div>
+            <div class="modal-body">
+                <br />A Multi Seguro Viagem é uma plataforma digital  de propriedade da EKTO MULTI SEGURO VIAGEM LTDA, CNPJ: 43.514.278/0001-90, cujo objetivo é apresentar de maneira clara e objetiva os principais planos de Seguro Viagem disponíveis no mercado para o viajante, permitindo a  livre  escolha do que melhor vai atender as expectativas e necessidades do viajante em seu período de viagem.
+                <br />
+                <br />1. As condições de contratação, garantias e coberturas dos planos são oferecidas e de responsabilidade  exclusiva  da  Seguradora  e Operadora  de Assistência  escolhida pelo viajante,  que através da livre escolha, deverá definir quais coberturas de atendimento estão adequadas a seu perfil de viagem e necessidades.
+                <br />
+                <br />2. A plataforma Multi Seguro Viagem  e a EKTO MULTI SEGURO VIAGEM LTDA,  não se confundem com a Seguradora e Operadora de Assistência escolhida pelo viajante.
+                <br />
+                <br />3. A plataforma Multi Seguro Viagem trabalha com diversas Seguradoras e Operadoras de Assistência, para proporcionar ao usuário a facilidade de encontrar um plano que lhe convier, através do serviço de comparação  online  de planos  disponível  na plataforma digital da Seguro Multi Viagem.
+                <br />
+                <br />4. A equipe da Multi Seguro Viagem e EKTO MULTI SEGURO VIAGEM LTDA, está habilitada e preparada para  esclarecer as dúvidas oriundas de planos selecionados pelo usuário, bem como a auxilia-lo a identificar o plano que lhe atenderá melhor, dentre os fornecidos pelos seus parceiros.
+                <br />
+                <br />5. A Seguradora e Operadora de Assistência é a única e exclusiva responsável pelos procedimentos (incluindo, mas não limitado à reembolso de despesas), coberturas e limites do plano contratado pelo  usuário. Em caso de qualquer  divergência ou necessidade, a  Seguradora  e  Operadora  de Assistência  deve ser  sempre diretamente acionada pelo  usuário, por  ser a  única  responsável e  capaz de solucionar eventual conflito.
+                <br />
+                <br />6. É fundamental antes da contratação a leitura e o aceite das  condições gerais do plano contratado disponibilizadas no site da Seguradora e Operadora de Assistência contratada e observar  atentamente  as regras previstas para a utilização do respectivo plano.
+                <br />
+                <br />7. É recomendado a impressão da apólice, voucher e demais documentos referentes a contratação do plano de Seguro Viagem e leva-los consigo durante a viagem.
+                <br />
+                <br />8. É  obrigatório  o contato prévio com a  Seguradora  e  Operadora  de Assistência contratada, antes de qualquer atendimento ou da utilização de cobertura, tendo em vista ser imprescindível a autorização da mesma para atendimento adequado.  Favor atentar para os canais de acionamento previstos no voucher.
+                <br />
+                <br />9. Sugerimos que caso haja a necessidade de  atendimento em rede credenciada autorizada pela operadora,  informar a clínica ou ao hospital  o endereço  para cobranças  indicado pela  Seguradora  e  Operadora  de Assistência  contratada, evitando assim o envio de cobranças futuras em seu próprio endereço. Verificar na Apólice, Voucher ou condições gerais, qual endereço deve ser fornecido.
+                <br />
+                <br />10. O prazo limite para alterações e cancelamento da apólice contratada é de até 48 horas úteis antes do início de vigência da mesma.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-simple" data-dismiss="modal"><i class="material-icons">close</i> Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+
+<!-- Pixel Afiliace -->
+<img src="//cdsusa.veinteractive.com/DataReceiverService.asmx/Pixel?journeycode=3757A51B-97E6-4C3F-8030-D893A9C06F65" width="1" height="1" />
+<!-- Fim Pixel Afiliace -->
+
+@section Scripts
+{
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/sweetalert2.min.js"></script>
+        <script src="/www/js/vendor/jquery.mask.min.js"></script>
+
+        <script src="/www/js/modulos/validacoes.js"></script>
+    }
+    else
+    {
+        <script src="/www/bundles/bundlePagamentoAvulso.js"></script>
+    }
+
+    <script>
+        function calculaParcelasCartaoCredito() {
+            var tipo = $("#Parcelas").val() || "00";
+
+            if (tipo === "00") {
+                $("#pValorCartaoCredito").text("Pagamento no cartão de crédito à vista");
+                $("#pValorCartaoCredito").removeClass("hidden");
+            } else {
+                var valorCompra = parseFloat($("#spValorTotal").text());
+                var qtdParcela = parseInt(tipo);
+                var valorParcela = valorCompra / qtdParcela;
+
+                $("#pValorCartaoCredito").html("Pagamento no cart\xE3o de cr\xE9dito em " + qtdParcela + "x de <a style='color: #3d5afe;'>R$ " + valorParcela.toFixed(2) + "</a>");
+                $("#pValorCartaoCredito").removeClass("hidden");
+            }
+        };
+
+        function renderizaTemplateCartaoCredito() {
+            var div = $("#divCartaoCredito");
+            $(div).empty();
+            $(div).append($("#TemplateRedeCard").clone(false).html());
+
+            $(".selectpicker").selectpicker();
+
+            if (isMobile(navigator.userAgent)) {
+                $(".selectpicker").selectpicker("mobile");
+            }
+
+            $('input[mask-cartao-credito="true"]').mask("0000 0000 0000 0099", { reverse: true });
+            $('input[mask-ano-validade="true"]').mask("00/0099");
+            $('input[mask-codigo-seguranca="true"]').mask("000");
+        };
+
+        function atualizaResumoPedido(tipoOperadora) {
+            if (tipoOperadora != "") {
+                var operadoraPagamento = { "1": "#Itau", "3": "#RedeCard" };
+
+                switch (operadoraPagamento[tipoOperadora]) {
+                    case "#Itau":
+                        {
+                            $("#divCartaoCredito").empty();
+                            $("#pValorCartaoCredito").addClass("hidden");
+                            break;
+                        }
+                    case "#RedeCard":
+                        {
+                            //$("#pDescontoBoleto").addClass("hidden");
+                            $("#hdnValorDescontoBoleto").val("0");
+                            $("#spValorDescontoBoleto").text("");
+
+                            renderizaTemplateCartaoCredito();
+
+                            $("#Parcelas").change(function () {
+                                calculaParcelasCartaoCredito();
+                            });
+                        }
+                }
+            }
+        }
+
+        $('#linkTermos').on('click', function (obj) {
+
+            obj.preventDefault();
+            $('#modalTermos').modal();
+        });
+
+        var div = isMobile(navigator.userAgent) ? document.querySelector('#ResumoPedidoMobile') : document.querySelector('#ResumoPedido');
+        $(div).empty();
+        $(div).append($('#ResumoPedidoConteudo').clone(false).html());
+
+        var operadoraPagamento = '@Html.ValueFor(pag => pag.OperadoraPagamento)';
+        if (operadoraPagamento !== '') {
+            atualizaResumoPedido(operadoraPagamento);
+        }
+
+        $('#OperadoraPagamento').change(function(obj) {
+            atualizaResumoPedido(obj.target.value);
+        });
+
+        var valorParcial = $('#spValorParcial').text();
+
+        $('#hdValorTotal').val(valorParcial);
+        $('.erroGeral span').text('');
+
+        setSession("nome", $('#NomeCompleto').val().split(' ')[0]);
+        setSession('emailPagamento', $('#Email').val());
+
+        validacao('#frmFinalizarCompraAvulsoSistema',
+            {
+                submit: function valido() {
+                    setSession("nome", $('#NomeCompleto').val().split(' ')[0]);
+
+                    $("#hdnEmailCotacao").val(getSession('email') || "indefinido");
+                    $("#hdnOrigemLead").val(getLocalStorage('utmSource') || "indefinido");
+
+                    var valorTotal = $('#spTotal').text();
+                    setSession("totalPedido", valorTotal);
+                    setSession("totalConversaoGoogle", valorTotal);
+
+                },
+                invalido: function invalido(e) {
+                    $('.erroGeral span').text('Verifique os erros do formulário');
+                }
+            });
+
+        $(document).ready(function() {
+            var $body = $(document.body);
+            var navHeight = $('.navbar').outerHeight(true) + 10;
+
+            $('#sidebar').affix({
+                offset: {
+                    top: 110,
+                    bottom: 500
+                }
+            });
+
+            $body.scrollspy({
+                target: '#rightCol',
+                offset: navHeight
+            });
+
+            $('#sidebar').width($('#sidebar').parent().width());
+
+
+            var alert = obtemParametroUri('e');
+
+            if (alert) {
+
+                swal({
+                    title: 'Oops',
+                    type: 'error',
+                    html: alert +
+                        '<br /> <a id="maisDetalhes" href="#" style="font-size:14px;font-weight:bold; ">Detalhes do erro</a>'
+                });
+
+                $('#maisDetalhes').click(function() {
+                    var detalhesErro = "@(ViewBag.DetalhesErro)" != '' ? "@(ViewBag.DetalhesErro)" : 'Sem detalhes técnicos para exibição';
+
+                    swal('Detalhes', detalhesErro, 'info');
+                });
+
+                return false;
+            }
+        });
+
+        $('form').one('submit',
+            function() {
+                conversaoRDStation("Pagamento Escolhido", true);
+            });
+
+        conversaoRDStation("Pagamento", true);
+    </script>
+}

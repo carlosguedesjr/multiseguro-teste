@@ -1,0 +1,1194 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Pagamento.PagamentoModel
+
+@{
+    ViewBag.Title = "Multi Seguro Viagem | Pagamento";
+    Layout = "~/Views/Shared/_LayoutPagamento.cshtml";
+    string Navegador = Request.Browser.Browser;
+    string Sidebar = "sidebar";
+    string host = ViewBag.host;
+}
+ @if (Navegador.Equals("Safari"))
+ {
+     Sidebar = " ";
+
+ }
+    <div class="pagamento">
+        <div class="header-2">
+            <div class="page-header gradiente">
+            </div>
+        </div>
+
+        <div class="main main-raised" id="produtos">
+            <div class="container">
+                <div class="container text-center col-md-11 col-md-offset-1 bread">
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo inativo"><span>1.</span> Escolha um plano</h5>
+                        <p class="icone-carrinho inativo">Compare preços e coberturas</p>
+                    </div>
+                     @if (!Navegador.Equals("Safari"))
+                     {
+                        <div class="col-md-1">
+                            <i class="material-icons icone-carrinho margin-top-dez inativo">keyboard_arrow_right</i>
+                        </div>
+                     }
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo inativo"><span>2.</span> Adicione os viajantes</h5>
+                        <p class="icone-carrinho inativo">Inclua abaixo quem irá viajar.</p>
+                    </div>
+                    @if (!Navegador.Equals("Safari"))
+                    {
+                        <div class="col-md-1">
+                            <i class="material-icons margin-top-dez inativo">keyboard_arrow_right</i>
+                        </div>
+                    }
+                    <div class="col-md-3">
+                        <h5 class="title operadora-titulo"><span>3.</span> Finalize a compra abaixo</h5>
+                        <p class="icone-carrinho">Em até 6x sem juros</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <h2 class="title precos-titulo" id="tituloviajantes" style="display:inline-block">Pagamento</h2>
+                    </div>
+                    <div class="row">
+                        <p class="viajantes-desc">Após a aprovação do pagamento, você receberá o voucher de seu seguro viagem em seu email.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container" id="formulario-pagamento">
+                @using (Html.BeginForm("FinalizarCompra", "Pagamento", FormMethod.Post, new { ID = "frmFinalizarCompra" }))
+                {
+
+                    @Html.HiddenFor(pag => pag.Carrinho, new { ID = "hdnCarrinho" })
+                    @Html.HiddenFor(pag => pag.ValorTotal, new { ID = "hdValorTotal" })
+                    @Html.HiddenFor(pag => pag.DescontoCupom, new { ID = "hdnDescontoCupom" })
+                    @Html.HiddenFor(pag => pag.DescontoBoleto, new { ID = "hdnDescontoBoleto" })
+                    @Html.HiddenFor(pag => pag.DescontoTotal, new { ID = "hdnDescontoTotal" })
+                    @Html.HiddenFor(pag => pag.Cupom, new { ID = "hdnCupom" })
+                    @Html.HiddenFor(pag => pag.EmailCotacao, new { ID = "hdnEmailCotacao" })
+                    @Html.HiddenFor(pag => pag.OrigemLead, new { ID = "hdnOrigemLead" })
+
+                    <div>
+                        <div class="col-md-8 pad-0-pag">
+
+                            <div class="col-md-12">
+                                <div class="card-content">
+                                    <div class="row">
+                                        <h3 class="title pagtitle">
+                                            <span class="icone-carrinho">1.</span>
+                                            Dados do responsável pela compra
+                                        </h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.NomeCompleto, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">face</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.NomeCompleto, new { Class = "form-control", Placeholder = "Nome completo...", Valida = "campoVazio nomeCompleto", Data_Message_Empty = "Informe o nome", MaxLength = "150" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Documento, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">description</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Documento, new { Class = "form-control", Placeholder = "CPF/CNPJ", MaxLength = "19", Valida = "campoVazio cpfCnpj", Data_Message_Empty = "Informe o documento", Mask_documento = "true" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Email, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">email</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Email, new { Class = "form-control", Placeholder = "Email...", Valida = "campoVazio email", Data_Message_Empty = "Informe o e-mail", MaxLength = "150" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.TelefonePessoal, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">phone</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.TelefonePessoal, new { Class = "form-control telefone", Placeholder = "Telefone de contato...", Valida = "campoVazio", Data_Message_Empty = "Informe o telefone", MaxLength = "20", Mask_Telefone = "true" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12 padding-blog-titulo">
+                                            <div class="card-content contato-seguranca">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <h4 class="title margin-15-0">
+                                                            Contato de emergência
+                                                        </h4>
+                                                        <p class="description margin-0-0">
+                                                            Informe um contato em caso de imprevistos no exterior.
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="valid form-group margin-top-zero">
+                                                            <label class="control-label margin-top-zero margin-0">
+                                                                @Html.ValidationMessageFor(pag => pag.NomeContato, null, new { Class = "control-label" })
+                                                            </label>
+                                                            <div class="input-group">
+                                                                @if (!Navegador.Equals("Safari"))
+                                                                {
+                                                                    <span class="input-group-addon">
+                                                                        <i class="material-icons">face</i>
+                                                                    </span>
+                                                                }
+                                                                @Html.TextBoxFor(pag => pag.NomeContato, new { Class = "form-control", Placeholder = "Nome do contato...", data_toggle = "tooltip", data_placement = "top", title = "O contato deve morar no Brasil", Valida = "campoVazio nomeCompleto", Data_Message_Empty = "Informe o nome de contato", MaxLength = "150", Data_Type_Validation = "nomeCompleto" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="valid form-group margin-top-zero">
+                                                            <label class="control-label margin-top-zero margin-0">
+                                                                @Html.ValidationMessageFor(pag => pag.TelefoneContato, null, new { Class = "control-label", Type = "tel" })
+                                                            </label>
+                                                            <div class="input-group">
+                                                                @if (!Navegador.Equals("Safari"))
+                                                                {
+                                                                    <span class="input-group-addon">
+                                                                        <i class="material-icons">phone</i>
+                                                                    </span>
+                                                                }
+                                                                @Html.TextBoxFor(pag => pag.TelefoneContato, new { Class = "form-control telefone", Placeholder = "Telefone do contato...", Valida = "campoVazio", Data_Message_Empty = "Informe o número de contato", MaxLength = "15", Mask_Telefone = "true" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <h3 class="title pagtitle">
+                                            <span class="icone-carrinho">2.</span>
+                                            Endereço do responsável pela compra
+                                        </h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Cep, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">directions</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Cep, new { Class = "form-control", Placeholder = "CEP...", Valida = "campoVazio", Data_Message_Empty = "Informe o CEP", MaxLength = "9", Mask_Cep = "true" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Estado, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">map</i>
+                                                        </span>
+                                                    }
+                                                    <div class="form-group select-button margin-top-zero margin-0">
+                                                        @Html.DropDownListFor(pag => pag.Estado, new List<SelectListItem>
+                                                                                                            {
+                                                                                                                new SelectListItem {Text = "Estado", Value = "", Disabled = true, Selected = true}
+
+                                                                                                            }, new { Class = "selectpicker", Data_Style = "form-control", Valida = "campoVazio", Data_Message_Empty = "Selecione o estado ", data_size = "10", data_live_search = true, data_live_search_placeholder = "Pesquise seu estado aqui" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Cidade, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">navigation</i>
+                                                        </span>
+                                                    }
+                                                    <div class="form-group select-button margin-top-zero margin-0">
+                                                        @Html.DropDownListFor(pag => pag.Cidade, new List<SelectListItem>
+                                                                                                            {
+                                                                                                                new SelectListItem {Text = "Cidade", Value = "", Disabled = true, Selected = true},
+                                                                                                            }, null, new { Class = "selectpicker", Data_Style = "form-control", Valida = "campoVazio", Data_Message_Empty = "Selecione uma cidade", Disabled = "disabled", data_size = "10", data_live_search = true, data_live_search_placeholder = "Pesquise sua cidade aqui" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Endereco, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">place</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Endereco, new { Class = "form-control", Placeholder = "Endereço...", Valida = "campoVazio", Data_Message_Empty = "Informe o endereço", MaxLength = "150" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Numero, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">my_location</i>
+                                                        </span>
+
+                                                        @Html.TextBoxFor(pag => pag.Numero, new { Class = "form-control", Placeholder = "Número...", @type = "number", Valida = "campoVazio", Data_Message_Empty = "Informe o número", MaxLength = "6" })
+                                                    }
+                                                    else
+                                                    {
+                                                        @Html.TextBoxFor(pag => pag.Numero, new { Class = "form-control", Placeholder = "Número...", Valida = "campoVazio", Data_Message_Empty = "Informe o número", MaxLength = "6" })
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">more_horiz</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Complemento, new { Class = "form-control", Placeholder = "Complemento...", MaxLength = "150", Valida = "" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.Bairro, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">person_pin</i>
+                                                        </span>
+                                                    }
+                                                    @Html.TextBoxFor(pag => pag.Bairro, new { Class = "form-control", Placeholder = "Bairro...", Valida = "campoVazio", Data_Message_Empty = "Informe o bairro", MaxLength = "150" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <h3 class="title pagtitle">
+                                            <span class="icone-carrinho">3.</span> Dados de pagamento
+                                        </h3>
+                                    </div>
+
+                                    <div class="col-md-8 metodo">
+                                        <div class="col-md-6 pad-0-mobile-none">
+                                            <div class="valid form-group margin-top-zero">
+                                                <label class="control-label margin-top-zero margin-0">
+                                                    @Html.ValidationMessageFor(pag => pag.OperadoraPagamento, null, new { Class = "control-label" })
+                                                </label>
+                                                <div class="input-group">
+                                                    @if (!Navegador.Equals("Safari"))
+                                                    {
+                                                        <span class="input-group-addon">
+                                                            <i class="material-icons">shopping_basket</i>
+                                                        </span>
+                                                    }
+                                                    <div class="form-group select-button margin-top-zero">
+                                                        @Html.DropDownListFor(x => x.OperadoraPagamento, ViewBag.MetodoPagamento as IEnumerable<SelectListItem>, new { ID = "OperadoraPagamento", Class = "selectpicker", Data_Style = "form-control", Title = "Método de pagamento", Valida = "campoVazio", Data_Message_Empty = "Informe o método de pagamento" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="OperadoraPagamentoCampos"></div>
+                                    </div>
+                                    <div id="divCartao"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div id="ResumoPedidoMobile"></div>
+                                <div class="row row-wrap">
+                                    <div class="valid form-group margin-top-zero is-empty has-error">
+                                        <div class="checkbox margin-top-zero">
+                                            <label class="control-label margin-top-zero margin-0">
+                                                @Html.ValidationMessageFor(pag => pag.TermosUso, null, new { Class = "control-label" })
+                                            </label>
+                                            <label>
+                                                @Html.CheckBoxFor(pag => pag.TermosUso, new { Valida = "campoChecado", Data_Message_Checked = "É necessário concordar com o termo" })
+                                                Li e concordo com os
+                                                <a id="linkTermos" class="link-termos">termos de uso</a>
+                                                e
+                                                <a id="linkCoberturas" class="link-termos">coberturas do plano</a> e declaro que os viajantes desta compra estão no Brasil.
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="valid form-group margin-top-zero is-empty has-error  estudanteJs">
+                                        <div class="checkbox margin-top-zero">
+                                            <label class="control-label margin-top-zero margin-0">
+                                                @Html.ValidationMessageFor(pag => pag.Estudante, null, new { Class = "control-label" })
+                                            </label>
+                                            <label>
+                                                @Html.CheckBoxFor(pag => pag.Estudante, new { Valida = "campoChecado", Data_Message_Checked = "É necessário confirmar que é estudante" })
+                                                Declaro que o motivo da viagem é estudo no exterior e que possuo documentos que comprovem a matricula.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row hidden cupomJs">
+                                <div class="col-md-12 col-xs-12 colflex">
+                                    <div class="col-md-8 col-xs-7 pad-0-mobile">
+                                        <div class="form-group form-info">
+                                            <input id="textoCupom" type="text" class="form-control" placeholder="Cupom de desconto" data-toggle="tooltip" data-placement="top" title="Caso tenha algum cupom de desconto, insira aqui." maxlength="50">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-xs-5 pad-r-0-mobile">
+                                        <button id="btnAplicarCupom" class="btn btn-primary btn-cupom btn-sm btn-block">Aplicar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="erroGeral has-error">
+                                        <span class="control-label">@Html.ValidationMessage("erroCamposVazio")</span>
+                                    </div>
+                                    <button id="btnFinalizar" type="submit" class="btn btn-success btn-block btn-lg" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processando" style="margin-top:15px"><i class="material-icons">shopping_cart</i> Finalizar compra</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="ResumoPedido" class="col-md-4"></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <template id="RedeCard">
+        <link href="/www/css/card.css" rel="stylesheet" />
+
+        @Html.HiddenFor(pag => pag.Bandeira, new { Class = "hdnBandeira" })
+
+        <div class="col-md-6 pad-0-mobile-none">
+            <div class="valid form-group margin-top-zero">
+                <label class="control-label margin-top-zero margin-0">
+                    @Html.ValidationMessageFor(pag => pag.Parcelas, null, new { Class = "control-label" })
+                </label>
+                <div class="input-group">
+                    @if (!Navegador.Equals("Safari"))
+                    {
+                        <span class="input-group-addon">
+                            <i class="material-icons">playlist_add</i>
+                        </span>
+                    }
+                        <div class="form-group select-button margin-top-zero">
+                            @if (!Navegador.Equals("Safari"))
+                            {
+                                @Html.DropDownListFor(x => x.Parcelas, new List<SelectListItem>
+                                {
+                                    new SelectListItem {Text = "À vista", Value = "00"},
+                                    new SelectListItem {Text = "2x sem juros", Value = "02"},
+                                    new SelectListItem {Text = "3x sem juros", Value = "03"},
+                                    new SelectListItem {Text = "4x sem juros", Value = "04"},
+                                    new SelectListItem {Text = "5x sem juros", Value = "05"},
+                                    new SelectListItem {Text = "6x sem juros", Value = "06"},
+                                }, new { Class = "selectpicker", Data_Style = "form-control", Title = "Número de parcela(s)", Valida = "campoVazio", Data_Message_Empty = "Informe as o número de parcelas" })
+                            }
+                            else
+                            {
+                                 @Html.DropDownListFor(x => x.Parcelas, new List<SelectListItem>
+                                 {
+                                    new SelectListItem {Text = "À vista", Value = "00"},
+                                    new SelectListItem {Text = "2x sem juros", Value = "02"},
+                                    new SelectListItem {Text = "3x sem juros", Value = "03"},
+                                    new SelectListItem {Text = "4x sem juros", Value = "04"},
+                                    new SelectListItem {Text = "5x sem juros", Value = "05"},
+                                    new SelectListItem {Text = "6x sem juros", Value = "06"},
+                                 }, new { Class = "form-control", Data_Style = "form-control", Title = "Número de parcela(s)", Valida = "campoVazio", Data_Message_Empty = "Informe as o número de parcelas" })
+                            }
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="valid form-group margin-top-zero">
+                <label class="control-label margin-top-zero margin-0">
+                    @Html.ValidationMessageFor(pag => pag.NumeroCartao, null, new { Class = "control-label" })
+                </label>
+                <div class="input-group">
+                    @if (!Navegador.Equals("Safari"))
+                    {
+                        <span class="input-group-addon">
+                            <i class="material-icons">payment</i>
+                        </span>
+                    }
+                    @Html.TextBoxFor(pag => pag.NumeroCartao, new { Class = "form-control number", Placeholder = "Número do cartão", MaxLength = "19", Valida = "campoVazio", Data_Message_Empty = "Informe o numero do cartão", AutoComplete = "off", Mask_Cartao_Credito = "true" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="valid form-group margin-top-zero">
+                <label class="control-label margin-top-zero margin-0">
+                    @Html.ValidationMessageFor(pag => pag.NomeCartao, null, new { Class = "control-label" })
+                </label>
+                <div class="input-group">
+                    @if (!Navegador.Equals("Safari"))
+                    {
+                        <span class="input-group-addon">
+                            <i class="material-icons">sort</i>
+                        </span>
+                    }
+                    @Html.TextBoxFor(pag => pag.NomeCartao, new { Class = "form-control inputname", Placeholder = "Nome impresso no cartão", MaxLength = "30", Valida = "campoVazio", Data_Message_Empty = "Nome impresso no cartão", AutoComplete = "off" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="valid form-group margin-top-zero">
+                <label class="control-label margin-top-zero margin-0">
+                    @Html.ValidationMessageFor(pag => pag.MesAno, null, new { Class = "control-label" })
+                </label>
+                <div class="input-group">
+                    @if (!Navegador.Equals("Safari"))
+                    {
+                        <span class="input-group-addon">
+                            <i class="material-icons">date_range</i>
+                        </span>
+                    }
+                    @Html.TextBoxFor(pag => pag.MesAno, new { Class = "form-control expire", Placeholder = "Validade (Mês/Ano)", MaxLength = "7", Valida = "campoVazio", Data_Message_Empty = "Informe o mês/ano", AutoComplete = "off", Mask_Ano_Validade = "true" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="valid form-group margin-top-zero">
+                <label class="control-label margin-top-zero margin-0">
+                    @Html.ValidationMessageFor(pag => pag.CodigoSeguranca, null, new { Class = "control-label" })
+                </label>
+                <div class="input-group">
+                    @if (!Navegador.Equals("Safari"))
+                    {
+                        <span class="input-group-addon">
+                            <i class="material-icons">verified_user</i>
+                        </span>
+                    }
+                    @Html.TextBoxFor(pag => pag.CodigoSeguranca, new { Class = "form-control ccv", Placeholder = "Código de segurança", MaxLength = "3", Valida = "campoVazio", Data_Message_Empty = "Informe o código de segurança", AutoComplete = "off", Mask_Codigo_Seguranca = "true" })
+                </div>
+            </div>
+        </div>
+
+
+        @*<div class="col-md-4">
+              <div class="hidden-sm hidden-xs">
+                <div class="col1">
+                  <div class="cardCredit">
+                    <div class="front">
+                      <div class="type">
+                        <img class="bankid" />
+                      </div>
+                      <span class="chip"></span>
+                      <span class="cardCredit_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+                      <div class="date"><span class="date_value">MM / AAAA</span></div>
+                      <span class="fullname">NOME COMPLETO</span>
+                    </div>
+                    <div class="back">
+                      <div class="magnetic"></div>
+                      <div class="bar"></div>
+                      <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
+                      <span class="chip"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>*@
+    </template>
+  
+        <template id="RedeCardCartao">
+            <link href="/www/css/card.css" rel="stylesheet" />
+
+
+            <div class="col-md-4">
+                <div class="hidden-sm hidden-xs">
+                    <div class="col1">
+                        <div class="cardCredit">
+                            <div class="front">
+                                <div class="type">
+                                    <img class="bankid" />
+                                </div>
+                                <span class="chip"></span>
+                                <span class="cardCredit_number">&#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; &#x25CF;&#x25CF;&#x25CF;&#x25CF; </span>
+                                <div class="date"><span class="date_value">MM / AAAA</span></div>
+                                <span class="fullname">NOME COMPLETO</span>
+                            </div>
+                            <div class="back">
+                                <div class="magnetic"></div>
+                                <div class="bar"></div>
+                                <span class="seccode">&#x25CF;&#x25CF;&#x25CF;</span>
+                                <span class="chip"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    
+
+    <template id="Itau">
+    </template>
+
+    <template id="ResumoPedidoConteudo">
+
+        <div id="rightCol">
+
+
+            <div class="card resumo-card"  id="@Sidebar">
+                <div class="card-content cotacao-card" style="padding-left: 15px!important;">
+                    <h4 class="title operadora-titulo">Resumo do pedido</h4>
+                    <div id="Pedidos">
+                        <p>
+                            <img id="imgOperadora">
+                        </p>
+                        <p>
+                            <i class="material-icons">style</i><b>Plano:&nbsp</b><span id="nomePlano"></span>
+                        </p>
+                        <p>
+                            <i class="material-icons">public</i><b>Destino:&nbsp</b><span id="destino"></span>
+                        </p>
+                        <p>
+                            <i class="material-icons">flight_takeoff</i><b>Embarque:&nbsp</b><span id="dataIda"></span>
+                        </p>
+                        <p>
+                            <i class="material-icons">flight_land</i> <b>Desembarque:&nbsp</b><span id="dataVolta"></span>
+                        </p>
+                        <p>
+                            <i class="material-icons">favorite</i> <b>Assist. Médica:&nbsp</b><span id="assistenciaMedica"></span>
+                        </p>
+                        <p>
+                            <i class="material-icons">work</i> <b>Perda de bagagem:&nbsp</b><span id="perdaBagagem"></span>
+                        </p>
+                        <button id="btnViajantes" class="btn btn-sm btn-coberturas btnViajantes" value="">VER VIAJANTES</button>
+
+                    </div>
+
+                    <p class="title" style="margin-bottom: 0; margin-top: 15px">
+                        Valor parcial: R$ <span id="spValor"></span>
+                    </p>
+                    <p id="descontoCupom" class="title hidden" style="margin-bottom: 0">
+                        Desconto cupom: R$ <span id="spDescontoCupom"></span> <span id="spPorcentagemCupom"></span>
+                    </p>
+                    <p id="descontoBoleto" class="title hidden" style="margin-bottom: 0">
+                        Desconto boleto: R$ <span id="spDescontoBoleto"></span> (5%)
+                    </p>
+                    <h4 class="title operadora-titulo" style="margin-top:0">
+                        Valor total: R$ <span id="spTotal"></span> <span id="spPorcentagemTotal"></span>
+                    </h4>
+
+                    <p id="cartaoCredito" class="title hidden" style="margin-bottom:0;margin-top:15px"></p>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <template id="ViajantesTemplate">
+        <tr>
+            <td id="viajanteNome"></td>
+            <td id="viajanteCpf"></td>
+            <td id="viajanteValor" class="numero"></td>
+        </tr>
+    </template>
+
+    <div class="modal fade" id="viajantesModal" tabindex="-1" role="dialog" aria-labelledby="viajantesLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close close-coberturas" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="viajantesLabel"><a id="viajantePlano"></a></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Valor unitário</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyViajanteTemp" hidden></tbody>
+                        <tbody id="bodyViajante"></tbody>
+                        <tr>
+                            <td>
+                                <strong> Total: <small>R$ </small><span id="spTotalViajante"></span> </strong>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-simple" data-dismiss="modal"><i class="material-icons">close</i> Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCoberturas" tabindex="-1" role="dialog" aria-labelledby="pagamentosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="divModalCoberturas"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-simple" data-dismiss="modal"><i class="material-icons">close</i> Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTermos" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close close-coberturas" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modalLabel">TERMO DE USO / AVISO AO VIAJANTE</h4>
+                </div>
+                <div class="modal-body">
+                    <br />A Multi Seguro Viagem é uma plataforma digital  de propriedade da EKTO MULTI SEGURO VIAGEM LTDA, CNPJ: 43.514.278/0001-90, cujo objetivo é apresentar de maneira clara e objetiva os principais planos de Seguro Viagem disponíveis no mercado para o viajante, permitindo a  livre  escolha do que melhor vai atender as expectativas e necessidades do viajante em seu período de viagem.
+                    <br />
+                    <br />1. As condições de contratação, garantias e coberturas dos planos são oferecidas e de responsabilidade  exclusiva  da  Seguradora  e Operadora  de Assistência  escolhida pelo viajante,  que através da livre escolha, deverá definir quais coberturas de atendimento estão adequadas a seu perfil de viagem e necessidades.
+                    <br />
+                    <br />2. A plataforma Multi Seguro Viagem  e a EKTO MULTI SEGURO VIAGEM LTDA,  não se confundem com a Seguradora e Operadora de Assistência escolhida pelo viajante.
+                    <br />
+                    <br />3. A plataforma Multi Seguro Viagem trabalha com diversas Seguradoras e Operadoras de Assistência, para proporcionar ao usuário a facilidade de encontrar um plano que lhe convier, através do serviço de comparação  online  de planos  disponível  na plataforma digital da Seguro Multi Viagem.
+                    <br />
+                    <br />4. A equipe da Multi Seguro Viagem e EKTO MULTI SEGURO VIAGEM LTDA, está habilitada e preparada para  esclarecer as dúvidas oriundas de planos selecionados pelo usuário, bem como a auxilia-lo a identificar o plano que lhe atenderá melhor, dentre os fornecidos pelos seus parceiros.
+                    <br />
+                    <br />5. A Seguradora e Operadora de Assistência é a única e exclusiva responsável pelos procedimentos (incluindo, mas não limitado à reembolso de despesas), coberturas e limites do plano contratado pelo  usuário. Em caso de qualquer  divergência ou necessidade, a  Seguradora  e  Operadora  de Assistência  deve ser  sempre diretamente acionada pelo  usuário, por  ser a  única  responsável e  capaz de solucionar eventual conflito.
+                    <br />
+                    <br />6. É fundamental antes da contratação a leitura e o aceite das  condições gerais do plano contratado disponibilizadas no site da Seguradora e Operadora de Assistência contratada e observar  atentamente  as regras previstas para a utilização do respectivo plano.
+                    <br />
+                    <br />7. É recomendado a impressão da apólice, voucher e demais documentos referentes a contratação do plano de Seguro Viagem e leva-los consigo durante a viagem.
+                    <br />
+                    <br />8. É  obrigatório  o contato prévio com a  Seguradora  e  Operadora  de Assistência contratada, antes de qualquer atendimento ou da utilização de cobertura, tendo em vista ser imprescindível a autorização da mesma para atendimento adequado.  Favor atentar para os canais de acionamento previstos no voucher.
+                    <br />
+                    <br />9. Sugerimos que caso haja a necessidade de  atendimento em rede credenciada autorizada pela operadora,  informar a clínica ou ao hospital  o endereço  para cobranças  indicado pela  Seguradora  e  Operadora  de Assistência  contratada, evitando assim o envio de cobranças futuras em seu próprio endereço. Verificar na Apólice, Voucher ou condições gerais, qual endereço deve ser fornecido.
+                    <br />
+                    <br />10. O prazo limite para alterações e cancelamento da apólice contratada é de até 48 horas úteis antes do início de vigência da mesma.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-simple" data-dismiss="modal"><i class="material-icons">close</i> Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link href="/www/css/vendor/sweetalert2.min.css" rel="stylesheet" />
+
+    <!-- Pixel Afiliace -->
+    <img src="//cdsusa.veinteractive.com/DataReceiverService.asmx/Pixel?journeycode=3757A51B-97E6-4C3F-8030-D893A9C06F65" width="1" height="1" />
+    <!-- Fim Pixel Afiliace -->
+
+    @section Scripts
+{
+        @if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            <script src="/www/js/vendor/sweetalert2.min.js"></script>
+            <script src="/www/js/vendor/jquery.mask.min.js"></script>
+
+            <script src="/www/js/cardCredit.js"></script>
+            <script src="/www/js/modulos/validacoes.js"></script>
+            <script src="/www/js/modulos/pagamento.js"></script>
+        }
+        else
+        {
+            <script src="/www/bundles/bundleVendorPagamento.js"></script>
+            <script src="/www/bundles/bundlePagamento.js"></script>
+        }
+
+<script>
+        if (!getSession('carrinho') || !getParseSession('carrinho').length > 0) {
+
+            var cotacao = getParseSession("cotacao");
+            var uri;
+
+            cotacao ? uri = "/Cotador/Cotacao?Destino=" + cotacao.Destino + "&DataIda=" + cotacao.DataIda + "&DataVolta=" + cotacao.DataVolta : uri = "/Home/Index";
+
+            window.location.href = uri;
+        }
+
+        if (window.sessionStorage.getItem('cpaff')) {
+            $('#hdnCupom').val(window.sessionStorage.getItem('cpaff'));
+        } else {
+            $('.cupomJs').removeClass('hidden');
+        }
+
+
+        function submeteFormComEnter(e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                $(this).blur();
+                $('#btnFinalizar').focus().click();
+            }
+        }
+
+        $('#frmFinalizarCompra').keypress(submeteFormComEnter);
+
+        var valorPedido = 0;
+        var objCarrinho;
+        var dropEstado = $("#Estado");
+        var dropCidade = $("#Cidade");
+
+        $.getJSON('//@Request.Url.Authority/www/json/estados.json', function (data) {
+
+            $.each(data, function (key, val) {
+                return dropEstado.append($("<option />").val(key + val.Sigla).text(val.Nome));
+            });
+
+            if ('@Html.ValueFor(pag => pag.Estado)' != '') {
+
+                $(dropEstado).val('@Html.ValueFor(pag => pag.Estado)');
+                populaCidades(dropEstado, dropCidade, '@Request.Url.Authority', '@Html.ValueFor(pag => pag.Cidade)');
+            }
+
+            $('.selectpicker').selectpicker('refresh');
+        });
+
+        $(dropEstado).change(function () {
+            populaCidades(dropEstado, dropCidade, '@Request.Url.Authority', '@Html.ValueFor(pag => pag.Cidade)');
+        });
+
+        $('body').on('blur', '#Cep', function (obj) {
+
+            if (obj.target.value) {
+                consultaCep(dropEstado, dropCidade, obj.target.value);
+            }
+        });
+
+        resumoPedido();
+
+        verificaPlanoEstudante();
+
+
+        $('#linkTermos').on('click', function (obj) {
+
+            obj.preventDefault();
+            $('#modalTermos').modal();
+        });
+
+        $('.btnViajantes').on('click', function (obj) {
+
+            obj.preventDefault();
+            var idPlano = obj.target.value;
+
+            objCarrinho.map(function (obj) {
+
+                if (obj.Planos.IdPlano == idPlano) {
+
+                    if (obj.Viajantes && obj.Viajantes.length > 0) {
+
+                        $('#viajantePlano').text(obj.Planos.Operadora.Nome + ' - ' + obj.Planos.Nome);
+                        $('#spTotalViajante').text(obj.ValorTotal.toFixed(2));
+
+                        var div = document.querySelector('#bodyViajante');
+                        $(div).empty();
+
+                        var divTemp = document.querySelector('#bodyViajanteTemp');
+                        $(divTemp).empty();
+
+                        var arrayViajantes = obj.Viajantes;
+                        arrayViajantes.map(function (viajante) {
+
+                            $(divTemp).append($('#ViajantesTemplate').clone(false).html());
+                            $(divTemp).find("#viajanteNome").text(viajante.Nome);
+                            $(divTemp).find("#viajanteCpf").text(viajante.Cpf);
+                            $(divTemp).find("#viajanteValor").text(viajante.ValorUnitario.toFixed(2));
+
+
+                            $(div).append($(divTemp).clone(false).html());
+                        });
+
+
+                        $('#viajantesModal').modal();
+                    } else swal('Oops!', 'Plano não possui viajantes.', 'warning');
+                }
+            });
+        });
+
+        defineTemplatePagamento('@Html.ValueFor(pag => pag.OperadoraPagamento)');
+
+            $('#OperadoraPagamento').change(function (obj) {
+            var pagamentoId = $('#OperadoraPagamento option:selected').val();
+            defineTemplatePagamento(obj.target.value);
+            if (pagamentoId == 1)
+            {
+                var cupom = $('#spPorcentagemCupom').val().replace("(", "").replace(")", "").replace("%", "");
+                var valorParcialBoleto = ($('#spValor').text() * 0.05).toFixed(2);
+                var valorDescontoCupom = ($('#spValor').text() - valorParcialBoleto) * (cupom / 100);
+                var valorTotalDesconto = (parseFloat(valorParcialBoleto) + parseFloat(valorDescontoCupom)).toFixed(2);
+                $('#spDescontoCupom').text(valorDescontoCupom.toFixed(2));
+                $('#spDescontoCupom').val(valorDescontoCupom.toFixed(2));
+                $('#hdnDescontoTotal').val(valorTotalDesconto);
+                var ValorTotal = (parseFloat($('#spValor').text()) - parseFloat(valorTotalDesconto)).toFixed(2);
+                $('#spTotal').val(ValorTotal);
+                $('#spTotal').text(ValorTotal);
+            }
+
+
+        });
+
+        var valorParcial = $('#spValor').text();
+
+
+        $('#hdValorTotal').val(valorParcial);
+        $('.erroGeral span').text('');
+
+        //setSession("totalPedido", valorTotal);
+        //setSession("totalConversaoGoogle", valorTotal);
+        setSession("nome", $('#NomeCompleto').val().split(' ')[0]);
+
+        validacao('#frmFinalizarCompra', {
+            submit: function valido() {
+                setSession("nome", $('#NomeCompleto').val().split(' ')[0]);
+
+                $("#hdnEmailCotacao").val(getSession('email') || "indefinido");
+                $("#hdnOrigemLead").val(getLocalStorage('utmSource') || "indefinido");
+
+                var valorTotal = $('#spTotal').text();
+                setSession("totalPedido", valorTotal);
+                setSession("totalConversaoGoogle", valorTotal);
+  
+
+
+
+
+
+
+            },
+            invalido: function invalido(e) {
+                $('.erroGeral span').text('Verifique os erros do formulário');
+            }
+        });
+
+        $('#btnAplicarCupom').click(function (obj) {
+
+            obj.preventDefault();
+
+            var cupom = $('#textoCupom').val();
+            var documento = $('#Documento').val().replace(/\D/g, "");
+
+            if (cupom != undefined && cupom != '') {
+
+                if (documento == undefined || documento == '' || $('#OperadoraPagamento').val() == '') {
+                    swal('Oops!', 'Por favor prencha o <b>CPF/CNPJ</b> e o <b>método de pagamento</b> antes de aplicar o cupom.', 'warning');
+                    return false;
+                }
+
+                var uriCupom = '@System.Configuration.ConfigurationManager.AppSettings["UriBaseApi"]' + '@System.Configuration.ConfigurationManager.AppSettings["UriCupom"]';
+
+                $.ajax({
+                    dataType: "json",
+                    url: uriCupom + "documento=" + documento + "&codigo=" + cupom + "&valorCompra=" + objCarrinho[0].ValorTotal + "&operadora=" + objCarrinho[0].Planos.Operadora.Nome
+
+                }).done(function (data) {
+
+                    var valorDescontoTotal;
+
+                    removeCupom();
+
+                    if (data.tipoDesconto == "Porcentagem") {
+                        var valorTotalComBoleto = valorPedido - (parseFloat($('#hdnDescontoBoleto').val() || 0));
+                        var descontoPorcentagem = valorTotalComBoleto * (data.valorDesconto / 100);
+
+                        valorDescontoTotal = (parseFloat($('#hdnDescontoBoleto').val() || 0) + descontoPorcentagem).toFixed(2);
+
+                        if (valorPedido < valorDescontoTotal) return swal('Oops!', 'O desconto é maior que o valor da compra.', 'error');
+
+                        $('#hdnDescontoCupom').val(descontoPorcentagem.toFixed(2));
+                        $('#spDescontoCupom').text(descontoPorcentagem.toFixed(2));
+                        $('#spDescontoCupom').val(descontoPorcentagem.toFixed(2));
+                        $('#spPorcentagemCupom').text("(" + data.valorDesconto + "%)");
+                        $('#spPorcentagemCupom').val("(" + data.valorDesconto + "%)");
+                        $('#hdnDescontoTotal').val(valorDescontoTotal);
+                    } else {
+
+                        if (valorPedido < data.valorDesconto) return swal('Oops!', 'O desconto é maior que o valor da compra.', 'error');
+
+                        if (parseFloat($('#spDescontoBoleto').text()) > 0) {
+                            var porcentBoleto = parseFloat($('#spDescontoBoleto').text() ? 0.05 : 0);
+                        } else
+                        {
+                            var porcentBoleto = 0;
+                        }
+
+                        $('#hdnDescontoCupom').val(data.valorDesconto.toFixed(2));
+                        $('#spDescontoCupom').text(data.valorDesconto.toFixed(2));
+                        $('#spDescontoCupom').val(data.valorDesconto.toFixed(2));
+                        $('#spPorcentagemCupom').text('');
+
+                        var valorTotalComDesconto = valorPedido - data.valorDesconto;
+
+                        var valorDescontoBoleto = porcentBoleto != 0 ? valorPedido * porcentBoleto : 0;
+
+                        $('#hdnDescontoBoleto').val(valorDescontoBoleto.toFixed(2));
+                        $('#spDescontoBoleto').text(valorDescontoBoleto.toFixed(2));
+                        $('#spDescontoBoleto').val(valorDescontoBoleto.toFixed(2));
+                        valorDescontoTotal = (valorDescontoBoleto || 0) + data.valorDesconto;
+                        $('#hdnDescontoTotal').val(valorDescontoTotal.toFixed(2));
+                    }
+
+                    if (data.zerarComissao) {
+                        setSession("totalPedido", 0.00);
+                    }
+
+                    $('#descontoCupom').removeClass('hidden');
+
+                    $('#spTotal').text((parseFloat($('#spValor').text()) - parseFloat($('#hdnDescontoTotal').val())).toFixed(2));
+
+                    //adciona ao model o cupom
+                    $('#hdnCupom').val(cupom);
+
+                    calculaParcelasPagamento();
+                }).fail(function (error) {
+
+                    $('#textoCupom').val('');
+                    removeCupom();
+
+                    swal('Oops!', error.responseJSON.message || 'Código inválido ou expirado', 'error');
+                });
+            } else {
+
+                removeCupom();
+            }
+        });
+
+        $('#linkCoberturas').on('click', function (obj) {
+
+            var html = '';
+
+            objCarrinho.map(function (obj) {
+
+                var jsonString = JSON.stringify(obj.Planos.Coberturas);
+                var nome = obj.Planos.Operadora.Nome + ' - ' + obj.Planos.Nome;
+
+                //Coberturas download
+                var idUpload;
+                var dataCadastro;
+                var url;
+
+                obj.Planos.Arquivos.map(function (obj) {
+
+                    if (obj.TipoArquivo == 'LaminaCoberturas') {
+
+                        idUpload = obj.IdFileUploads;
+                        dataCadastro = obj.DataCadastro;
+                    }
+                });
+
+                if (idUpload != undefined) {
+
+                    var uriExterna = '@System.Configuration.ConfigurationManager.AppSettings["UriDownloadFile"]' + idUpload + '/' + dataCadastro;
+                    var action = '@Url.Action("Index", "Pdf")?uri=' + uriExterna;
+
+                    url = window.location.origin + '/' + action;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("_CoberturasModal", "Cotador")',
+                    data: {
+                        json: jsonString,
+                        nome: nome,
+                        urlDownload: url
+                    },
+                    method: "get",
+                    async: false,
+                    success: function success(data) {
+                        html += data;
+                    }
+                });
+            });
+
+            $('#divModalCoberturas').html(html);
+            $('#modalCoberturas').modal();
+            $('.close-coberturas').addClass('hidden');
+        });
+
+        $(document).ready(function () {
+
+
+                if (!window.sessionStorage.getItem('contador'))
+                {
+                    localStorage.clear()
+                    sessionStorage.clear();
+                }
+           
+                var contNovo = parseInt(getSession('contador')) + 1;
+                setSession("contador", contNovo);
+                if (getSession('contador') >= 4 || getSession('email') == 'ju@gmail.com' || $('#Email').val() == 'ju@gmail.com')
+                {
+                    var tokenProd = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3YmQwOThhYzAwYzZmZTZhYjFiZWRlNDFkNWM0ZWFiYzQ0NGU2YzU0NWVhOWNhY2RhZWIyOTlhMDA1NmY3YTM0NWRhMjljOWUyNTMzODE5In0.eyJhdWQiOiIxIiwianRpIjoiZTdiZDA5OGFjMDBjNmZlNmFiMWJlZGU0MWQ1YzRlYWJjNDQ0ZTZjNTQ1ZWE5Y2FjZGFlYjI5OWEwMDU2ZjdhMzQ1ZGEyOWM5ZTI1MzM4MTkiLCJpYXQiOjE1NjY4MjU5OTksIm5iZiI6MTU2NjgyNTk5OSwiZXhwIjoxNjE4NjY1OTk5LCJzdWIiOiIiLCJzY29wZXMiOltdfQ.A2-x_S_TSuFjigSpD8_kdFzlfClyTFSh8XxQ_ZNtZYhOgzo6hIPiJZAOcVaoomJ53cryPlZi5FWrqfArPC-3U6YW4MTvDrNbdZUlQltH9ejMzhWDz-lBW87xQShUY-JgrDrPiA2NI-LAgIydSQwaUXE2mLPrIYfmIX5QDCd2--PWJ_vkfto3AHg8xH7nzy8AEfR4ucjNPaAGZKcOkvXHK7wtTcc9r3dBahTc4NDgQ13xGSkqk8e191r-zU63kQXBGH1nhlH6rbb79lA4_jaZV-cRfwht6nmdbxxQPi7tVbT0tqWELf7HgFu6UqA3wxNL13sXhcNsu4K7Tvix60oWELQbZ1-jsPBQKDHqZDgs9L2mh_HboCAOokfjbCNTrTnNnefotcUVHdBjLGKBAKk0BFEkIWy0O2HtihZ_AufsXk24dPOMBuWrEUJ-NHvEz9qDnOlG3VJ68JoXUUPd_L04qaNd2cuC2b_T5eZJvoHD2OYxjF2MYuVkyITiTv9C8ttsQz7v2Ynhwhpg-whE-qTfWnkOPIAGDFWDhmNXR_CNVqYvuu4kmArTm2YskmlI93G6MoTkt1DJM1dfZ8MiGR3Nk4dbvA4WgQe624Q3TJlqPKA7yB57IAlmcs6ADel3wObfmHEFtzOZKos6E1nwS3FSwBXzKqWd6KMX7QExMyAVHtM";
+
+                    var dataLead = {
+                        'host': '@host',
+                        'strEmail': getSession('email')
+                    };
+                    $.ajax(
+                        {
+                            method: "POST",
+                            url: "https://api.cenarioleads.net.br/api/blacklistmulti",
+                            cache: false,
+                            sync: false,
+                            type: 'post',
+                            data: JSON.stringify(dataLead),
+                            contentType: 'application/json',
+                            dataType: 'json',
+                            headers: {
+                                "Authorization": "Bearer " + tokenProd,
+                                'Access-Control-Allow-Origin': 'https://api.cenarioleads.net.br',
+                                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+                            },
+                            success: function (result) {
+                                console.log(result);
+                            },
+                            error: function (result) {
+                                console.log(result);
+                            }
+                        });
+                    setTimeout(function () {
+                        localStorage.clear()
+                        sessionStorage.clear();
+                    }, 4000);
+
+                }
+
+            var $body   = $(document.body);
+            var navHeight = $('.navbar').outerHeight(true) + 10;
+
+            $('#sidebar').affix({
+                offset: {
+                    top: 110,
+                    bottom: 300
+                }
+            });
+
+            $body.scrollspy({
+                target: '#rightCol',
+                offset: navHeight
+            });
+
+            $('#sidebar').width($('#sidebar').parent().width());
+
+            var alert = "@(ViewBag.Erro)";
+
+            if (alert) {
+
+                swal({
+                    title: 'Oops',
+                    type: 'error',
+                    html: alert + '<br /> <a id="maisDetalhes" href="#" style="font-size:14px;font-weight:bold; ">Detalhes do erro</a>'
+                });
+
+                $('#maisDetalhes').click(function () {
+                    var detalhesErro = "@(ViewBag.DetalhesErro)" != '' ? "@(ViewBag.DetalhesErro)" : 'Sem detalhes técnicos para exibição';
+
+                    swal('Detalhes', detalhesErro, 'info');
+                });
+
+                //Verifica cupom
+                var cupom = $('#hdnCupom').val();
+                if (cupom) {
+                    $('#textoCupom').val(cupom);
+                    $('#btnAplicarCupom').click();
+                }
+
+
+                return false;
+            }
+        });
+
+        $('#Email').val(getSession('email'));
+
+        $('#Email').blur(function(evt) {
+            setSession('emailPagamento', evt.target.value);
+        });
+
+        $('form').one('submit', function () {
+            conversaoRDStation("Pagamento Escolhido", true);
+        });
+
+        conversaoRDStation("Pagamento", true);
+
+        setTimeout(function() {
+            //Facebook Conversion
+            fbq('track', 'AddToCart');
+        }, 5000);
+
+        $(function() {
+            enviaTagOneSignal(window.OneSignal, { "pgPagamento": "true", "compra": "0" } );
+        });
+</script>
+    }

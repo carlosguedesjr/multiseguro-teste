@@ -1,0 +1,542 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoHomeModel
+@{
+    ViewBag.Title = "Multi Seguro Viagem | Seguro Viagem Europa (até 50% OFF)";
+    ViewBag.MetaDescription = "Seguro Viagem para Europa: Cote, Compare e Decida Aqui. Melhor Condição do Mercado.Parcele em 6x s/Juros ou Com Desconto no Boleto. Adquira um Cupom Aqui!.";
+    ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br/seguroviagemeuropa";
+    ViewBag.OGTitle = "Seguro Viagem Europa | Multi Seguro Viagem";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+    string Navegador = Request.Browser.Browser;
+
+    string hidden = "hidden";
+    string css = "";
+    string css_botao = "";
+    string borda = "";
+    string css_botao_resultados = "";
+}
+@if (Navegador.Equals("Safari"))
+{
+    hidden = "";
+    css = "ajuste-mobile-safari";
+    css_botao = "ajuste-mobile-safari-botao";
+    borda = "borda-safari";
+    css_botao_resultados = "ajuste-botao-resultados-safari";
+}
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="everg">
+    <div class="page-header header-small gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Seguro Viagem com Cobertura para COVID-19</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+            <div class="col-md-4 col-md-push-8" id="rightCol">
+                <div class="card" id="sidebar">
+                    <div class="card-content">
+                        <div>
+                            <h2 class="h4">Cote seu <strong>seguro viagem</strong> online</h2>
+                        </div>
+                        @{ Html.RenderPartial("HomePromocao/_Operadora"); }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-md-pull-4">
+                <div class="description">
+                    <p>
+                        Uma das grandes preocupações dos viajantes durante a pandemia de COVID-19 é a cobertura de Despesas Médicas e Hospitalares por COVID-19 diagnosticada durante a viagem.
+                    </p>
+                    <p>
+                        Muitas das seguradoras possuem em suas condições gerais como risco excluído de seus planos a cobertura de Despesas Médicas e Hospitalares em situações de pandemias mundiais como está classificado a COVID-19 pela OMS.
+                    </p>
+                    <p>
+                        Desde então, muitos passageiros ficaram inseguros com a contratação dos planos de seguro viagem já que estariam desamparados, caso fossem infectados pela COVID-19.
+                    </p>
+                    <p>
+                        Pensando nisso, diversas seguradoras desenvolveram em seu portifólio coberturas adicionais aos seus planos de seguro viagem tradicionais, permitindo que os viajantes tenham um respaldo financeiro adicional para o tratamento específico da COVID-19 que venha a ser contraída durante a sua viagem.
+                    </p>
+                    <p>
+                        A Multi Seguro Viagem, possui em seu escopo as principais seguradoras do mercado, portanto está preparada para atender a necessidade de todos os viajantes, de acordo com o plano e as condições que melhor lhe atenderem.
+                    </p>
+                    <h3>Seguradoras que possuem o atendimento de COVID-19</h3>
+                    <p>Existem algumas variações nos planos de upgrade disponíveis para a COVID-19, sendo eles o valor de cobertura para Despesas Médicas e Hospitalares por COVID-19 diagnosticado durante a viagem, que varia de $ 5.000,00 a $ 30.000,00. Assim como complementos adicionais disponíveis de Indenização por hospitalização devido diagnóstico de COVID-19 durante viagem e nos planos mais completos o Translado de Corpo, devido a morte por COVID-19 durante a viagem.</p>
+
+                    <h5>Despesas Médicas e Hospitalares por COVID-19 diagnosticado durante a viagem:</h5>
+                    <ul>
+                        <li>
+                            $ 5.000,00
+                        </li>
+                        <li>
+                            $ 10.000,00
+                        </li>
+                        <li>
+                            $ 20.000,00
+                        </li>
+                        <li>
+                            $ 30.000,00
+                        </li>
+                    </ul>
+
+                    <h5>Indenização por Hospitalização devido diagnóstico de COVID-19 durante viagem</h5>
+                    <ul>
+                        <li>
+                            É realizado uma indenização fixa por dia de hospitalização em valores próximos a $150,00 por dia, variando conforme o plano escolhido
+                        </li>
+                        <li>
+                            Possui de carência de dois dias pela utilização, ou seja, em caso de internação de 4 dias, como exemplo, os dois primeiros serão considerados carência e não serão indenizados.
+                        </li>
+                        <li>
+                            O período máximo de indenização de 15 dias, considerando a carência.
+                        </li>
+                    </ul>
+
+
+                    <h5>Translado de Corpo devido a morte por COVID-19 durante a viagem</h5>
+                    <ul>
+                        <h5>A cobertura é compatível com a cobertura de Despesas Médicas e Hospitalares contratada no plano, variando entre:</h5>
+                        <ul>
+                            <li>
+                                $ 5.000,00
+                            </li>
+                            <li>
+                                $ 10.000,00
+                            </li>
+                            <li>
+                                $ 20.000,00
+                            </li>
+                            <li>
+                                $ 30.000,00
+                            </li>
+                        </ul>
+                    </ul>
+                    <p>
+                        É importante sempre ressaltar que antes de efetivar a contratação é fundamental consultar as condições vigentes dos planos de seguro viagem, além de verificar as condições gerais da seguradora escolhida para avaliar todas as regras e condições vigentes do plano.
+                    </p>
+                    <h3>Coberturas dos upgrades de COVID-19</h3>
+                    <h5>Atualmente existem três seguradoras que estão comercializando o adicional de cobertura para COVID-19, com suas particularidades, sendo elas:</h5>
+                    <ul>
+                        <li>
+                            GTA
+                        </li>
+                        <li>
+                            Intermac
+                        </li>
+                        <li>
+                            Affinity
+                        </li>
+                    </ul>
+                    <p>
+                        As três operadoras possuem como seguradora principal a CHUBB Seguros Brasil S.A. que criou os upgrades e fornece o atendimento de COVID-19 em seus planos.
+                    </p>
+                    <p>
+                        Além das três opções a Assist Card, também emitiu comunicado oficial que em todos os seus planos de seguro viagem, o atendimento de COVID-19 diagnosticado durante a viagem será atendido por suas coberturas de Despesas Médicas, Hospitalares em viagem ao exterior, sem nenhum tipo de cobrança extra pelo plano.
+                    </p>
+                    <h3>Quanto custa a cobertura adicional de COVID-19 nos planos de seguro viagem?</h3>
+                    <p>A cobertura adicional (upgrade) para o atendimento de COVID-19 contraído durante a viagem é cobrado como um valor adicional ao plano contratado, ou seja, é cobrada uma tarifa extra por dia de viagem em que a cobertura estará vigente.</p>
+                    <p>Para ter uma ideia dos valores extraímos da Multi Seguro Viagem a seguinte tabela abaixo, com os valores válidos no dia 13/11/2020, simulação de 5 dias de viagem e preços em Dólar:</p>
+                    <div class="testimonials-1 bg-tabela">
+                        <div class="">
+
+                            <div id="no-more-tables" class="">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Operadora</th>
+                                            <th>Nome do Upgrade</th>
+                                            <th>Cobertura</th>
+                                            <th>Preço em Dolar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Silver 5</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 8,14</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Gold 5</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 10,84</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Platinum 5</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 12,90</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Basic 5k</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 8,50</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 5k</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 11,35</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Premium 5k</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 13,50</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Top 5k</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 8,50</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 5k</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 12,40</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Total 5k</td>
+                                            <td data-title="Cobertura">$ 5.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 18,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">
+                                                Silver 10
+                                            </td>
+                                            <td data-title="Cobertura"> $ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 13,88</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Gold 10</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 16,58</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Platinum 10</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 20,70</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Basic 10k</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 14,50</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 10K</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 17,35</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Premium 10k</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 22,00</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Top 10k</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 14,50</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 10k</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 18,90</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Total 10k</td>
+                                            <td data-title="Cobertura">$ 10.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 28,90</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Silver 20</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 21,19</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">
+                                                Gold 20
+                                            </td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 23,89</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Platinum 20</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 32,18</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Basic 20k</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 22,50</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 20K</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 25,00</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Premium 20k</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 34,00</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Top 20k</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 20,50</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 20K</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 25,00</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Total 20k</td>
+                                            <td data-title="Cobertura">$ 20.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 40,40</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Silver 30</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 26,93</td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Gold 30</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 29,63</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Affinity", "Operadoras")">Affinity</a></td>
+                                            <td data-title="Nome do Upgrade">Platinum 30</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 41,89</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">
+                                                Basic 30k
+                                            </td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 28,50</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 30K</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 31,00</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("GTA", "Operadoras")">GTA</a></td>
+                                            <td data-title="Nome do Upgrade">Premium 30K</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 45,00</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Top 30k</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 22,50</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Plus 30k</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 28,60</td>
+                                        </tr>
+                                        <tr>
+
+                                            <td data-title="Operadora"><a href="@Url.Action("Intermac", "Operadoras")">Intermac</a></td>
+                                            <td data-title="Nome do Upgrade">Total 30k</td>
+                                            <td data-title="Cobertura">$ 30.000,00</td>
+                                            <td data-title="Preço em Dolar">$ 47,90</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <p><small>*Os preços estão sujeitos a alteração sem aviso prévio, portanto consulte nosso cotador ou atendimento online antes de realizar a contratação.</small></p>
+                    <p><small>**O upgrade é contratado de maneira opcional, porém depende da contratação de um plano completo de seguro viagem da operadora escolhida para ser adicionado.</small></p>
+                    <p><small>***Consulte as condições gerais da seguradora antes de realizar a contratação do plano de Seguro Viagem</small></p>
+                    <h3>Como contratar?</h3>
+                    <p>
+                        Para contratar o upgrade de cobertura para COVID-19 contraído durante o período de viagem é muito simples!
+                    </p>
+                    <p>
+                        O primeiro passo é escolher o plano de seguro viagem de seu interesse, na sequencia escolher dentro da seguradora escolhida a opção de upgrade de COVID-19 que melhor lhe atender, tendo desta forma uma viagem ainda mais segura e garantida.
+                    </p>
+                    <p>
+                        A Multi Seguro Viagem é a melhor plataforma para a sua cotação, além de possuir condições diferenciadas de contratação, possui uma equipe especializada para o suporte em seu atendimento e auxílio na contratação do seu plano de seguro viagem com cobertura para COVID-19.
+                    </p>
+                    <div class="col-md-12 landing-padding-card">
+                        <div class="area-botoes-home">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <a href="tel:1932010447" class="botoes-home btn btn-primary btn-block ">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {<i class="fa fa-phone" aria-hidden="true"></i>}TELEVENDAS: (19) 3201-0447
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <a class="btn btn-primary btn-block botoes-home" href="https://api.whatsapp.com/send?phone=551932010447" target="_blank">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {<i class="fa fa-whatsapp" aria-hidden="true"></i>} WHATSAPP: +55 (19) 3201-0447
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+        <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+        <script src="/www/js/vendor/scrollreveal.min.js"></script>
+        <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+        <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+        <script src="/www/js/custom-validations.js"></script>
+        <script src="/www/js/modulos/datePicker.js"></script>
+
+    }
+    else
+    {
+        <script src="/www/bundles/bundleVendorIndex.js"></script>
+        <script src="/www/bundles/bundleIndex.js"></script>
+        <script async defer src="/www/js/modulos/afiliaceTrackerOffer.js"></script>
+    }
+    <script async>
+
+    </script>
+
+
+    <link href="/www/css/seo.css" rel="stylesheet" />
+    <script>
+        // Scroll Reveal
+        datepickerSetup();
+
+        var $body = $(document.body);
+        var navHeight = $('.navbar').outerHeight(true) + 10;
+
+        $('#sidebar').affix({
+            offset: {
+                top: 150,
+                bottom: 430
+            }
+        });
+
+        $body.scrollspy({
+            target: '#rightCol',
+            offset: navHeight
+        });
+
+        $('#sidebar').width($('#sidebar').parent().width());
+
+        $(document).on('click', 'a[href^="#0"]', function (event) {
+            event.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top - 100
+            }, 500);
+        });
+        $(function () {
+            $("a[href^='http']:not([href*='multiseguroviagem.com.br'])").each(function () {
+                $(this).click(function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    window.open(this.href, '_blank');
+                }).addClass('externalLink');
+            });
+        });
+
+
+    </script>
+}

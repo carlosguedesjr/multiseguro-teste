@@ -1,0 +1,167 @@
+﻿@model IEnumerable<MultiSeguroViagem.Site.Models.Site.CoberturaModel>
+@{
+    string Mensagem = null;
+    string Nome_Cobertura = null;
+    var valor = "-";
+}
+
+<div class="modal-header">
+    <button type="button" class="close close-coberturas" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="coberturasLabel"><a id="nomePlanoModal"></a>@ViewBag.Nome</h4>
+</div>
+<div class="modal-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cobertura</th>
+                <th>Valor da Cobertura</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>Assistência Médica</td>
+                @{valor = "-";}
+                @foreach (var item in Model)
+                {
+
+                    if (item.Nome == "Assistência Médica")
+                    {
+                        valor = item.MoedaCobertura + ($"{Math.Round(item.ValorCobertura, 2):N}");
+                    }
+                }
+                <td class="numero">@valor</td>
+            </tr>
+
+            <tr>
+                <td>Perda de Bagagem</td>
+                @{valor = "-";}
+                @foreach (var item in Model)
+                {
+
+                    if (item.Nome == "Perda de Bagagem")
+                    {
+                        valor = item.MoedaCobertura + ($"{Math.Round(item.ValorCobertura, 2):N}");
+                    }
+                }
+                <td class="numero">@valor</td>
+            </tr>
+
+            <tr>
+                <td>Gestante</td>
+                @{valor = "-";}
+                @foreach (var item in Model)
+                {
+
+                    if (item.Nome == "Gestante")
+                    {
+                        valor = item.MoedaCobertura + ($"{Math.Round(item.ValorCobertura, 2):N}");
+                    }
+                }
+                <td class="numero">@valor</td>
+            </tr>
+
+            <tr>
+                <td>Prática de Esporte</td>
+                @{valor = "-";}
+                @foreach (var item in Model)
+                {
+
+                    if (item.Nome == "Prática de Esporte")
+                    {
+                        valor = item.MoedaCobertura + ($"{Math.Round(item.ValorCobertura, 2):N}");
+                    }
+
+                }
+                <td class="numero">@valor</td>
+            </tr>
+
+            <tr>
+                <td>Doença Pré-Existente</td>
+                @{valor = "-";}
+                @foreach (var item in Model)
+                {
+
+                    if (item.Nome == "Doença Pré-Existente")
+                    {
+                        valor = item.MoedaCobertura + ($"{Math.Round(item.ValorCobertura, 2):N}");
+                    }
+
+                }
+                <td class="numero">@valor</td>
+            </tr>
+
+
+
+            <tr>
+                <td>Marítimo-Cruzeiro</td>
+                @{valor = "-";}
+                @foreach (var item in Model)
+                {
+
+                    if (item.Nome == "Marítimo Cruzeiro")
+                    {
+                        valor = "Sim";
+                    }
+                }
+                <td class="numero">@valor</td>
+            </tr>
+
+
+
+            @foreach (var item in Model)
+            {
+                if (item.MensagemPlano != null && item.MensagemPlano != "")
+                {
+                    Mensagem = item.MensagemPlano;
+                }
+            }
+            <tr>
+                <td><b>Todas as coberturas</b></td>
+                <td><a href="@ViewBag.UrlDownload" target="_blank"><u>Download</u></a></td>
+
+            </tr>
+            @if (Mensagem != null && Mensagem != "")
+            {
+                <tr>
+                    <td><b>Mais informações</b></td>
+                    <td><a rel="@Mensagem" class="mais_info" string="@Nome_Cobertura" id="Infos" data-toggle="modal" data-target="#ModalInfo">+ Info</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="ModalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="XFechar" data-dismiss="modal-info" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title modal-info-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body modal-info">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="Fechar">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+        $('#Fechar, #XFechar').on('click', function (obj) {
+            $('#ModalInfo').modal('toggle');
+        });
+
+        $('#Infos').on('click', function (obj) {
+            var mensagem = $(this).attr('rel');
+            var titulo = $(this).attr('string');
+            $('.modal-info').html(mensagem);
+            $('.modal-info-title').html("Mais Detalhes");
+        });
+
+   
+</script>
+

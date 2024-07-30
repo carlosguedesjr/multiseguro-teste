@@ -1,0 +1,450 @@
+﻿@{
+  Layout = null;
+  ViewBag.Title = "404 - Page Not Found";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../www/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../www/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Multi Seguro Viagem — Erro 404 </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <link href="/www/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="/www/css/material-kit.css" rel="stylesheet" />
+    <link href="/www/css/custom.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar navbar-transparent navbar-fixed-top" color-on-scroll="100">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Navegação</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <img src="/www/img/logomulti.png" alt="Multi Seguro Viagem">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://blog.multiseguroviagem.com.br" target="_blank">
+                            <i class="material-icons">question_answer</i> Blog
+                        </a>
+                    </li>
+                    @*<li>
+                            <a href="@Url.Action("Index", "Login")">
+                                <i class="material-icons">lock</i> Entrar
+                            </a>
+                        </li>*@
+                    <li class="dropdown button-container" id="headerNavigationItems">
+                        <a href="#" class="phone dropdown-toggle btn btn-primary btn-round" data-toggle="dropdown">
+                            <i class="material-icons">phone</i> Contato
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-with-icons">
+                            <li>
+                                <a href="tel:19-3201-0447">
+                                    <i class="material-icons">phone</i>(19) 3201 0447
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contato@multiseguroviagem.com.br">
+                                    <i class="material-icons">email</i>Envie-nos um email
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @*<li class="button-container">
+                            <a href="#" id="Carrinho" class="btn btn-white btn-round" data-placement="bottom">
+                                <i class="material-icons icone-carrinho">shopping_cart</i><span class="badge badge-carrinho carrinhoCount"></span>
+                            </a>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header quatrozeroquatro gradiente-cotacao" filter-color="rose">
+        <div class="container absolute-center">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title">Ixi. Erro 404.</h1>
+                    <a>
+                        <h2 class="title sub-titulo allan-1">Parece que essa página não existe, ou foi culpa do <span class="allan">estagiário.</span></h2>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 login-card">
+                    <div class="text-center margin-top-dez">
+                        @Html.ActionLink("Voltar", "Index", "Home", null, new { Id = "btnVoltar404", Class = "btn btn-round btn-white btn text-center" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="world" class="hidden-xs hidden-sm"></div>
+    </div>
+</body>
+<script src="/www/js/vendor/jquery.min.js"></script>
+<script src="/www/js/vendor/bootstrap.min.js"></script>
+<script src="/www/js/vendor/material.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+<script src="/www/js/vendor/material-kit.js?v=1.1.0"></script>
+
+<script>
+    var Colors = {
+        red: 0xFF571A,
+        white: 0x7ed6ff,
+        brown: 0x59332e,
+        pink: 0xF5986E,
+        brownDark: 0x23190f,
+        blue: 0x68c3c0,
+    };
+
+    window.addEventListener('load', init, false);
+
+    function init(e) {
+        createScene();
+        createLights();
+        createPlane();
+        createSea();
+
+        document.addEventListener('mousemove', handleMouseMove, false);
+
+        loop();
+    };
+
+    var scene,
+        camera,
+        fieldOfView,
+        aspectRatio,
+        nearPlane,
+        farPlane,
+        HEIGHT,
+        WIDTH,
+        renderer,
+        container;
+
+    function createScene() {
+        HEIGHT = window.innerHeight;
+        WIDTH = window.innerWidth;
+
+        scene = new THREE.Scene();
+
+        aspectRatio = WIDTH / HEIGHT;
+        fieldOfView = 60;
+        nearPlane = 1;
+        farPlane = 10000;
+
+        camera = new THREE.PerspectiveCamera(
+            fieldOfView,
+            aspectRatio,
+            nearPlane,
+            farPlane
+        );
+
+        camera.position.x = 0;
+        camera.position.z = 200;
+        camera.position.y = 100;
+
+        renderer = new THREE.WebGLRenderer({
+            alpha: true,
+
+        });
+
+        renderer.setSize(WIDTH, HEIGHT);
+
+        renderer.shadowMap.enabled = true;
+
+        container = document.getElementById('world');
+        container.appendChild(renderer.domElement);
+
+        window.addEventListener('resize', handleWindowResize, false);
+    };
+
+    function handleWindowResize() {
+        HEIGHT = window.innerHeight;
+        WIDTH = window.innerWidth;
+        renderer.setSize(WIDTH, HEIGHT);
+        camera.aspect = WIDTH / HEIGHT;
+        camera.updateProjectionMatrix();
+    };
+
+    var hemisphereLight,
+        shadowLight;
+
+    function createLights() {
+
+        hemisphereLight = new THREE.HemisphereLight(0xaaaaaa, 0x000000, 0.9);
+
+        shadowLight = new THREE.DirectionalLight(0xffffff, 0.9);
+
+        shadowLight.position.set(150, 350, 350);
+        shadowLight.castShadow = true;
+
+        shadowLight.shadow.camera.left = -400;
+        shadowLight.shadow.camera.right = 400;
+        shadowLight.shadow.camera.top = 400;
+        shadowLight.shadow.camera.bottom = -400;
+        shadowLight.shadow.camera.near = 1;
+        shadowLight.shadow.camera.far = 1000;
+
+
+        shadowLight.shadow.mapSize.width = 2048;
+        shadowLight.shadow.mapSize.height = 2048;
+
+        scene.add(hemisphereLight);
+        scene.add(shadowLight);
+
+        ambientLight = new THREE.AmbientLight(0xdc8874, .2);
+        scene.add(ambientLight);
+    };
+
+    Sea = function() {
+        var geom = new THREE.CylinderGeometry(600, 600, 800, 40, 10);
+
+        geom.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
+
+        geom.mergeVertices();
+
+        var l = geom.vertices.length;
+
+        this.waves = [];
+
+        for (var i = 0; i < l; i++) {
+            var v = geom.vertices[i];
+
+            this.waves.push({
+                y: v.y,
+                x: v.x,
+                z: v.z,
+                ang: Math.random() * Math.PI * 2,
+                amp: 5 + Math.random() * 15,
+                speed: 0.002 + Math.random() * 0.02
+            });
+        };
+
+        var mat = new THREE.MeshPhongMaterial({
+            color: Colors.blue,
+            transparent: true,
+            opacity: 0.6,
+            shading: THREE.FlatShading
+        });
+
+        this.mesh = new THREE.Mesh(geom, mat);
+
+        this.mesh.receiveShadow = true;
+    };
+
+    Sea.prototype.moveWaves = function() {
+        var verts = this.mesh.geometry.vertices;
+        var l = verts.length;
+
+        for (var i = 0; i < l; i++) {
+            var v = verts[i];
+            var vprops = this.waves[i];
+
+            v.x = vprops.x + Math.cos(vprops.ang) * vprops.amp;
+            v.y = vprops.y + Math.sin(vprops.ang) * vprops.amp;
+
+            vprops.ang += vprops.speed;
+        }
+
+        this.mesh.geometry.verticesNeedUpdate = true;
+    };
+
+    var sea;
+
+    function createSea() {
+        sea = new Sea();
+
+        sea.mesh.position.y = -600;
+
+        scene.add(sea.mesh);
+    };
+
+    var AirPlane = function() {
+        this.mesh = new THREE.Object3D();
+
+        var geomCockpit = new THREE.BoxGeometry(60, 50, 50, 1, 1, 1);
+        var matCockpit = new THREE.MeshPhongMaterial({
+            color: Colors.red,
+            shading: THREE.FlatShading
+        });
+
+        geomCockpit.vertices[4].y -= 10;
+        geomCockpit.vertices[4].z += 20;
+        geomCockpit.vertices[5].y -= 10;
+        geomCockpit.vertices[5].z -= 20;
+        geomCockpit.vertices[6].y += 30;
+        geomCockpit.vertices[6].z += 20;
+        geomCockpit.vertices[7].y += 30;
+        geomCockpit.vertices[7].z -= 20;
+
+        var cockpit = new THREE.Mesh(geomCockpit, matCockpit);
+        cockpit.castShadow = true;
+        cockpit.receiveShadow = true;
+        this.mesh.add(cockpit);
+
+        var geomWs = new THREE.BoxGeometry(2, 20, 50, 1, 1, 1);
+        var matWs = new THREE.MeshPhongMaterial({
+            color: Colors.white,
+            transparent: true,
+            opacity: 0.3,
+            shading: THREE.FlatShading
+        });
+        var ws = new THREE.Mesh(geomWs, matWs);
+        ws.castShadow = true;
+        ws.receiveShadow = true;
+        ws.rotation.z = 0.25;
+        ws.position.set(28, 35, 0);
+        this.mesh.add(ws);
+
+        var geomEngine = new THREE.BoxGeometry(20, 50, 50, 1, 1, 1);
+        var matEngine = new THREE.MeshPhongMaterial({ color: Colors.white, shading: THREE.flatShading });
+
+        geomEngine.vertices[0].x += 5;
+        geomEngine.vertices[0].z -= 5;
+        geomEngine.vertices[0].y -= 5;
+        geomEngine.vertices[1].x += 5;
+        geomEngine.vertices[1].z += 5;
+        geomEngine.vertices[1].y -= 5;
+        geomEngine.vertices[2].x += 5;
+        geomEngine.vertices[2].y += 5;
+        geomEngine.vertices[2].z -= 5;
+        geomEngine.vertices[3].x += 5;
+        geomEngine.vertices[3].y += 5;
+        geomEngine.vertices[3].z += 5;
+
+        var engine = new THREE.Mesh(geomEngine, matEngine);
+        engine.position.x = 40;
+        engine.castShadow = true;
+        engine.receiveShadow = true;
+        this.mesh.add(engine);
+
+        var geomTailPlane = new THREE.BoxGeometry(20, 40, 5, 1, 1, 1);
+        var matTailPlane = new THREE.MeshPhongMaterial({ color: Colors.red, shading: THREE.FlatShading });
+
+        geomTailPlane.vertices[0].x -= 10;
+        geomTailPlane.vertices[1].x -= 10;
+
+        var tailPlane = new THREE.Mesh(geomTailPlane, matTailPlane);
+        tailPlane.position.set(-30, 25, 0);
+        tailPlane.castShadow = true;
+        tailPlane.receiveShadow = true;
+        this.mesh.add(tailPlane);
+
+        var geomSideWing = new THREE.BoxGeometry(40, 8, 150, 1, 1, 1);
+        var matSideWing = new THREE.MeshPhongMaterial({ color: Colors.red, shading: THREE.FlatShading });
+
+        geomSideWing.vertices[4].z += 10;
+        geomSideWing.vertices[6].z += 10;
+
+        geomSideWing.vertices[5].z -= 10;
+        geomSideWing.vertices[7].z -= 10;
+
+
+        var sideWing = new THREE.Mesh(geomSideWing, matSideWing);
+        sideWing.castShadow = true;
+        sideWing.receiveShadow = true;
+        this.mesh.add(sideWing);
+
+        var geomTailWing = new THREE.BoxGeometry(20, 4, 55, 1, 1, 1);
+        var matTailWing = new THREE.MeshPhongMaterial({ color: Colors.red, shading: THREE.FlatShading });
+
+        var tailWing = new THREE.Mesh(geomTailWing, matTailWing);
+        tailWing.castShadow = true;
+        tailWing.receiveShadow = true;
+
+        geomTailWing.vertices[0].z -= 5;
+        geomTailWing.vertices[2].z -= 5;
+        geomTailWing.vertices[1].z += 5;
+
+        tailWing.position.set(-35, 0, 0);
+        this.mesh.add(tailWing);
+
+        var geomProp = new THREE.BoxGeometry(20, 10, 10, 1, 1, 1);
+        var matProp = new THREE.MeshPhongMaterial({ color: Colors.brown, shading: THREE.FlatShading });
+        this.prop = new THREE.Mesh(geomProp, matProp);
+        this.prop.castShadow = true;
+        this.prop.receiveShadow = true;
+
+        var geomBlade = new THREE.BoxGeometry(1, 100, 20, 1, 1, 1);
+        var matBlade = new THREE.MeshPhongMaterial({ color: Colors.brownDark, shading: THREE.FlatShading });
+        var blade = new THREE.Mesh(geomBlade, matBlade);
+        blade.position.set(8, 0, 0);
+        blade.castShadow = true;
+        blade.receiveShadow = true;
+        this.prop.add(blade);
+        this.prop.position.set(55, 0, 0);
+        this.mesh.add(this.prop);
+    };
+
+    var airplane;
+
+    function createPlane() {
+        airplane = new AirPlane();
+        airplane.mesh.scale.set(0.25, 0.25, 0.25);
+        airplane.mesh.position.y = 100;
+        airplane.mesh.rotation.x = 0.5;
+        scene.add(airplane.mesh);
+    };
+
+
+    function loop() {
+        airplane.prop.rotation.x += 0.3;
+        sea.mesh.rotation.z += 0.005;
+
+        updatePlane();
+        sea.moveWaves();
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(loop);
+    };
+
+    var mousePos = { x: 0, y: 0 };
+
+    function handleMouseMove(e) {
+        var tx = -1 + (e.clientX / WIDTH) * 2;
+        var ty = 1 - (e.clientY / HEIGHT) * 2;
+
+        mousePos = { x: tx, y: ty };
+    };
+
+    function updatePlane() {
+        var targetX = normalize(mousePos.x, -0.75, 0.75, -100, 100);
+        var targetY = normalize(mousePos.y, -0.75, 0.75, 25, 175);
+
+        airplane.mesh.position.y += (targetY - airplane.mesh.position.y) * 0.1;
+        airplane.mesh.position.x += (targetX - airplane.mesh.position.x) * 0.1;
+
+        airplane.mesh.rotation.z = (targetY - airplane.mesh.position.y) * 0.0128;
+        airplane.mesh.rotation.z = (airplane.mesh.position.y - targetY) * 0.0064;
+    };
+
+    function normalize(v, vmin, vmax, tmin, tmax) {
+        var nv = Math.max(Math.min(v, vmax), vmin);
+        var dv = vmax - vmin;
+        var pc = (nv - vmin) / dv;
+        var dt = tmax - tmin;
+        var tv = tmin + (pc * dt);
+        return tv;
+    };
+</script>
+
+</html>

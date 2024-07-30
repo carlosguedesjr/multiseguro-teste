@@ -1,0 +1,163 @@
+﻿@model MultiSeguroViagem.Site.Models.Site.Cotacao.CotacaoHomeModel
+@{
+    ViewBag.Title = "Seguro Viagem para Estrangeiros pro Brasil";
+    ViewBag.MetaDescription = "Condições especiais de seguro viagem para estrangeiros em viagem ao Brasil. É obrigatório.";
+    ViewBag.MetaKeywords = "seguro viagem, seguro de viagem, cotação seguro viagem, seguro internacional, assistência viagem";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br/seguro-viagem-para-estrangeiro";
+    ViewBag.OGTitle = "Seguro Viagem para Estrangeiros pro Brasil";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+    string Navegador = Request.Browser.Browser;
+  
+    string hidden = "hidden";
+    string css = "";
+    string css_botao = "";
+    string borda = "";
+    string css_botao_resultados = "";
+}
+@if (Navegador.Equals("Safari"))
+{
+    hidden = "";
+    css = "ajuste-mobile-safari";
+    css_botao = "ajuste-mobile-safari-botao";
+    borda = "borda-safari";
+    css_botao_resultados = "ajuste-botao-resultados-safari";
+}
+<div id="fb-root"></div>
+
+<div class="everg">
+    <div class="page-header header-small gradiente">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h1 class="title" id="in-titulo-home">Seguro Viagem para Estrangeiros pro Brasil</h1>
+                    <h2 class="title titleh2home" id="in-titulo-home">Estrangeiros em viagem ao Brasil</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main main-raised">
+        <div class="container">
+
+
+            <div class="col-md-12">
+                <div class="description" style="font-size: 2rem;line-height: 3rem;">
+
+                    <p>
+                        Se  você  é  estrangeiro  e  pretende  visitar  o  Brasil,  a contratação de um <b>seguro viagem para estrangeiros</b> é essencial para a sua segurança e garantia de uma viagem tranquila!
+                    </p>
+                    <p>
+                        Além de todos os benefícios de possuir um plano de seguro viagem,  de  acordo  com  a  portaria  “PORTARIA  CC-PR  MJSP MINFRA  MS  Nº  419,  DE  26  DE  AGOSTO  DE  2020”  é obrigatória  a  contratação  de  seguro  viagem  com  os seguintes requisitos:
+                    </p>
+                    <ul>
+                        <li>§  2º  O  seguro  citado  no  §  1º  deste  artigo  deverá  ter  como  finalidade  a cobertura com gastos de saúde e atender aos seguintes requisitos mínimos:</li>
+                        <li>•I - prazo de validade correspondente ao período programado da viagem;</li>
+                        <li>•II - cobertura mínima de R$ 30.000,00 reais</li>
+                        <li>•III - ser firmado em língua portuguesa ou inglesa.</li>
+                    </ul>
+                    <p>
+                        Fique tranquilo, a Multi Seguro Viagem possui um plano compatível com a Portaria do Governo Federal
+                    </p>
+                    <p>
+                        Como  a  emissão  destes  planos  é  personalizada,  para receber uma cotação entre em contato através de algum dos canais abaixo:
+                    </p>
+                    <div class="col-md-12 landing-padding-card">
+                        <div class="area-botoes-home">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <a href="tel:1932010447" class="botoes-home btn btn-primary btn-block ">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {<i class="fa fa-phone" aria-hidden="true"></i>}TELEVENDAS: (19) 3201-0447
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <a class="btn btn-primary btn-block botoes-home" href="https://api.whatsapp.com/send?phone=551932010447" target="_blank">
+                                                @if (!Navegador.Equals("Safari"))
+                                                {<i class="fa fa-whatsapp" aria-hidden="true"></i>} WHATSAPP: +55 (19) 3201-0447
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    @{ Html.RenderPartial("HomePromocao/_ModalBannerSeguro"); }
+    @section Scripts
+{
+
+        @if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+            <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+            <script src="/www/js/vendor/scrollreveal.min.js"></script>
+            <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+            <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+            <script src="/www/js/custom-validations.js"></script>
+            <script src="/www/js/modulos/datePicker.js"></script>
+
+        }
+        else
+        {
+            <script src="/www/bundles/bundleVendorIndex.js"></script>
+            <script src="/www/bundles/bundleIndex.js"></script>
+            <script async defer src="/www/js/modulos/afiliaceTrackerOffer.js"></script>
+        }
+        <script async>
+
+        </script>
+
+
+        <link href="/www/css/seo.css" rel="stylesheet" />
+        <script>
+            // Scroll Reveal
+            datepickerSetup();
+
+            var $body = $(document.body);
+            var navHeight = $('.navbar').outerHeight(true) + 10;
+
+            $('#sidebar').affix({
+                offset: {
+                    top: 150,
+                    bottom: 440
+                }
+            });
+
+            $body.scrollspy({
+                target: '#rightCol',
+                offset: navHeight
+            });
+
+            $('#sidebar').width($('#sidebar').parent().width());
+
+            $(document).on('click', 'a[href^="#0"]', function (event) {
+                event.preventDefault();
+
+                $('html, body').animate({
+                    scrollTop: $($.attr(this, 'href')).offset().top - 100
+                }, 500);
+            });
+            $(function () {
+                $("a[href^='http']:not([href*='multiseguroviagem.com.br'])").each(function () {
+                    $(this).click(function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        window.open(this.href, '_blank');
+                    }).addClass('externalLink');
+                });
+            });
+
+
+        </script>
+    }

@@ -1,0 +1,458 @@
+﻿@using System.Globalization
+@model MultiSeguroViagem.Site.Models.Site.Cotacao.EnviaComparacaoModel
+
+@{
+    string Cpaff = Request["Cpaff"];
+    
+    Layout = null;
+    string Mensagem = null;
+    string Nome_Cobertura = null;
+    decimal PrecoAjuste = 0;
+    string PrecoAjusteCompara = null;
+    decimal MelhorIdadeMinima = 0;
+    decimal MelhorIdadeMaxima = 0;
+    decimal IdadeMaxima = 0;
+    string DadosValor = null;
+}
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
+</head>
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-color: #ccc;
+        border: none;
+    }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 0;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 0;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        .tg .tg-nnsl {
+            font-weight: bold;
+            background-color: #3d5afe;
+            color: #ffffff;
+            text-align: center;
+            vertical-align: top
+        }
+
+        .tg .tg-baqh {
+            text-align: center;
+            vertical-align: top
+        }
+
+        .tg .tg-qr3o {
+            font-size: 18px;
+            color: #9b9b9b;
+            vertical-align: top
+        }
+
+        .tg .tg-9hbo {
+            font-weight: bold;
+            vertical-align: top
+        }
+
+        .tg .tg-b7b8 {
+            background-color: #f9f9f9;
+            vertical-align: top
+        }
+
+        .tg .tg-yw4l {
+            vertical-align: top
+        }
+
+        .tg .tg-dzk6 {
+            background-color: #f9f9f9;
+            text-align: center;
+            vertical-align: top
+        }
+
+        .tg .tg-65q0 {
+            background-color: #3d5afe;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+            vertical-align: top
+        }
+</style>
+
+<body>
+    <span style="display:none!important;color:#f7f7f7;font-size:1px">Seja qual for o seu destino, conta com a gente.</span>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="table-layout:fixed;background-color:#ffffff">
+        <tbody>
+            <tr>
+                <td align="center">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:650px" width="650">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:100%">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" style="padding-top:14px;padding-bottom:20px"> <img src="http://www.multiseguroviagem.com.br/www/img/email/logo.png" alt="" border="0" style="display:block" width="162" height="65"> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom:1px solid #e6e6e6">
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center">
+                                                    <a href="https://www.multiseguroviagem.com.br/" style="display:inline-block" target="_blank">
+                                                        <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_01.png" alt="home">
+                                                    </a>
+                                                    <a href="https://www.multiseguroviagem.com.br/Login" style="display:inline-block" target="_blank">
+                                                        <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_02.png" alt="meus pedidos">
+                                                    </a>
+                                                    <a href="https://blog.multiseguroviagem.com.br/" style="display:inline-block" target="_blank">
+                                                        <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_03.png" alt="blog">
+                                                    </a>
+                                                    <a href="#" style="display:inline-block" target="_blank">
+                                                        <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_04.png" alt="telefone">
+                                                    </a>
+                                                    <a href="#" style="display:inline-block" target="_blank">
+                                                        <img src="http://www.multiseguroviagem.com.br/www/img/email/menu_05.png" alt="telefone">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="padding-top:25px">
+                                    <span style="font-family:'Open Sans',Arial,Helvetica,sans-serif;font-size:22px;font-weight:bold;color:#000000;text-align:center">
+                                        <b>Orçamento de Seguro Viagem</b>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:650px" width="650" bgcolor="#FFFFFF">
+                        <tbody>
+                            <tr>
+                                <td align="center" style="padding-left:45px;padding-right:45px;padding-top:20px;padding-bottom:15px">
+                                    <p style="font-family:&#39;Open Sans&#39;,sans-serif;font-size:16px;color:#000;line-height:1.4em;margin-bottom:0.3em"> Olá! Tudo bem? </p>
+                                    <p style="font-family:&#39;Open Sans&#39;,sans-serif;font-size:14px;color:#000;line-height:1.4em">
+                                        Segue abaixo a comparação solicitada<br> para <b>@Model.Destino</b>, dos dias <b>@(Convert.ToDateTime(Model.DataIda).ToString("dd/MM/yyyy"))</b> a <b>@(Convert.ToDateTime(Model.DataVolta).ToString("dd/MM/yyyy"))</b>.<br> Estamos aqui caso tenha alguma dúvida!
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <table class="tg" style="table-layout: fixed;width: 607px;border-collapse: collapse;border-spacing: 0;border-color: #ccc;border: none;">
+                                <tr>
+                                    <th style="font-family: Arial, sans-serif; font-size: 18px; font-weight: normal; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #9b9b9b; background-color: #f0f0f0; vertical-align: top;">
+                                        Plano
+                                    </th>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        <th style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f0f0f0; vertical-align: top;">
+                                            @plano.Operadora.Nome
+                                            <br />
+                                            <b>@plano.Nome</b>
+                                        </th>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Preço
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        if (plano.PrecoComercial != plano.Preco)
+                                        {
+
+                                            MelhorIdadeMinima = plano.MelhorIdadeMinima;
+                                            PrecoAjusteCompara = Convert.ToDecimal(plano.Preco.Replace('.', ',')).ToString("n2");
+                                            if (plano.AjustePorcentagem > 0)
+                                            {
+                                                PrecoAjuste = (decimal.Parse(plano.Preco, new CultureInfo("pt-BR")) * (100 / (100 - plano.AjustePorcentagem)));
+                                                PrecoAjusteCompara = PrecoAjuste.ToString("n2");
+                                            }
+                                            <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                                <span style="color:gray; font-size:12px"><b class="texto-comparador-email">Idade: </b>&nbsp;@plano.IdadeMinima - @plano.IdadeMaxima</span>
+                                                <br /><br />
+                                                <b>DE</b>&nbsp;<span style="text-decoration: line-through;">R$@PrecoAjusteCompara</span>
+                                                <br /><br />
+                                                <b>POR</b>&nbsp;R$@Convert.ToDecimal(plano.PrecoComercial.Replace('.', ',')).ToString("n2")    
+                                            </td>  
+                                        }
+                                        else
+                                        {
+                                            <td style = "font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;" >
+                                                 R$@Convert.ToDecimal(plano.PrecoComercial.Replace('.', ',')).ToString("n2")
+                                             </td>
+                                        }
+                                    }
+                                </tr>
+                                <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Melhor Idade
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        if (plano.MelhorIdadeMaxima > 0)
+                                        {
+
+                                            MelhorIdadeMinima = plano.MelhorIdadeMinima;
+                                            PrecoAjusteCompara = Convert.ToDecimal(plano.Preco.Replace('.', ',')).ToString("n2");
+                                            if (plano.AjustePorcentagem > 0)
+                                            {
+                                                PrecoAjuste = (decimal.Parse(plano.Preco, new CultureInfo("pt-BR")) * (100 / (100 - plano.AjustePorcentagem)));
+                                                PrecoAjusteCompara = PrecoAjuste.ToString("n2");
+                                            }
+                                            <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                                <span style="color:gray; font-size:12px"><b class="texto-comparador-email">Idade: </b>&nbsp;@plano.MelhorIdadeMinima - @plano.MelhorIdadeMaxima</span>
+                                                <br /><br />
+                                                <b>POR</b>&nbsp;R$@Convert.ToDecimal(plano.PrecoMelhorIdade.Replace('.', ',')).ToString("n2")
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                                -
+                                            </td>
+                                        }
+                                    }
+                                </tr>
+
+                               
+                                <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Assistência Médica
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        var cobertura = plano.Coberturas.Where(x => x.Nome == "Assistência Médica").FirstOrDefault();
+                                        var valor = cobertura != null ? string.Concat(cobertura.MoedaCobertura, " ", $"{Math.Round(cobertura.ValorCobertura, 2):N}") : "-";
+
+                                        <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                            @valor
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Perda de Bagagem
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        var cobertura = plano.Coberturas.Where(x => x.Nome == "Perda de Bagagem").FirstOrDefault();
+                                        var valor = cobertura != null ? string.Concat(cobertura.MoedaCobertura, " ", $"{Math.Round(cobertura.ValorCobertura, 2):N}") : "-";
+
+                                        <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                            @valor
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Gestante
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        var cobertura = plano.Coberturas.Where(x => x.Nome == "Gestante").FirstOrDefault();
+                                        var valor = cobertura != null ? string.Concat(cobertura.MoedaCobertura, " ", $"{Math.Round(cobertura.ValorCobertura, 2):N}") : "-";
+
+                                        <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                            @valor
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Prática de Esporte
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        var cobertura = plano.Coberturas.Where(x => x.Nome == "Prática de Esporte").FirstOrDefault();
+                                        var valor = cobertura != null ? string.Concat(cobertura.MoedaCobertura, " ", $"{Math.Round(cobertura.ValorCobertura, 2):N}") : "-";
+
+                                        <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                            @valor
+                                        </td>
+                                    }
+                                </tr>
+                                 <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Marítimo Cruzeiro
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                     {
+                                        var cobertura = plano.Coberturas.Where(x => x.Nome == "Marítimo Cruzeiro").FirstOrDefault();
+                                        var valor = cobertura != null ? "Sim" : "Não";
+                                        <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #f9f9f9; vertical-align: top;">
+                                            @valor
+                                        </td>
+                                     }
+                               </tr>
+<!--
+                                 <tr>
+                                     <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                         Mais Informações
+                                     </td>
+                                     @foreach (var plano in Model.Planos)
+                                     {
+                                         var cobertura = plano.Coberturas.Where(x => x.MensagemPlano != null).FirstOrDefault();
+                                         var valor = "-";
+                                         if (cobertura != null && cobertura.MensagemPlano != "")
+                                         {
+                                            valor = "Mais Info";
+                                         }
+
+                                         if (valor == "Mais Info")
+                                         {
+                                            Mensagem = cobertura.MensagemPlano;
+                                            Nome_Cobertura = cobertura.Nome;
+                                            <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                            <button rel="@Mensagem" string="@Nome_Cobertura" type="button" class="MaisInfo info_comparador" data-toggle="modal" data-target="#myModal">+ Info</button>
+                                            </td>
+                                         }
+                                        else
+                                        {
+                                            <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                                @valor
+                                            </td>
+                                        }
+                                     }
+                                 </tr>
+    -->
+
+                                <tr>
+                                    <td style="font-family: Arial, sans-serif; font-size: 14px; padding: 10px 5px; border-style: solid; border-width: 0; overflow: hidden; word-break: normal; border-color: #ccc; color: #333; background-color: #fff; font-weight: bold; vertical-align: top;">
+                                        Todas as coberturas
+                                    </td>
+                                    @foreach (var plano in Model.Planos)
+                                    {
+                                        var lamina = plano.Arquivos.Where(x => x.TipoArquivo == "LaminaCoberturas").FirstOrDefault();
+
+                                        <td style="font-family: Arial, sans-serif;font-size: 14px;padding: 10px 5px;border-style: solid;border-width: 0;overflow: hidden;word-break: normal;border-color: #ccc;color: #333;background-color: #f9f9f9;text-align: center;vertical-align: top;">
+                                            <a href="https://downloads.multiseguroviagem.com.br/downloads/@lamina.IdFileUploads/@lamina.DataCadastro" target="_blank" class="">Download</a>
+                                        </td>
+                                    }
+                                </tr>
+                            </table>
+
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#fff" style="background-color:#fff">
+                                <tbody>
+                                    <tr>
+                                        <td align="center">
+                                            <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td width="100%" height="10" style="font-size:1px;line-height:1px"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td width="100%" height="10" style="font-size:1px;line-height:1px"> </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" height="20" bgcolor="#0148FF" style="border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;padding-left:6px;padding-right:40px;padding-top:15px;padding-bottom:15px;font-weight:700;font-family:Helvetica,Arial,sans-serif,&#39;Open Sans&#39;;color:#ffffff">
+                                                                            <a href="https://www.multiseguroviagem.com.br/cotador/comparador/@Model.IdDestino/@Model.DataIda/@Model.DataVolta?itens=@Model.PlanosId&Cpaff=@Model.Cpaff" style="color:#fff;font-size:18px;text-decoration:none;line-height:28px;width:100%">Ver comparação e comprar</a>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <tr>
+                                <td style="padding-left:25px;padding-right:25px;padding-bottom:5px;padding-top:10px">
+                                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:600px" bgcolor="#FFFFFF">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding:20px">
+                                                    <p style="font-family:&#39;Open Sans&#39;,sans-serif;font-size:12px;color:#000;line-height:1.4em">
+                                                        Este é um procedimento 100% seguro.
+                                                        <br><br>
+                                                        <b>Os valores citados acima são individuais.</b>
+                                                        <br>
+                                                        <br> Em caso de dúvidas entre em contato com a Central de Atendimento.
+                                                        <br>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="padding-left:45px;padding-right:45px;padding-top:10px;padding-bottom:15px">
+                                    <p style="font-family:&#39;Open Sans&#39;,sans-serif;font-size:16px;color:#000;line-height:1.4em;margin-bottom:0.3em">A Equipe Multi Seguro Viagem deseja uma excelente viagem.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td align="center">
+                    <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:650px" width="650">
+                        <tbody>
+                            <tr>
+                                <td style="padding-top:13px;padding-bottom:26px" width="100" align="center">
+                                    <a href="https://www.facebook.com/multiseguroviagem/" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/fb.png" alt="" border="0" style="display:inline-block;text-align:center"> </a>
+                                </td>
+                                <td style="padding-top:13px;padding-bottom:26px" width="100" align="center">
+                                    <a href="https://www.youtube.com/user/MultiSeguroViagem" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/yt.png" alt="" border="0" style="display:inline-block;text-align:center"> </a>
+                                </td>
+                                <td style="padding-top:13px;padding-bottom:26px" width="100" align="center">
+                                    <a href="https://www.instagram.com/multiseguroviagem/" target="_blank"> <img src="http://www.multiseguroviagem.com.br/www/img/email/in.png" alt="" border="0" style="display:inline-block;text-align:center"> </a>
+                                </td>
+                                <td style="padding-top:13px;padding-bottom:26px" width="235" align="center">
+                                    <img src="http://mkt.cotecompareonline.net.br/multiseguroviagem/operadoras.png" alt="" border="0" style="display:inline-block;text-align:center">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

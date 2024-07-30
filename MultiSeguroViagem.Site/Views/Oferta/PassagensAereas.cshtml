@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Passagens Aéreas e Hotéis | Multi Seguro Viagem";
+    ViewBag.MetaDescription = "Compre passagens aéreas com até 50% de desconto e garanta também um seguro viagem internacional ou nacional!";
+    ViewBag.MetaKeywords = "seguro viagem, passagem, aéreas, hotéis";
+    ViewBag.OGURL = "https://multiseguroviagem.com.br/passagens-aereas-hoteis";
+    ViewBag.OGTitle = "Seguro viagem Passagens Aéreas e Hotéis | Multi Seguro Viagem";
+    ViewBag.OGSitename = "Multi Seguro Viagem";
+    ViewBag.OGImage = "https://multiseguroviagem.com.br/www/img/multiseguroviagem.jpg";
+}
+<div class="operadoras-pag">
+    <div class="page-header header-small gradiente" data-parallax="true">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+
+                    <h1 class="titulo-promocoes title"><a class="gradientmulti">PESQUISE AQUI</a> PASSAGENS AÉREAS E HOTÉIS</h1>
+                    <h2 class="title sub-titulo" >Encontre a melhor opção em <a class="gradientmulti">passagens nacionais e internacionais e o local certo para se hospedar</a></h2>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="main main-raised ajuste-passagens-hoteis">
+
+        <div class="container">
+ 
+            <div class="col-md-12">
+                <script>
+                      (function() {
+                        var cx = 'partner-pub-1284532310232457:7409138467';
+                        var gcse = document.createElement('script');
+                        gcse.type = 'text/javascript';
+                        gcse.async = true;
+                        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(gcse, s);
+                      })();
+                </script>
+                <gcse:searchbox-only></gcse:searchbox-only>
+            </div>
+                <div class="col-md-12">
+
+                    <h3>Exemplo de busca: Passagens Aéreas para Fortaleza</h3>
+
+                </div>
+            </div>
+
+    </div>
+</div>
+@section Scripts
+{
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+      <script src="/www/js/vendor/jquery.bxslider.min.js"></script>
+      <script src="/www/js/vendor/moment-with-locales.min.js"></script>
+      <script src="/www/js/vendor/scrollreveal.min.js"></script>
+      <script src="/www/js/vendor/date-input-polyfill.dist.js"></script>
+      <script src="/www/js/vendor/bootstrap-datetimepicker.js"></script>
+      <script src="/www/js/custom-validations.js"></script>
+    }
+    else
+    {
+      <script src="/www/bundles/bundleVendorIndex.js"></script>
+      <script src="/www/bundles/bundleIndex.js"></script>
+      <script async defer src="/www/js/modulos/afiliaceTrackerOffer.js"></script>
+    }
+    
+    <link href="/www/css/seo.css" rel="stylesheet" />
+    <script>
+        // Scroll Reveal
+        var $body   = $(document.body);
+        var navHeight = $('.navbar').outerHeight(true) + 10;
+
+        $('#sidebar').affix({
+                offset: {
+                top: 150,
+                bottom: 400
+                }
+        });
+
+        $body.scrollspy({
+	        target: '#rightCol',
+	        offset: navHeight
+        });
+
+        $('#sidebar').width($('#sidebar').parent().width());
+
+        $(document).ready(function(){
+        setTimeout(function(){
+         $("#gsc-i-id1").attr("placeholder", "Passagens Aéreas para Fortaleza");
+        }, 500);
+
+        });
+    </script>
+}
